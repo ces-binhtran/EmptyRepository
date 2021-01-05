@@ -1,0 +1,44 @@
+.form{
+    display: table;
+
+}
+.form_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .form--field{
+    display: table-row;
+}
+ .form--field>*{
+    display: table-cell;
+     padding: 10px;
+}
+
+ .form--field>label{
+     font-size: 17px;
+     font-weight: 600;
+ }
+.form--field input{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.form--action{
+    text-align: right;
+}
+.form--action>*{
+    border: 1px solid black;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 5px;
+    background-color: white;
+    font-weight: 500;
+    color: black;
+}
+.form--require{
+    color: red;
+}
+
