@@ -1,4 +1,4 @@
-<%@ page import="com.tranhiep.Util" %><%--
+<%@ page import="com.tranhiep.util.Utils" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 1/5/2021
@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    <c:set var="rootPath" value="<%= Util.rootPath%>" scope="request"></c:set>
+    <c:set var="rootPath" value="<%= Utils.rootPath%>" scope="request"></c:set>
     <h2 style="text-align: center;">List Book</h2>
     <div class="action_add">
         <a href="book_action"><i class="fas fa-plus"></i>Add book</a>
