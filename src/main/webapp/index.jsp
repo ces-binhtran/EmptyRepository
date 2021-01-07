@@ -9,6 +9,6 @@
 <h1><%= "Tran Ba Hiep - Task 1" %>
 </h1>
 <br/>
-<a href="Book">Task1</a>
+<a href="Book">Task2</a>
 </body>
 </html>

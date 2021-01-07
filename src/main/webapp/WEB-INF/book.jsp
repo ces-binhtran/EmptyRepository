@@ -34,14 +34,19 @@
             <c:forEach var="book" items="${books}" varStatus="status">
                 <tr id="${book.id}">
                     <td>${book.name}</td>
-                    <c:choose>
-                        <c:when test="${empty book.author}">
-                            <td style="font-style: italic">unknown</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td>${book.author}</td>
-                        </c:otherwise>
-                    </c:choose>
+                    <td>
+                        <c:choose>
+                            <c:when test="${book.authors.size == 0}">
+                                <p style="font-style: italic">unknown</p>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="author" items="${book.authors}">
+                                    <p>- ${author.name}</p>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+
                     <td class="table--action" style="text-align: center">
                         <a href="book_action?id=${book.id}" href="/"><i class="fas fa-edit"></i></a>
                         <a href="#" onclick="deleteBookAJAX(`${rootPath}`, ${book.id}); return false;"><i class="fas fa-trash-alt"></i></a>

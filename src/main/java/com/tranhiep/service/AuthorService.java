@@ -13,8 +13,4 @@ public interface AuthorService {
     AuthorEntity create(AuthorEntity authorEntity);
     AuthorEntity update(AuthorEntity authorEntity);
     void delete(Integer authorId);
-
-
-
-
 }
