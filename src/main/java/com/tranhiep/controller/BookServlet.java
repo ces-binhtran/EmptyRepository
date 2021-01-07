@@ -1,23 +1,30 @@
 package com.tranhiep.controller;
 
-import com.tranhiep.util.Utils;
+import com.tranhiep.dao.BookDAO;
+import com.tranhiep.dao.impl.BookDAOImpl;
+import com.tranhiep.entity.AuthorEntity;
+import com.tranhiep.entity.BookEntity;
+import com.tranhiep.service.BookService;
+import com.tranhiep.service.impl.BookServiceImpl;
+import com.tranhiep.util.HibernateUtils;
+import org.hibernate.Transaction;
 
-import javax.persistence.Persistence;
+
+import javax.persistence.EntityManager;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+import java.util.Collection;
+
 
 @WebServlet("/Book")
 public class BookServlet extends HttpServlet {
 
     public BookServlet(){
-        // create EntityManagerFactory
-        Persistence.createEntityManagerFactory("book_manager");
-        // c
     }
 
     @Override

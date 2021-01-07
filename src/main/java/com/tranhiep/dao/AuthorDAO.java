@@ -1,9 +1,9 @@
 package com.tranhiep.dao;
 
-import javax.persistence.EntityManager;
 
-public interface AuthorDAO {
+import com.tranhiep.entity.AuthorEntity;
 
-
-
+public interface AuthorDAO extends BaseDAO<AuthorEntity>{
+    // some method baseDAO not have
 }
+

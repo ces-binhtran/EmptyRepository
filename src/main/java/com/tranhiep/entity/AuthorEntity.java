@@ -1,22 +1,33 @@
 package com.tranhiep.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "author")
+@Table(
+        name = "author",
+        indexes = {
+                @Index(name = "index_author_id", columnList = "author_id")
+        }
+)
 public class AuthorEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "author_id")
     private Integer id;
     private String name;
 
-    @ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
-
-    private Collection<BookEntity> books;
+    @ManyToMany(
+            mappedBy = "authors",
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST, CascadeType.MERGE,
+                    CascadeType.DETACH, CascadeType.REFRESH
+            })
+    private Collection<BookEntity> books = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -33,6 +44,24 @@ public class AuthorEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Collection<BookEntity> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Collection<BookEntity> books) {
+        this.books = books;
+    }
+
+    public void addBook(BookEntity bookEntity){
+        books.add(bookEntity);
+        bookEntity.getAuthors().add(this);
+    }
+
+    public void removeBook(BookEntity bookEntity){
+        books.remove(bookEntity);
+        bookEntity.getAuthors().remove(this);
     }
 
     @Override
