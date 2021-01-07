@@ -1,0 +1,7 @@
+package com.ces.service.impl;
+
+import com.ces.service.BookService;
+
+public class BookServiceImpl implements BookService{
+
+}

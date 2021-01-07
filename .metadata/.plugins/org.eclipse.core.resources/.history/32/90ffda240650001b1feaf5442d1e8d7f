@@ -1,0 +1,74 @@
+<%@page import="com.ces.model.BookModel"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link href="../css/add.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body style="text-align: center">
+<%! String type = "null"; %>
+<% 	BookModel bookModel = (BookModel)request.getAttribute("book");
+	if(bookModel != null) type = "edit";
+%>
+	<form style="display: inline-block;" action="<%= request.getContextPath() %>/Book" method="POST">
+	
+		<h2>Create book</h2>
+		<div class="add">
+			<div class="add__lable">
+				Name: </br></br>
+				Author: 
+			</div>
+			<div class="add__input">
+				<input
+					type="text"
+					placeholder="Enter book name"
+					name="name"
+					value="<% if(bookModel != null) { %> <%= bookModel.getName() %> <% } %>"
+				/></br></br>
+				<%
+					String error = (String)request.getAttribute("error");
+					if(error != null) { %>
+					<p>
+						<%= error %>
+					</p>
+				<%	} %>
+				<input
+					type="text"
+					placeholder="Enter book's author"
+					name="author"
+					value="<% if(bookModel != null) { %> <%= bookModel.getAuthor() %> <% } %>"
+				/>
+				<input
+					name=type
+					type="hidden"
+					value="<%= type %>"
+				/>
+				<%
+					if(bookModel != null) { %>
+					<input name="id" type="hidden" value="<%= bookModel.getId() %>"/>
+				<% } %>
+			</div>
+			
+		</div>
+		<div class="add__actions">
+		<% if(request.getParameter("type") != null && request.getParameter("type").equals("edit")) { %>
+			<button type="submit">
+				Update
+			</button>
+			
+		<% } else { %>
+			<button type="submit">
+				Submit
+			</button>
+		<% } %>
+		<button>
+			<a href="<%= request.getContextPath() %>/Book">Cancel</a>
+		</button>
+			
+		</div>
+	</form>
+</body>
+</html>

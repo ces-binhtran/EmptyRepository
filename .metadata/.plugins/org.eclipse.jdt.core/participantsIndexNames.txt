@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+/home/ces-user/Documents/Task1_3/EmptyRepository/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3042983432.index
+/Task_1/src
+/home/ces-user/Documents/Task1_3/EmptyRepository/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1898240829.index
+/Task_1/src

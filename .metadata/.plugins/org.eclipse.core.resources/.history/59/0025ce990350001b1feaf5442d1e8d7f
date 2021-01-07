@@ -1,0 +1,28 @@
+.add {
+	display:flex;
+}
+
+.add__lable {
+	padding: 1rem;
+}
+
+.add__input {
+	padding: 1rem;
+}
+
+.add__input>input>p {
+	
+}
+
+.add__actions {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.add__actions>button {
+	cursor: pointer;
+}
+
+.add__actions>button:nth-child(1) {
+	margin-right: 0.5rem;
+}

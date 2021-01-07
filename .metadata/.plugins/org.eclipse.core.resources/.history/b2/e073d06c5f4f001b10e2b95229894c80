@@ -1,0 +1,12 @@
+package com.ces.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ces.model.BookModel;
+import com.ces.service.BookService;
+
+public class BookServiceImpl implements BookService{
+	static List<BookModel> books = new ArrayList<BookModel>(new BookModel("Harry Potter", "Join Thame"),
+			new BookModel("This summer", "Jack Love"), new BookModel("Family", "Black Back"));
+}

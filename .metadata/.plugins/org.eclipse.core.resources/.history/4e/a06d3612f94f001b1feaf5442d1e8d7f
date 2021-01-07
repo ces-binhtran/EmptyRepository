@@ -1,0 +1,64 @@
+package com.ces.controller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.ces.model.BookModel;
+import com.ces.service.BookService;
+import com.ces.service.impl.BookServiceImpl;
+
+@WebServlet(value = "/Book")
+public class BookServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public BookServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		BookService bookService = new BookServiceImpl();
+		String type = request.getParameter("type");
+		System.out.println(type);
+		if(type != null) {
+			if(type.equals("delete")) {
+				Integer id = Integer.parseInt(request.getParameter("id"));
+				bookService.delete(id);
+			} else if(type.equals("edit")) {
+				Integer id = Integer.parseInt(request.getParameter("id"));
+				request.setAttribute("book", bookService.findById(id));
+				request.getRequestDispatcher("/views/jsp/add.jsp").forward(request, response);
+			}
+		}
+		if(type == null || !type.equals("edit")) {
+			List<BookModel> books = bookService.findAllBooks();
+			request.setAttribute("books", bookService.findAllBooks());
+			request.getRequestDispatcher("/views/jsp/books.jsp").forward(request, response);
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		BookService bookService = new BookServiceImpl();
+		String name = (String)request.getParameter("name");
+		String author = (String)request.getParameter("author");
+		String type = (String)request.getParameter("type");
+		Integer id = null;
+		if(type.equals("edit")) id = Integer.parseInt(request.getParameter("id"));
+		if(name == "") {
+			request.setAttribute("error", "Book's name can't empty.");
+			request.getRequestDispatcher("/views/jsp/add.jsp").forward(request, response);
+			//response.sendRedirect(request.getContextPath() + "views/jsp/add.jsp");
+		} else {
+			bookService.add(new BookModel(id, name, author));
+			doGet(request, response);
+		}
+	}
+
+}
