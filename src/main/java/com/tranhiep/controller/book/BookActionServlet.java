@@ -40,36 +40,6 @@ public class BookActionServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException  {
-//        EntityManager entityManager = Utils.getEntityManagerFromReq(req);
-//        bookService = new BookServiceImpl(entityManager);
-//
-//        String name = req.getParameter("name");
-//        String type = req.getParameter("type");
-//
-//        String stringId = req.getParameter("id");
-//        if(name.isEmpty()){
-//            throw new ServletException("Some thing error!");
-//        }
-//
-//        if(stringId == null){
-//            // Create mode --> create new book
-//            BookEntity bookEntity = new BookEntity(name, type);
-//            bookService.create(bookEntity);
-//
-//        }else {
-//            // Edit mode --> find and edit book
-//            Integer bookId = Integer.parseInt(stringId);
-//            BookEntity  bookEntity = bookService.getOneById(bookId);
-//            bookEntity.setValue(name, type);
-//            bookService.update(bookEntity);
-//
-//        }
-//        resp.sendRedirect("Book");
-
-    }
-
-    @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         BookService bookService = new BookServiceImpl(Utils.getEntityManagerFromReq(req));
@@ -79,10 +49,7 @@ public class BookActionServlet extends HttpServlet {
 
         //find element
         BookEntity book = bookService.getOneById(id);
-        if(book == null){
-            //not found element
-        }else{
-            // founded element
+        if(book != null){
             bookService.delete(book.getId());
             resp.getWriter().write("{\"status\":" + "\"success\"}");
         }

@@ -22,6 +22,8 @@ public class BookServiceImpl implements BookService {
     @Override
     public Collection<BookEntity> getAll() {
         Collection<BookEntity> bookEntities =  bookDAO.getAll(BookEntity.class);
+
+        //get author for each book
         bookEntities.forEach(e -> e.getAuthors());
         return bookEntities;
     }
