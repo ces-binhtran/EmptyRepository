@@ -18,14 +18,11 @@ public class BookActionServlet extends HttpServlet {
 
         String stringId = req.getParameter("id");
 
-        if(stringId == null){
-            // Create mode
-        }else{
+        if(stringId != null){
             // Edit mode ---> find book with param bookName
             int id = Integer.parseInt(stringId);
             Book book = Util.findBookById(id);
             req.setAttribute("book", book);
-
         }
         req.getRequestDispatcher("WEB-INF/create_edit.jsp").forward(req,resp);
     }
@@ -36,7 +33,7 @@ public class BookActionServlet extends HttpServlet {
         String author = req.getParameter("author");
         String stringId = req.getParameter("id");
         if(name.isEmpty()){
-            new Exception("Some thing error!");
+            throw new ServletException("Some thing error!");
         }
 
         if(stringId == null){
@@ -63,9 +60,7 @@ public class BookActionServlet extends HttpServlet {
 
         //find element
         Book book = Util.findBookById(id);
-        if(book == null){
-            //not found element
-        }else{
+        if(book != null){
             // founded element
             Util.books.remove(book);
             resp.getWriter().write("{\"status\":" + "\"success\"}");
