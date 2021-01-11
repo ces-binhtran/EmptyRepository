@@ -11,4 +11,5 @@ public interface BookService {
     BookEntity create(BookEntity bookEntity);
     BookEntity update(BookEntity bookEntity);
     void delete(Integer bookId);
+    Collection<BookEntity> getAllBookOfAuthor(Integer authorId);
 }

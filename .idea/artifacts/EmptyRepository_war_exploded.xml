@@ -14,6 +14,7 @@
           <element id="module-output" name="EmptyRepository" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.4.9.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.4.9.Final" />

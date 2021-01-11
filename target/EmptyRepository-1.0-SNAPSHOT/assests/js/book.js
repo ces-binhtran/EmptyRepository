@@ -1,3 +1,5 @@
+
+
 async function deleteBookAJAX(path, bookId){
 
     const chose = confirm("Are you sure to delete this?")
@@ -16,10 +18,7 @@ async function deleteBookAJAX(path, bookId){
     }{
         //cancel delete
     }
-
-
-
-
-
 }
+
+
 

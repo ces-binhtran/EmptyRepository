@@ -1,11 +1,13 @@
 package com.tranhiep.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.servlet.ServletRequest;
 
 public class Utils {
 
     public static String rootPath = "http://localhost:8080/EmptyRepository_war/";
 
+    public static EntityManager getEntityManagerFromReq(ServletRequest req){
+        return (EntityManager) req.getAttribute("entityManager");
+    }
 }

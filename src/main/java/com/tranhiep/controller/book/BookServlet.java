@@ -1,16 +1,9 @@
-package com.tranhiep.controller;
+package com.tranhiep.controller.book;
 
-import com.tranhiep.dao.BookDAO;
-import com.tranhiep.dao.impl.BookDAOImpl;
-import com.tranhiep.entity.AuthorEntity;
 import com.tranhiep.entity.BookEntity;
 import com.tranhiep.service.BookService;
 import com.tranhiep.service.impl.BookServiceImpl;
-import com.tranhiep.util.HibernateUtils;
-import org.hibernate.Transaction;
-
-
-import javax.persistence.EntityManager;
+import com.tranhiep.util.Utils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,16 +17,13 @@ import java.util.Collection;
 @WebServlet("/Book")
 public class BookServlet extends HttpServlet {
 
-    private final BookService bookService;
-    public BookServlet(){
-        bookService = new BookServiceImpl();
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        BookService bookService = new BookServiceImpl(Utils.getEntityManagerFromReq(req));
         Collection<BookEntity> books = bookService.getAll();
         req.setAttribute("books", books);
-        req.getRequestDispatcher("WEB-INF/book.jsp").forward(req,resp);
-
+        req.getRequestDispatcher("WEB-INF/book/book.jsp").forward(req,resp);
     }
 }

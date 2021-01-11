@@ -4,7 +4,7 @@ import com.tranhiep.dao.BookDAO;
 import com.tranhiep.dao.impl.BookDAOImpl;
 import com.tranhiep.entity.BookEntity;
 import com.tranhiep.service.BookService;
-import com.tranhiep.util.HibernateUtils;
+
 import javax.persistence.EntityManager;
 import java.util.Collection;
 
@@ -13,8 +13,8 @@ public class BookServiceImpl implements BookService {
     private final EntityManager entityManager;
     private final BookDAO bookDAO;
 
-    public BookServiceImpl(){
-        entityManager = HibernateUtils.getEntityManager();
+    public BookServiceImpl(EntityManager entityManager){
+        this.entityManager = entityManager;
         bookDAO = new BookDAOImpl(entityManager);
     }
 
@@ -43,7 +43,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void delete(Integer bookId) {
-
         bookDAO.delete(BookEntity.class, bookId);
+    }
+
+    @Override
+    public Collection<BookEntity> getAllBookOfAuthor(Integer authorId) {
+
+        return bookDAO.getAllByAuthorId(authorId);
     }
 }

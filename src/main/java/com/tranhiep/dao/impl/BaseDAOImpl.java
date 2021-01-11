@@ -17,11 +17,14 @@ public class BaseDAOImpl<E> implements BaseDAO<E> {
     @Override
     public Collection<E> getAll(Class<E> type) {
 
+        entityManager.getTransaction().begin();
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<E> criteriaQuery = criteriaBuilder.createQuery(type);
         criteriaQuery.from(type);
         TypedQuery<E> typedQuery = entityManager.createQuery(criteriaQuery);
-        return typedQuery.getResultList();
+        Collection<E> es = typedQuery.getResultList();
+        entityManager.getTransaction().commit();
+        return es;
     }
 
     @Override

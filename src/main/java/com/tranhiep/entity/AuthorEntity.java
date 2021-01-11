@@ -1,5 +1,7 @@
 package com.tranhiep.entity;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,21 +14,31 @@ import java.util.Objects;
                 @Index(name = "index_author_id", columnList = "author_id")
         }
 )
+@NamedQueries(
+        @NamedQuery(
+                name = "author.getAllAuthorOfBookId",
+                query = "from AuthorEntity as a join fetch a.books as b where b.id =:bookId")
+)
 public class AuthorEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Expose(serialize = true)
     @Column(name = "author_id")
     private Integer id;
+
+    @Expose(serialize = true)
     private String name;
+
+
 
     @ManyToMany(
             mappedBy = "authors",
             fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH
+                    CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH
             })
+    @Expose(serialize = false)
     private Collection<BookEntity> books = new ArrayList<>();
 
     public Integer getId() {

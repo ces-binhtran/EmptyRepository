@@ -1,0 +1,1 @@
+<link id="global--context_path" value="<%= request.getContextPath()%>">

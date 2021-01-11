@@ -1,6 +1,5 @@
 package com.tranhiep.dao;
 
-import javax.persistence.EntityManager;
 import java.util.Collection;
 
 public interface BaseDAO<E>{

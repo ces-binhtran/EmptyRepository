@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    background: bisque;
+}
+.header--left > h2{
+    padding: 0px 20px;
+    color: cadetblue;
+}
+
+.header--features{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+}
+.header--features >li{
+    padding: 5px 10px;
+}
+.header--features >li >a{
+    text-decoration: none;
+    color: black;
+}
