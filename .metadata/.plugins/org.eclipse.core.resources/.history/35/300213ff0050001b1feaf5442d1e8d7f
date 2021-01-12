@@ -1,8 +1,0 @@
-.books__actions {
-	display: flex;
-	justify-content: flex-end;
-}
-
-.books__actions>button {
-	font-size: 2rem;
-}

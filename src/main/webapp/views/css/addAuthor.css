@@ -1,0 +1,9 @@
+.add_author {
+    text-align: center;
+}
+
+.add_author__form {
+    text-align: left;
+    width: 60%;
+    display: inline-block;
+}

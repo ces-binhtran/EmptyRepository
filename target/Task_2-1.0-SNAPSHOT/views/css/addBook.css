@@ -1,0 +1,9 @@
+.add_book {
+    text-align: center;
+}
+
+.add_book__form {
+    text-align: left;
+    width: 60%;
+    display: inline-block;
+}
