@@ -56,4 +56,9 @@ public class BookEntity {
     public int hashCode() {
         return Objects.hash(id, name);
     }
+
+    public void addAuthor(AuthorEntity authorEntity) {
+        authors.add(authorEntity);
+        authorEntity.getBooks().add(this);
+    }
 }

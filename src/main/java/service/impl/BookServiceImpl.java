@@ -14,4 +14,10 @@ public class BookServiceImpl implements BookService {
         List<BookEntity> books = bookDAO.getAllBook();
         return books;
     }
+
+    @Override
+    public String save(String name, String[] ids) {
+        BookDAO bookDAO = new BookDAOImpl();
+        return bookDAO.save(name, ids);
+    }
 }

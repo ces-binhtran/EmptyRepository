@@ -17,7 +17,7 @@
         </div>
         <div class="checkbox">
             <c:forEach var="author" items="${authors}" varStatus="varStatus">
-                <label><input type="checkbox" name="author" value="${author}"> ${author.name} </label>
+                <label><input type="checkbox" name="author" value="${author.id}"> ${author.name} </label>
             </c:forEach>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>

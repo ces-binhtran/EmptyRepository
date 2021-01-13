@@ -25,11 +25,15 @@ public class BookServlet extends HttpServlet {
                 AuthorService authorService = new AuthorServiceImpl();
                 request.setAttribute("authors", authorService.getAll());
                 request.getRequestDispatcher("/views/addBook.jsp").forward(request, response);
+                break;
             }
             case "create": {
+                BookService bookService = new BookServiceImpl();
                 String name = request.getParameter("name");
-                Object[] authors = request.getParameterValues("author");
-                System.out.println(name + authors[0].getClass().getName());
+                String[] authors = request.getParameterValues("author");
+                bookService.save(name, authors);
+                doGet(request, response);
+                break;
             }
             default: {
                 doGet(request, response);
@@ -43,8 +47,5 @@ public class BookServlet extends HttpServlet {
         request.setAttribute("books", bookService.getAllBook());
         System.out.println(2);
         request.getRequestDispatcher("/views/listBook.jsp").forward(request,response);
-
-        response.getWriter();
-
     }
 }

@@ -14,6 +14,7 @@
     <form action="${pageContext.servletContext.contextPath}/Book?type=create-form" class="add_book__form" method="post">
         <button type="submit" class="btn btn-default">Add Book</button>
     </form>
+    </br></br>
     <table class="table">
         <thead>
         <tr>
