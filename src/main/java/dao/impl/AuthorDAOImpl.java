@@ -9,7 +9,9 @@ import org.hibernate.Transaction;
 import utils.HibernateUtil;
 import utils.ResponseMessage;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class AuthorDAOImpl implements AuthorDAO {
     @Override
@@ -34,7 +36,7 @@ public class AuthorDAOImpl implements AuthorDAO {
     }
 
     @Override
-    public List<AuthorEntity> findAll() {
+    public Set<AuthorEntity> findAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         List<AuthorEntity> authors = null;
@@ -50,6 +52,6 @@ public class AuthorDAOImpl implements AuthorDAO {
         } finally {
             session.close();
         }
-        return authors;
+        return new HashSet<>(authors);
     }
 }

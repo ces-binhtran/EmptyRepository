@@ -11,12 +11,12 @@ import org.hibernate.query.Query;
 import utils.HibernateUtil;
 import utils.ResponseMessage;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class BookDAOImpl implements BookDAO {
     @Override
-    public List<BookEntity> getAllBook() {
+    public Set<BookEntity> getAllBook() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         List<BookEntity> books = null;
@@ -35,7 +35,7 @@ public class BookDAOImpl implements BookDAO {
         } finally {
             session.close();
         }
-        return books;
+        return new HashSet<>(books);
     }
 
     @Override
@@ -111,42 +111,30 @@ public class BookDAOImpl implements BookDAO {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-//            BookEntity bookEntity = new BookEntity();
-//            bookEntity.setId(id);
-//            bookEntity.setName(name);
-//            for(String ele : ids) {
-//                AuthorEntity authorEntity = session.get(AuthorEntity.class, Integer.parseInt(ele));
-//                bookEntity.addAuthor(authorEntity);
-//            }
-            System.out.println("--------------------------1");
+            transaction.begin();
             BookEntity bookEntity = session.get(BookEntity.class, id);
-            System.out.println("--------------------------2");
-            List<AuthorEntity> authors = bookEntity.getAuthors();
-            System.out.println("--------------------------3");
-            authors.forEach(author -> bookEntity.removeAuthor(author));
-            System.out.println("--------------------------4");
+            bookEntity.setName(name);
+            Set<AuthorEntity> authors = bookEntity.getAuthors();
             for(String ele : ids) {
-                AuthorEntity authorEntity = session.get(AuthorEntity.class, Integer.parseInt(ele));
-                bookEntity.addAuthor(authorEntity);
+                Stream<AuthorEntity> authorEntityStream = authors.stream()
+                        .filter(author -> author.getId() == Integer.parseInt(ele));
+                if(authorEntityStream.count() == 0) {
+                    bookEntity.addAuthor(session.get(AuthorEntity.class, Integer.parseInt(ele)));
+                }
             }
-//            AuthorEntity authorEntity = session.get(AuthorEntity.class, 3);
-//            bookEntity.addAuthor(authorEntity);
-//            session.evict(bookEntity);
-
-//            System.out.println("-----------1");
-//            bookEntity = session.get(BookEntity.class, id);
-//            System.out.println("-----------2");
-//            session.persist(bookEntity);
-//            System.out.println("-----------3");
-//            bookEntity.setName(name);
-//            System.out.println("-----------4");
-//            bookEntity.getAuthors().removeAll(bookEntity.getAuthors());
-//            System.out.println(bookEntity.getAuthors().size());
-//            System.out.println("-----------5");
-           // BookEntity bookMerge = (BookEntity) session.merge(bookEntity);
-            //session.update(bookEntity);
+//            for(AuthorEntity author : authors) {
+//                boolean isDuplicate = false;
+//                for(String ele : ids) {
+//                    if(Integer.parseInt(ele) == author.getId()) {
+//                        isDuplicate = true;
+//                        break;
+//                    }
+//                }
+//                if(!isDuplicate) {
+//                    bookEntity.removeAuthor(author);
+//                }
+//            }
             transaction.commit();
-            System.out.println("-----------6");
         } catch (HibernateException e) {
             if (transaction != null) {
                 transaction.rollback();

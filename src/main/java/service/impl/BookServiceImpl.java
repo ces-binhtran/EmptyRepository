@@ -6,12 +6,13 @@ import entity.BookEntity;
 import service.BookService;
 
 import java.util.List;
+import java.util.Set;
 
 public class BookServiceImpl implements BookService {
     BookDAO bookDAO = new BookDAOImpl();
     @Override
-    public List<BookEntity> getAllBook() {
-        List<BookEntity> books = bookDAO.getAllBook();
+    public Set<BookEntity> getAllBook() {
+        Set<BookEntity> books = bookDAO.getAllBook();
         return books;
     }
 

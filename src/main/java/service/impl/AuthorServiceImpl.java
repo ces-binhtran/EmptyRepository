@@ -6,6 +6,7 @@ import entity.AuthorEntity;
 import service.AuthorService;
 
 import java.util.List;
+import java.util.Set;
 
 public class AuthorServiceImpl implements AuthorService {
 
@@ -16,7 +17,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<AuthorEntity> getAll() {
+    public Set<AuthorEntity> getAll() {
         AuthorDAO authorDAO = new AuthorDAOImpl();
         return authorDAO.findAll();
     }

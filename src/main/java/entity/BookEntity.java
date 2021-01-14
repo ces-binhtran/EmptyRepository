@@ -1,9 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name="book")
@@ -17,13 +15,13 @@ public class BookEntity {
     private String name;
 
     @ManyToMany(mappedBy = "books", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
-    private List<AuthorEntity> authors = new ArrayList<AuthorEntity>();
+    private Set<AuthorEntity> authors = new HashSet<AuthorEntity>();
 
-    public List<AuthorEntity> getAuthors() {
+    public Set<AuthorEntity> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<AuthorEntity> authors) {
+    public void setAuthors(Set<AuthorEntity> authors) {
         this.authors = authors;
     }
 
@@ -58,16 +56,8 @@ public class BookEntity {
     }
 
     public void addAuthor(AuthorEntity authorEntity) {
-        boolean isDuplicate = false;
         authors.add(authorEntity);
-        for(BookEntity bookEntity : authorEntity.getBooks()) {
-            if(bookEntity.getId() == this.getId()) {
-                isDuplicate = true;
-            }
-        }
-        if (isDuplicate) {
-            authorEntity.getBooks().add(this);
-        }
+        authorEntity.getBooks().add(this);
     }
 
     public void removeAuthor(AuthorEntity authorEntity) {
