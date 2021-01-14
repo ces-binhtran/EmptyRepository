@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 12/1/2021
-  Time: 2:21 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,6 +14,11 @@
         <div class="form-group">
             <label for="name">Author's Name:</label>
             <input type="name" class="form-control" id="name" name="name" placeholder="Enter name">
+            <c:if test="${error != ''}">
+                <div class="alert alert-danger add_book__alert">
+                    <strong>Danger!</strong> ${error}
+                </div>
+            </c:if>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

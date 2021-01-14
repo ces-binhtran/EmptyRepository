@@ -31,7 +31,6 @@ public class BookServlet extends HttpServlet {
             }
             case "create": {
                 String name = request.getParameter("name");
-                System.out.println("+++++++++" + name + "++++++++++");
                 if(name == "") {
                     request.setAttribute("authors", authorService.getAll());
                     request.setAttribute("error", "Book's name can't empty.");
@@ -41,7 +40,6 @@ public class BookServlet extends HttpServlet {
                     bookService.save(name, authors);
                     doGet(request, response);
                 }
-
                 break;
             }
             case "Delete": {

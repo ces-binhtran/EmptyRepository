@@ -9,8 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body class="add_book">
-<c:set var="url" value="${}"/>
-    <h1>New Book</h1>
+    <c:if test="${book != null}">
+        <h1>Update Book</h1>
+    </c:if>
+    <c:if test="${book == null}">
+        <h1>New Book</h1>
+    </c:if>
     <form
         <c:if test="${book != null}">
             action="${pageContext.servletContext.contextPath}/Book?type=update&id=${book.id}"

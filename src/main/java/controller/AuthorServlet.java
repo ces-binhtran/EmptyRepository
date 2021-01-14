@@ -14,9 +14,13 @@ import java.io.IOException;
 @WebServlet(value = "/Author")
 public class AuthorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String responseMessage = addAuthor(request, response);
-        if(responseMessage.equals(ResponseMessage.ADD_AUTHOR_SUCCESS)) {
+        String name = request.getParameter("name");
+        if(name == "") {
+            request.setAttribute("error", "Author's name can't empty.");
+            request.getRequestDispatcher("/views/addAuthor.jsp").forward(request, response);
+        } else {
             AuthorService authorService = new AuthorServiceImpl();
+            authorService.addAuthor(name);
             request.setAttribute("authors", authorService.getAll());
             doGet(request, response);
         }
@@ -25,14 +29,5 @@ public class AuthorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getRequestDispatcher("/views/addBook.jsp").forward(request, response);
-    }
-
-    public String addAuthor(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("name");
-        if(name.equals("")) {
-            return "Null";
-        }
-        AuthorService authorService = new AuthorServiceImpl();
-        return authorService.addAuthor(name);
     }
 }

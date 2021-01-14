@@ -113,7 +113,6 @@ public class BookDAOImpl implements BookDAO {
         try {
             transaction = session.beginTransaction();
             BookEntity bookEntity = session.get(BookEntity.class, id);
-            System.out.println(name);
             bookEntity.setName(name);
             Set<AuthorEntity> authors = bookEntity.getAuthors();
             for(String ele : ids) {
@@ -139,7 +138,6 @@ public class BookDAOImpl implements BookDAO {
                 bookEntity.removeAuthor(authorEntity);
             }
             transaction.commit();
-            System.out.println("-----------------------");
         } catch (HibernateException e) {
             if (transaction != null) {
                 transaction.rollback();
