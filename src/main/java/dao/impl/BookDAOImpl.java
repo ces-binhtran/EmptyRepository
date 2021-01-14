@@ -108,11 +108,12 @@ public class BookDAOImpl implements BookDAO {
     @Override
     public String update(Integer id, String name, String[] ids) {
         Session session = HibernateUtil.getSessionFactory().openSession();
+        List<AuthorEntity> isRemove = new ArrayList<AuthorEntity>();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            transaction.begin();
             BookEntity bookEntity = session.get(BookEntity.class, id);
+            System.out.println(name);
             bookEntity.setName(name);
             Set<AuthorEntity> authors = bookEntity.getAuthors();
             for(String ele : ids) {
@@ -122,19 +123,23 @@ public class BookDAOImpl implements BookDAO {
                     bookEntity.addAuthor(session.get(AuthorEntity.class, Integer.parseInt(ele)));
                 }
             }
-//            for(AuthorEntity author : authors) {
-//                boolean isDuplicate = false;
-//                for(String ele : ids) {
-//                    if(Integer.parseInt(ele) == author.getId()) {
-//                        isDuplicate = true;
-//                        break;
-//                    }
-//                }
-//                if(!isDuplicate) {
-//                    bookEntity.removeAuthor(author);
-//                }
-//            }
+            for(AuthorEntity author : authors) {
+                boolean isDuplicate = false;
+                for(String ele : ids) {
+                    if(Integer.parseInt(ele) == author.getId()) {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                if(!isDuplicate) {
+                    isRemove.add(author);
+                }
+            }
+            for (AuthorEntity authorEntity : isRemove) {
+                bookEntity.removeAuthor(authorEntity);
+            }
             transaction.commit();
+            System.out.println("-----------------------");
         } catch (HibernateException e) {
             if (transaction != null) {
                 transaction.rollback();

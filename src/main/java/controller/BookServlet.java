@@ -31,9 +31,17 @@ public class BookServlet extends HttpServlet {
             }
             case "create": {
                 String name = request.getParameter("name");
-                String[] authors = request.getParameterValues("author");
-                bookService.save(name, authors);
-                doGet(request, response);
+                System.out.println("+++++++++" + name + "++++++++++");
+                if(name == "") {
+                    request.setAttribute("authors", authorService.getAll());
+                    request.setAttribute("error", "Book's name can't empty.");
+                    request.getRequestDispatcher("/views/addBook.jsp").forward(request, response);
+                } else {
+                    String[] authors = request.getParameterValues("author");
+                    bookService.save(name, authors);
+                    doGet(request, response);
+                }
+
                 break;
             }
             case "Delete": {
@@ -66,7 +74,6 @@ public class BookServlet extends HttpServlet {
             throws ServletException, IOException {
         BookService bookService = new BookServiceImpl();
         request.setAttribute("books", bookService.getAllBook());
-        System.out.println(2);
         request.getRequestDispatcher("/views/listBook.jsp").forward(request,response);
     }
 }

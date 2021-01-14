@@ -16,6 +16,8 @@ public class AuthorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String responseMessage = addAuthor(request, response);
         if(responseMessage.equals(ResponseMessage.ADD_AUTHOR_SUCCESS)) {
+            AuthorService authorService = new AuthorServiceImpl();
+            request.setAttribute("authors", authorService.getAll());
             doGet(request, response);
         }
     }

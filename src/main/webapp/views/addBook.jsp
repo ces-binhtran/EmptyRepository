@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/addBook.css" type="text/css">
+    <link rel="stylesheet" href="views/css/addBook.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
         method="post"
         class="add_book__form"
     >
-        <div class="form-group">
+        <div class="form-group book_name">
             <label for="name">Book's Name:</label>
             <input
                 type="name"
@@ -32,6 +32,14 @@
                         value="${book.name}"
                 </c:if>
             >
+            <c:if test="${error != null}">
+                <div class="alert alert-danger add_book__alert">
+                    <strong>Danger!</strong> ${error}
+                </div>
+            </c:if>
+        </div>
+        <div class="row">
+            <a href="views/addAuthor.jsp">Add Author</a>
         </div>
         <div class="checkbox">
             <c:forEach var="author" items="${authors}" varStatus="varStatus">
