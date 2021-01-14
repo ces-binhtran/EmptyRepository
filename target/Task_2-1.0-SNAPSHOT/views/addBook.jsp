@@ -9,15 +9,46 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body class="add_book">
+<c:set var="url" value="${}"/>
     <h1>New Book</h1>
-    <form action="${pageContext.servletContext.contextPath}/Book?type=create" method="post" class="add_book__form">
+    <form
+        <c:if test="${book != null}">
+            action="${pageContext.servletContext.contextPath}/Book?type=update&id=${book.id}"
+        </c:if>
+        <c:if test="${book == null}">
+            action="${pageContext.servletContext.contextPath}/Book?type=create"
+        </c:if>
+        method="post"
+        class="add_book__form"
+    >
         <div class="form-group">
             <label for="name">Book's Name:</label>
-            <input type="name" class="form-control" id="name" name="name">
+            <input
+                type="name"
+                class="form-control"
+                id="name"
+                name="name"
+                <c:if test="${book != null}">
+                        value="${book.name}"
+                </c:if>
+            >
         </div>
         <div class="checkbox">
             <c:forEach var="author" items="${authors}" varStatus="varStatus">
-                <label><input type="checkbox" name="author" value="${author.id}"> ${author.name} </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        name="author"
+                        value="${author.id}"
+                        <c:if test="${book != null}">
+                             <c:forEach var="ele" items="${book.authors}">
+                                <c:if test="${author.id == ele.id}">
+                                    checked="checked"
+                                </c:if>
+                            </c:forEach>
+                        </c:if>
+                    > ${author.name}
+                </label></br>
             </c:forEach>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>

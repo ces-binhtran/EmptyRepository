@@ -17,7 +17,7 @@ public class AuthorEntity {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     private List<BookEntity> books = new ArrayList<BookEntity>();
 
     public List<BookEntity> getBooks() {
@@ -56,5 +56,23 @@ public class AuthorEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    public void addBook(BookEntity bookEntity) {
+        boolean isDuplicate = false;
+        books.add(bookEntity);
+        for(AuthorEntity authorEntity : bookEntity.getAuthors()) {
+            if(authorEntity.getId() == this.getId()) {
+                isDuplicate = true;
+            }
+        }
+        if (isDuplicate) {
+            bookEntity.getAuthors().add(this);
+        }
+    }
+
+    public void removeBook(BookEntity bookEntity) {
+        books.remove(bookEntity);
+        bookEntity.getAuthors().remove(this);
     }
 }

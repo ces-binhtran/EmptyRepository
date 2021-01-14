@@ -14,6 +14,7 @@
     <form action="${pageContext.servletContext.contextPath}/Book?type=create-form" class="add_book__form" method="post">
         <button type="submit" class="btn btn-default">Add Book</button>
     </form>
+    </br></br>
     <table class="table">
         <thead>
         <tr>
@@ -32,8 +33,10 @@
                         </c:forEach>
                     </td>
                     <td>
-                        <a href="">Delete</a> |
-                        <a href="">Edit</a>
+                        <form action="${pageContext.servletContext.contextPath}/Book?id=${book.id}" method="post">
+                            <input type="submit" name="type" value="Delete">
+                            <input type="submit" name="type" value="Edit">
+                        </form>
                     </td>
                 </tr>
             </c:forEach>

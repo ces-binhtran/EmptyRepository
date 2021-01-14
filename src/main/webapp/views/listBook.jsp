@@ -33,8 +33,10 @@
                         </c:forEach>
                     </td>
                     <td>
-                        <a href="">Delete</a> |
-                        <a href="">Edit</a>
+                        <form action="${pageContext.servletContext.contextPath}/Book?id=${book.id}" method="post">
+                            <input type="submit" name="type" value="Delete">
+                            <input type="submit" name="type" value="Edit">
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
