@@ -9,5 +9,8 @@
         <module name="EmptyRepository" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="EmptyRepository" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
