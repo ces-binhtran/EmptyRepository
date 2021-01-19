@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="name">Author's Name:</label>
             <input type="name" class="form-control" id="name" name="name" placeholder="Enter name">
-            <c:if test="${error != ''}">
+            <c:if test="${error != null}">
                 <div class="alert alert-danger add_book__alert">
                     <strong>Danger!</strong> ${error}
                 </div>

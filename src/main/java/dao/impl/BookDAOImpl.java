@@ -12,6 +12,7 @@ import utils.HibernateUtil;
 import utils.ResponseMessage;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BookDAOImpl implements BookDAO {
@@ -122,21 +123,10 @@ public class BookDAOImpl implements BookDAO {
                     bookEntity.addAuthor(session.get(AuthorEntity.class, Integer.parseInt(ele)));
                 }
             }
-            for(AuthorEntity author : authors) {
-                boolean isDuplicate = false;
-                for(String ele : ids) {
-                    if(Integer.parseInt(ele) == author.getId()) {
-                        isDuplicate = true;
-                        break;
-                    }
-                }
-                if(!isDuplicate) {
-                    isRemove.add(author);
-                }
-            }
-            for (AuthorEntity authorEntity : isRemove) {
-                bookEntity.removeAuthor(authorEntity);
-            }
+            List<AuthorEntity> temp = authors.stream().filter(ele -> Arrays.stream(ids).filter(stringId -> Integer.parseInt(stringId) == ele.getId()).count() == 0).collect(Collectors.toList());
+            temp.forEach(ele  -> {
+                bookEntity.removeAuthor(ele);
+            });
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null) {
