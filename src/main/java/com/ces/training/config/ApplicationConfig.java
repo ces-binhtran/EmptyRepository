@@ -1,5 +1,6 @@
 package com.ces.training.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,10 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         viewResolver.setSuffix(".jsp");
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
+    }
+    @Bean
+    public ModelMapper getModelMapper() {
+        return new ModelMapper();
     }
 
 }

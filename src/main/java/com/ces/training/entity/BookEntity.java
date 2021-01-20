@@ -1,10 +1,7 @@
 package com.ces.training.entity;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "book")
@@ -28,7 +25,7 @@ public class BookEntity {
     private String image;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    Set<AuthorEntity> authors = new HashSet<AuthorEntity>();
+    List<AuthorEntity> authors = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -62,11 +59,11 @@ public class BookEntity {
         this.publish = publish;
     }
 
-    public Set<AuthorEntity> getAuthors() {
+    public List<AuthorEntity> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Set<AuthorEntity> authors) {
+    public void setAuthors(List<AuthorEntity> authors) {
         this.authors = authors;
     }
 

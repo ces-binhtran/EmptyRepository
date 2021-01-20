@@ -1,10 +1,7 @@
 package com.ces.training.entity;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name ="author")
@@ -24,8 +21,8 @@ public class AuthorEntity {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @ManyToMany(mappedBy = "authors", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    Set<BookEntity> books = new HashSet<BookEntity>();
+    @ManyToMany(fetch = FetchType.LAZY , mappedBy = "authors", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    List<BookEntity> books = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -59,16 +56,17 @@ public class AuthorEntity {
         this.email = email;
     }
 
-    public Set<BookEntity> getBooks() {
+    public List<BookEntity> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<BookEntity> books) {
+    public void setBooks(List<BookEntity> books) {
         this.books = books;
     }
 
     @Override
     public boolean equals(Object o) {
+        System.out.println(6);
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AuthorEntity that = (AuthorEntity) o;

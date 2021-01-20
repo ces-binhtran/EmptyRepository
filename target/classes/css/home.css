@@ -1,0 +1,22 @@
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+.books_actions {
+    display: flex;
+}
+
+.card-img-top {
+    height: 30rem;
+}
+
+.card {
+    padding: .5rem;
+}
+
+.books_actions>a:nth-child(2) {
+    background-color: red;
+    border: red;
+}
