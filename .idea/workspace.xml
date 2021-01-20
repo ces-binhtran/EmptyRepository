@@ -10,13 +10,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8acce45-8de8-4eb7-98a6-d28c6cb9a6be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_17_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/EmptyRepository.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EmptyRepository.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/EmptyRepository_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/EmptyRepository_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TestEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TestEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AdminEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AdminEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AuthorEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AuthorEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/BookEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TypeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TypeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/springmvc-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AdminEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AdminEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AuthorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AuthorEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/BookEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TypeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TypeEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/config/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/config/springmvc-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AdminEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AdminEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AuthorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AuthorEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/BookEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TypeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TypeEntity.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +49,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.1.0.Final/hibernate-core-5.1.0.Final.jar!/org/hibernate/Session.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/stream/Stream.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final-sources.jar!/javax/persistence/criteria/Predicate.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -53,13 +82,17 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/springjpaexample" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -74,6 +107,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.42" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.42" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="EmptyRepository:war exploded">
@@ -178,7 +212,13 @@
       <workItem from="1610957328127" duration="2536000" />
       <workItem from="1610960192109" duration="441000" />
       <workItem from="1610960642808" duration="53000" />
-      <workItem from="1610960720943" duration="2602000" />
+      <workItem from="1610960720943" duration="7651000" />
+      <workItem from="1611011560933" duration="13408000" />
+      <workItem from="1611039187837" duration="9994000" />
+      <workItem from="1611049895607" duration="2500000" />
+      <workItem from="1611052439810" duration="3002000" />
+      <workItem from="1611097818963" duration="1454000" />
+      <workItem from="1611099288557" duration="19643000" />
     </task>
     <servers />
   </component>
@@ -195,5 +235,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

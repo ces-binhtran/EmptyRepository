@@ -1,0 +1,55 @@
+
+body{
+    font-family: 'Montserrat', sans-serif;
+   background: #67BE4D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    background: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0 , .5);
+
+    width: 500px;
+
+}
+.form{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form>input{
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 20px;
+    background: #F2F2F2;
+    margin-bottom: 10px;
+}
+.form>p{
+    margin: 0 0 20px 0;
+    color: #da4e53;
+    font-size: 18px;
+    font-weight: 700;
+}
+.form>input::placeholder{
+    color: #C2C2C2;
+}
+.form>p:last-of-type{
+    margin-bottom: 30px;
+}
+.form>input[type="submit"]{
+    background: #56B342;
+    color: white;
+    cursor: pointer;
+}
+.form>input[type="submit"]:hover{
+    background: #498f0f;
+}
+
+@media screen and (max-width: 500px) {
+    .login{
+        width: 100%;
+    }
+}

@@ -12,7 +12,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "book")
+@Table(
+        name = "book",
+        indexes = {
+                @Index(name = "index_book_id", columnList = "", unique = true),
+                @Index(name = "index_book_name", columnList = "name")
+        }
+)
 public class BookEntity {
 
     @Id

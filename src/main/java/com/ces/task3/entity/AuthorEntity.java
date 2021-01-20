@@ -1,13 +1,11 @@
 package com.ces.task3.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -16,7 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "author")
+@Table(
+        name = "author",
+        indexes = {
+                @Index(name = "index_author_id", columnList = "author_id", unique = true),
+                @Index(name = "index_author_name", columnList = "name")
+        }
+)
 public class AuthorEntity implements Serializable {
 
     @Id

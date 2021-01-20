@@ -23,6 +23,9 @@ public class AdminEntity implements Serializable {
     private Integer id;
 
     private String name;
+
+
+    @Column(name = "email", unique = true)
     private String email;
     private String password;
 

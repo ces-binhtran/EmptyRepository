@@ -16,7 +16,8 @@
 
     <context:component-scan base-package="com.ces.task3"/>
     <mvc:annotation-driven/>
-
+    <context:annotation-config/>
+    <mvc:resources mapping="/static/**" location="/asset/"/>
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
         <property name="suffix" value=".jsp" />
@@ -29,7 +30,7 @@
         <property name="password" value="123456"/>
     </bean>
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="com.ces.task3.entity"/>
         <property name="jpaVendorAdapter">
@@ -37,15 +38,19 @@
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">drop-and-create</prop>
+<!--                <prop key="hibernate.hbm2ddl.auto">drop-and-create</prop>-->
+                <prop key="hibernate.hbm2ddl.auto">none</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
     </bean>
+
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="entityManagerFactory" ref="entityManagerFactoryBean"/>
     </bean>
     <tx:annotation-driven />
+
+    <bean id="modelMapper" class="org.modelmapper.ModelMapper"/>
 </beans>
