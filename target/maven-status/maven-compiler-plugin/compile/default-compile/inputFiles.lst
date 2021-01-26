@@ -1,0 +1,14 @@
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/dao/impl/AuthorDAOImpl.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/controller/BookServlet.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/utils/HibernateUtil.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/dao/impl/BookDAOImpl.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/dao/BookDAO.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/service/impl/AuthorServiceImpl.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/dao/AuthorDAO.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/entity/AuthorEntity.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/entity/BookEntity.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/service/impl/BookServiceImpl.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/utils/ResponseMessage.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/service/AuthorService.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/controller/AuthorServlet.java
+/home/ces-user/Documents/Task1_3/EmptyRepository/src/main/java/service/BookService.java
