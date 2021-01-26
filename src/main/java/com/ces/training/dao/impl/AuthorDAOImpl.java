@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
 public class AuthorDAOImpl implements AuthorDAO {
@@ -23,5 +24,10 @@ public class AuthorDAOImpl implements AuthorDAO {
     public String save(AuthorEntity authorEntity) {
         session.save(authorEntity);
         return ResponseMessage.CREATE_AUTHOR_SUCCESSFULLY;
+    }
+
+    @Override
+    public List<AuthorEntity> findAll() {
+        return session.createQuery("from AuthorEntity", AuthorEntity.class).list();
     }
 }

@@ -1,16 +1,21 @@
 package com.ces.training.dto;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import java.util.*;
 
 public class AuthorDTO {
 
     private Integer id;
+
+    @NotEmpty(message = "This field cannot be empty.")
     private String name;
+
+    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Invalid email.")
     private String email;
     private Date birth;
-    private Set<BookDTO> books = new HashSet<BookDTO>();
+    private List<BookDTO> books = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -44,11 +49,11 @@ public class AuthorDTO {
         this.birth = birth;
     }
 
-    public Set<BookDTO> getBooks() {
+    public List<BookDTO> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<BookDTO> books) {
+    public void setBooks(List<BookDTO> books) {
         this.books = books;
     }
 }

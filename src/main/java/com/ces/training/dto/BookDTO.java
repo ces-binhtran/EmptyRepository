@@ -1,16 +1,17 @@
 package com.ces.training.dto;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import javax.validation.constraints.NotEmpty;
+import java.util.*;
 
 public class BookDTO {
     private Integer id;
+
+    @NotEmpty(message = "This field can not be empty.")
     private String name;
     private Integer price;
     private Date publish;
     private String image;
-    private Set<AuthorDTO> authors = new HashSet<AuthorDTO>();
+    private List<AuthorDTO> authors = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -52,11 +53,11 @@ public class BookDTO {
         this.image = image;
     }
 
-    public Set<AuthorDTO> getAuthors() {
+    public List<AuthorDTO> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Set<AuthorDTO> authors) {
+    public void setAuthors(List<AuthorDTO> authors) {
         this.authors = authors;
     }
 }

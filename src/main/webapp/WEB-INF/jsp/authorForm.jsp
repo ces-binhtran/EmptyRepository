@@ -14,18 +14,25 @@
 <jsp:include page="header.jsp" />
 <h1 style="text-align: center; margin-top: 1rem">Create author</h1>
 <div class="create_book">
-    <form:form action="/author/save" modelAttribute="author">
+    <form:form action="${pageContext.request.contextPath}/author/save" cssClass="was-validated" modelAttribute="author" method="post">
         <div class="form-group">
-            <label for="name">Name:</label>
+            <div style="display: flex; justify-content: space-between">
+                <label for="name">Name:</label>
+                <form:errors path="name" cssStyle="color: red"/>
+            </div>
             <form:input path="name" type="text" class="form-control" placeholder="Enter name" id="name" />
+
         </div>
         <div class="form-group">
             <label for="birthday">Birthday:</label>
-            <form:input path="birthday" type="date" class="form-control" placeholder="Enter birthday" id="birthday" />
+            <form:input path="birth" type="date" class="form-control" placeholder="Enter birthday" id="birthday" />
         </div>
         <div class="form-group">
-            <label for="price">Email:</label>
-            <form:input path="email" type="email" class="form-control" placeholder="Enter email" id="price">
+            <div style="display: flex; justify-content: space-between">
+                <label for="price">Email:</label>
+                <form:errors path="email" cssStyle="color: red"/>
+            </div>
+            <form:input path="email" type="text" class="form-control" placeholder="Enter email" id="price" />
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form:form>

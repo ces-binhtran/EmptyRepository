@@ -14,34 +14,57 @@
 <jsp:include page="header.jsp" />
 <h1 style="text-align: center; margin-top: 1rem">Create book</h1>
 <div class="create_book">
-    <form action="/action_page.php">
+    <form:form action="${pageContext.request.contextPath}/book/save" modelAttribute="book"  method="post">
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" placeholder="Enter book's name" id="name">
+            <div style="display: flex; justify-content: space-between">
+                <label for="name">Name:</label>
+                <form:errors path="name" cssStyle="color: red"/>
+            </div>
+            <form:input
+                type="text"
+                path="name"
+                class="form-control"
+                placeholder="Enter book's name"
+                id="name"
+            />
         </div>
         <div class="form-group">
-            <label for="thumbnail">Thumbnail:</label>
-            <input type="text" class="form-control" placeholder="Enter book's thumbnail" id="thumbnail">
+            <label for="image">Thumbnail:</label>
+            <form:input type="text" path="image" class="form-control" placeholder="Enter book's thumbnail" id="image" />
         </div>
         <div class="form-group">
             <label for="price">Price:</label>
-            <input type="number" class="form-control" placeholder="Enter price" id="price">
+            <form:input type="number" path="price" class="form-control" placeholder="Enter price" id="price" />
         </div>
         <div class="form-group">
             <label for="publish">Publish:</label>
-            <input type="date" class="form-control" id="publish">
+            <form:input type="date" path="publish" class="form-control" id="publish" />
         </div>
         <div class="form-group">
             <label for="publish">Author: </label><a href="<c:url value="/author/create"/>" style="color: #007BFF">(Add author)</a>
             <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Jonny Nguyen
-                </label>
+                <c:forEach var="author" items="${authors}" varStatus="varStatus">
+                    <label>
+                        <input
+                                type="checkbox"
+                                name="author"
+                                value="${author.id}"
+                                <c:if test="${book != null}">
+                                    <c:forEach var="ele" items="${book.authors}">
+                                        <c:if test="${author.id == ele.id}">
+                                                checked="checked"
+                                        </c:if>
+                                    </c:forEach>
+                                </c:if>
+                        > ${author.name}
+                    </label></br>
+                </c:forEach>
+
             </div>
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>
