@@ -110,32 +110,23 @@ public class BookDAOImpl implements BookDAO {
     public String update(Integer id, String name, String[] ids) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<AuthorEntity> isRemove = new ArrayList<AuthorEntity>();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            BookEntity bookEntity = session.get(BookEntity.class, id);
-            bookEntity.setName(name);
-            Set<AuthorEntity> authors = bookEntity.getAuthors();
-            for(String ele : ids) {
-                Stream<AuthorEntity> authorEntityStream = authors.stream()
-                        .filter(author -> author.getId() == Integer.parseInt(ele));
-                if(authorEntityStream.count() == 0) {
-                    bookEntity.addAuthor(session.get(AuthorEntity.class, Integer.parseInt(ele)));
-                }
+        Transaction transaction = session.beginTransaction();
+        BookEntity bookEntity = session.get(BookEntity.class, id);
+        bookEntity.setName(name);
+        Set<AuthorEntity> authors = bookEntity.getAuthors();
+        for(String authorId : ids) {
+            Stream<AuthorEntity> authorEntityStream = authors.stream()
+                    .filter(author -> author.getId() == Integer.parseInt(authorId));
+            if(authorEntityStream.count() == 0) {
+                bookEntity.addAuthor(session.get(AuthorEntity.class, Integer.parseInt(authorId)));
             }
-            List<AuthorEntity> temp = authors.stream().filter(ele -> Arrays.stream(ids).filter(stringId -> Integer.parseInt(stringId) == ele.getId()).count() == 0).collect(Collectors.toList());
-            temp.forEach(ele  -> {
-                bookEntity.removeAuthor(ele);
-            });
-            transaction.commit();
-        } catch (HibernateException e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-            return ResponseMessage.UPDATE_BOOK_SUCCESS;
         }
+        List<AuthorEntity> temp = authors.stream().filter(ele -> Arrays.stream(ids).filter(stringId -> Integer.parseInt(stringId) == ele.getId()).count() == 0).collect(Collectors.toList());
+        temp.forEach(ele  -> {
+            bookEntity.removeAuthor(ele);
+        });
+        transaction.commit();
+        session.close();
+        return ResponseMessage.UPDATE_BOOK_SUCCESS;
     }
 }
