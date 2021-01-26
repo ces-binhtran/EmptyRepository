@@ -4,14 +4,8 @@ public class BookModel {
 	private Integer id;
 	private String name;
 	private String author;
-	
-	public BookModel() {
-		super();
-		
-	}
-	
+
 	public BookModel(Integer id, String name, String author) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.author = author;

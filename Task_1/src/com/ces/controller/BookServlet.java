@@ -48,17 +48,17 @@ public class BookServlet extends HttpServlet {
 		String author = (String)request.getParameter("author");
 		String type = (String)request.getParameter("type");
 		Integer id = null;
-		if(type.equals("edit")) id = Integer.parseInt(request.getParameter("id"));
+		if(type.equals("edit")) {
+			id = Integer.parseInt(request.getParameter("id"));
+		}
 		if(name == "") {
 			request.setAttribute("error", "This field can't empty.");
 			request.getRequestDispatcher("/views/jsp/add.jsp").forward(request, response);
-			//response.sendRedirect(request.getContextPath() + "views/jsp/add.jsp");
 		} else {
 			System.out.println(name);
 			bookService.add(new BookModel(id, name, author));
 			request.setAttribute("books", bookService.findAllBooks());
 			request.getRequestDispatcher("/views/jsp/books.jsp").forward(request, response);
-			//doGet(request, response);
 		}
 	}
 
