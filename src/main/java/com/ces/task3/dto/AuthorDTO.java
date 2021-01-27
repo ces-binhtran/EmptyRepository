@@ -1,5 +1,6 @@
 package com.ces.task3.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,8 +18,9 @@ public class AuthorDTO {
 
     private Integer id;
 
-    @NotBlank @Size
+    @NotBlank(message = "Name of Author can not blank")
     private String name;
 
+    @JsonIgnore
     private Collection<@Valid BookDTO> books;
 }

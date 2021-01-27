@@ -19,6 +19,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <spring.verion>5.2.12.RELEASE</spring.verion>
     <hibernate.version>5.1.0.Final</hibernate.version>
+    <jackson.version>2.9.4</jackson.version>
   </properties>
 
   <dependencies>
@@ -62,6 +63,13 @@
       <version>6.0.17.Final</version>
     </dependency>
 
+    <!--    servlet api-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+    </dependency>
+
     <!--    jstl-->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -103,6 +111,12 @@
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
       <version>2.3.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
   </dependencies>
 

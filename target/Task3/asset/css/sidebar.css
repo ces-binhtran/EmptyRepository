@@ -1,0 +1,38 @@
+.side-bar{
+    min-width: 200px;
+    margin-right: 20px;
+}
+.type{
+    border: 1px solid #E2E2E2
+}
+.type__header{
+    background-color: #F57829;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.type__header>span{
+    font-size: 25px;
+    color: white;
+    font-weight: 500;
+
+}
+.type__header>i{
+    color: white;
+    font-size: 25px;
+}
+.type__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.type__item>span{
+    font-size: 22px;
+    color: black;
+    font-weight: 500;
+
+}

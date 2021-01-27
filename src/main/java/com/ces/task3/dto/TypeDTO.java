@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -11,9 +13,10 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class TypeDTO {
 
+    @Min(value = 1, message = "Please chose Type for Book")
     private Integer id;
 
-    @NotNull
+    @NotBlank(message = "Name of book can not bank")
     private String name;
 
 }

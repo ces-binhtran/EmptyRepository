@@ -2,6 +2,7 @@ package com.ces.task3.dao.impl;
 
 import com.ces.task3.dao.BaseDAO;
 import com.ces.task3.model.Page;
+import com.ces.task3.model.exception.NotFoundException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,7 +33,6 @@ public class BaseDAOImpl<E,PK> implements BaseDAO<E,PK>{
     @Override
     public E createEntity(E newEntity) {
         entityManager.persist(newEntity);
-        entityManager.refresh(newEntity);
         return newEntity;
     }
 
@@ -83,7 +83,9 @@ public class BaseDAOImpl<E,PK> implements BaseDAO<E,PK>{
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<E> query = cb.createQuery(entityClass);
         Root<E> entityRoot = query.from(entityClass);
-        if(!properties.isEmpty() || properties == null){
+
+        // equal chain
+        if( properties != null && !properties.isEmpty() ){
             Predicate[] conditionEquals = properties
                     .entrySet()
                     .stream()
@@ -92,6 +94,8 @@ public class BaseDAOImpl<E,PK> implements BaseDAO<E,PK>{
             query.where(conditionEquals);
         }
         Query result = entityManager.createQuery(query);
+
+        // pagination
         if(page != null){
             result.setFirstResult((page.getPageNumber() - 1)* page.getPageSize());
             result.setMaxResults(page.getPageSize());

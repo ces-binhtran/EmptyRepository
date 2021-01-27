@@ -7,10 +7,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
+
 
 public class BaseServiceImpl<DAO extends BaseDAO ,DTO, E, PK> implements BaseService<DTO, E, PK> {
 
@@ -21,6 +20,8 @@ public class BaseServiceImpl<DAO extends BaseDAO ,DTO, E, PK> implements BaseSer
     public BaseServiceImpl(DAO dao, ModelMapper modelMapper){
         this.dao = dao;
         this.modelMapper = modelMapper;
+
+        //get Class Type of DTO use Reflection API.
         this.dtoClass =  (Class<DTO>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[1];
     }

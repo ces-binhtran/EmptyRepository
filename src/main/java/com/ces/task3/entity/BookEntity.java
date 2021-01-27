@@ -26,7 +26,7 @@ public class BookEntity {
     @Column(name = "book_id")
     private Integer id;
 
-    private String name;
+    @Basic    private String name;
 
     @ManyToOne(
             fetch = FetchType.EAGER,
@@ -40,9 +40,14 @@ public class BookEntity {
     @ManyToMany(
             fetch = FetchType.LAZY,
             mappedBy = "books",
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
     )
     private Collection<AuthorEntity> authors;
+
+    public void copyValue(BookEntity copyObject){
+        this.name = copyObject.getName();
+        this.id = copyObject.getId();
+    }
 
 
     @Override

@@ -16,4 +16,7 @@ public class BookServiceImpl extends BaseServiceImpl<BookDAO, BookDTO, BookEntit
     public BookServiceImpl(BookDAO dao, ModelMapper modelMapper) {
         super(dao, modelMapper);
     }
+
+
+
 }

@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AuthorDAOImpl extends BaseDAOImpl<AuthorEntity, Integer> implements AuthorDAO {
 
+
+
 }

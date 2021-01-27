@@ -2,44 +2,86 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="EmptyRepository:war exploded" />
+      <artifact name="Task3:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8acce45-8de8-4eb7-98a6-d28c6cb9a6be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_17_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/EmptyRepository.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EmptyRepository.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/EmptyRepository_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/EmptyRepository_war_exploded.xml" afterDir="false" />
+    <list default="true" id="e19bc99a-2f3b-41ff-b357-c2d95c4eba9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/EmptyRepository.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/EmptyRepository_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/EmptyRepository_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Task3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Task3_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25a57537-4791-4915-bb04-9014c7863823.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25a57537-4791-4915-bb04-9014c7863823/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Task3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AdminEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AdminEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AuthorEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AuthorEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/AuthorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/AuthorDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BaseDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BaseDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/AuthorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/AuthorDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/BookDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/TypeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/TypeDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TypeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TypeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BaseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BookServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/springmvc-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/test.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/AuthorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/AuthorDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/TypeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/TypeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BookDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BookDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/TypeDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/TypeDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/AuthorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/AuthorDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/BookDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/TypeDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/TypeDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AdminEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AdminEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AuthorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AuthorEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/BookEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TypeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TypeEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TestEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/AuthorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/BookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/TypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/TypeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BaseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BookServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/TypeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/TypeServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/config/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/config/springmvc-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/lib/classmate-1.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/view/book/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/view/book/book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/view/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/AuthorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/AuthorDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/TypeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/TypeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BookDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BookDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/TypeDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/TypeDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/AuthorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/AuthorDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/BookDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/TypeDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/TypeDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AdminEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AdminEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AuthorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AuthorEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/BookEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TypeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TypeEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/AuthorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/BookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/TypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/TypeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BaseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BookServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/TypeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/TypeServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +99,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.1.0.Final/hibernate-core-5.1.0.Final.jar!/org/hibernate/Session.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/stream/Stream.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final-sources.jar!/javax/persistence/criteria/Predicate.java" root0="SKIP_INSPECTION" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -69,55 +114,82 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="1nEHPvG0GHZUj4wwBiiRJOdihJk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1nKEoS3Aqe58EowUr3XPFYo45gs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/springjpaexample" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/springframework/spring-core/5.2.12.RELEASE/spring-core-5.2.12.RELEASE.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Tomcat Server.Tomcat -2">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 9.0.42" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.42" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="maven" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat -2" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.42" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
-        <artifact name="EmptyRepository:war exploded">
+        <artifact name="Task3:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/EmptyRepository_war_exploded" />
+            <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="15c81e00-6d5b-41cc-aff2-74e8f2e6f18a" />
+        <option name="BASE_DIRECTORY_NAME" value="b0afd045-82f5-4c3f-9942-61099146efc9" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -125,7 +197,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="34333" />
+        <option name="DEBUG_PORT" value="45249" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -190,35 +262,35 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="EmptyRepository:war exploded" />
+          <artifact name="Task3:war exploded" />
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Maven.maven" />
+      <item itemvalue="Tomcat Server.Tomcat -2" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f8acce45-8de8-4eb7-98a6-d28c6cb9a6be" name="Default Changelist" comment="" />
-      <created>1610948310924</created>
+      <changelist id="e19bc99a-2f3b-41ff-b357-c2d95c4eba9c" name="Default Changelist" comment="" />
+      <created>1611130559499</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1610948310924</updated>
-      <workItem from="1610948313929" duration="2707000" />
-      <workItem from="1610952897727" duration="534000" />
-      <workItem from="1610953443653" duration="709000" />
-      <workItem from="1610954163565" duration="689000" />
-      <workItem from="1610954864244" duration="1770000" />
-      <workItem from="1610956674294" duration="641000" />
-      <workItem from="1610957328127" duration="2536000" />
-      <workItem from="1610960192109" duration="441000" />
-      <workItem from="1610960642808" duration="53000" />
-      <workItem from="1610960720943" duration="7651000" />
-      <workItem from="1611011560933" duration="13408000" />
-      <workItem from="1611039187837" duration="9994000" />
-      <workItem from="1611049895607" duration="2500000" />
-      <workItem from="1611052439810" duration="3002000" />
-      <workItem from="1611097818963" duration="1454000" />
-      <workItem from="1611099288557" duration="19643000" />
+      <updated>1611130559499</updated>
+      <workItem from="1611130562544" duration="9245000" />
+      <workItem from="1611145367029" duration="1229000" />
+      <workItem from="1611184053914" duration="7166000" />
+      <workItem from="1611391287000" duration="239000" />
+      <workItem from="1611449534024" duration="3397000" />
+      <workItem from="1611538772816" duration="12268000" />
+      <workItem from="1611561275466" duration="168000" />
+      <workItem from="1611561457105" duration="35000" />
+      <workItem from="1611561656041" duration="12091000" />
+      <workItem from="1611616234547" duration="27171000" />
+      <workItem from="1611702625451" duration="9833000" />
+      <workItem from="1611720422518" duration="9856000" />
     </task>
     <servers />
   </component>
@@ -237,8 +309,15 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
