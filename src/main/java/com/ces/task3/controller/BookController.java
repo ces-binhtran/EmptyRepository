@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/book")
+@RequestMapping(value = {"/", "/book"})
 public class BookController {
 
     private BookService bookService;
@@ -17,9 +17,7 @@ public class BookController {
 
     @GetMapping
     private String getAllBook(){
-
-
-
-        return "";
+        System.out.println("-----------------");
+        return "book/book";
     }
 }
