@@ -1,0 +1,8 @@
+.books__actions {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.books__actions>button {
+	padding: 1rem;
+}

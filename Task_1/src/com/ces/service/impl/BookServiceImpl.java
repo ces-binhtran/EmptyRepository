@@ -25,7 +25,9 @@ public class BookServiceImpl implements BookService{
 		}
 		else {
 			for(int i=0; i<books.size(); i++) {
-				if(books.get(i).getId() == bookModel.getId()) books.set(i, bookModel);
+				if(books.get(i).getId() == bookModel.getId()) {
+					books.set(i, bookModel);
+				}
 			}
 		}
 	}
@@ -33,7 +35,9 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public void delete(Integer id) {
 		for(int i=0; i<books.size(); i++) {
-			if(books.get(i).getId() == id) books.remove(i);
+			if(books.get(i).getId() == id) {
+				books.remove(i);
+			}
 		}
 	}
 
