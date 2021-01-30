@@ -2,7 +2,6 @@ package com.ces.task3.dao.impl;
 
 import com.ces.task3.dao.BaseDAO;
 import com.ces.task3.model.Page;
-import com.ces.task3.model.exception.NotFoundException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,8 +13,9 @@ import javax.persistence.criteria.Root;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 
-public class BaseDAOImpl<E,PK> implements BaseDAO<E,PK>{
+public abstract class BaseDAOImpl<E,PK> implements BaseDAO<E,PK>{
 
     private Class<E> entityClass;
 
@@ -31,54 +31,49 @@ public class BaseDAOImpl<E,PK> implements BaseDAO<E,PK>{
     }
 
     @Override
-    public E createEntity(E newEntity) {
+    public void create(E newEntity) {
         entityManager.persist(newEntity);
-        return newEntity;
+        entityManager.refresh(newEntity);
     }
 
     @Override
-    public E getById(PK id) {
-        E entity = entityManager.find(entityClass, id);
-        return entity;
+    public Optional<E> getById(PK id) {
+        return Optional.ofNullable(entityManager.find(entityClass, id));
     }
 
     @Override
-    public E update(PK id, E newEntity) {
-
-        entityManager.merge(newEntity);
-        return newEntity;
+    public Optional<E> update(E entity)  {
+        return Optional.of(entityManager.merge(entity));
     }
 
     @Override
-    public void delete(PK id) {
-        E entity = getById(id);
+    public void delete(E entity) {
         entityManager.remove(entity);
     }
 
     @Override
     public Collection<E> getAll() {
-
-        return _getCollectionEntity(null, null);
+        return _getEntityCollection(null, null);
     }
 
     @Override
-    public Collection<E> getAllWithPage(Page page) {
-        return _getCollectionEntity(null, page);
+    public Collection<E> getAll(Page page) {
+        return _getEntityCollection(null, page);
     }
 
 
     @Override
     public Collection<E> getAllByProperty(Map<String, String> properties) {
-        return  _getCollectionEntity(properties, null);
+        return  _getEntityCollection(properties, null);
     }
 
     @Override
-    public Collection<E> getAllByPropertyWithPage(Map<String, String> properties, Page page) {
-        return _getCollectionEntity(properties, page);
+    public Collection<E> getAllByProperty(Map<String, String> properties, Page page) {
+        return _getEntityCollection(properties, page);
     }
 
 
-    protected Collection<E> _getCollectionEntity(Map<String, String> properties, Page page){
+    protected Collection<E> _getEntityCollection(Map<String, String> properties, Page page){
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<E> query = cb.createQuery(entityClass);

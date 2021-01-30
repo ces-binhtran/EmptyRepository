@@ -3,6 +3,7 @@ package com.ces.task3.controller;
 import com.ces.task3.dto.AuthorDTO;
 import com.ces.task3.entity.AuthorEntity;
 import com.ces.task3.model.exception.BadRequestException;
+import com.ces.task3.model.exception.NotFoundException;
 import com.ces.task3.service.AuthorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -26,14 +27,13 @@ public class AuthorController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping
-    @RequestMapping("/create")
+    @GetMapping("/create")
     private String create(@ModelAttribute("author")AuthorDTO authorDTO){
         return "author/create_edit";
     }
 
     @PostMapping
-    private String handlerCreate(AuthorDTO newAuthor) throws BadRequestException {
+    private String handlerCreate(AuthorDTO newAuthor) throws BadRequestException, NotFoundException {
         if(newAuthor.getName().isEmpty()){
             throw BadRequestException.builder("Name");
         }

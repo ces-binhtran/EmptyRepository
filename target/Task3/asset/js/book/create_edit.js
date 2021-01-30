@@ -9,15 +9,20 @@ let _authorsOfBook = [];
 let _allAuthor = [];
 let currentAuthor  = [];
 let showAuthorListSearch  = false;
+const rootURL = "http://localhost:8080/";
 const rootAPI = "http://localhost:8080/api";
-
+const bookId = document.getElementById("bookId").getAttribute("value");
+const jsonHeaderConfig = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+}
 
 // ---------------------Event-----------------------
 
 window.addEventListener("click", (event) => {
     if(event.target !== inputSearch && event.target !== authorListSearchEle ){
         inputSearch.value = ""
-        clearChild()
+        clearDropDownSearch()
     }
 })
 
@@ -35,8 +40,9 @@ function onInputHandler (target) {
 }
 
 function onAddAuthorToBook(data){
+
     currentAuthor.push(data);
-    clearChild();
+    clearDropDownSearch();
     inputSearch.value = ""
     const author = document.createElement("li");
     author.id = data.id;
@@ -55,8 +61,9 @@ function onAddAuthorToBook(data){
 
     author.append(removeButton);
     authorListEle.append(author)
-
 }
+
+
 
 function onRemoveAuthorFromBook(authorId){
     currentAuthor = currentAuthor.filter(ele => ele.id != authorId);
@@ -64,6 +71,42 @@ function onRemoveAuthorFromBook(authorId){
     const ele  = [...authorItemElements].find(ele => ele.id == authorId);
     ele.remove();
 }
+
+function validation(){
+    if(!nameInput.value || typeSelect.value == 0) return false;
+    return true;
+}
+
+function onSummitFormHandler(){
+    onSubmitForm().then(r => window.location.replace("/"));
+}
+
+async function onSubmitForm(){
+    if(validation()){
+        const name = nameInput.value;
+        const type = typeSelect.value;
+        const addedAuthorIds = currentAuthor
+            .filter(author => !_authorsOfBook.some(ele => ele.id == author.id))
+            .map(ele => ele.id);
+        const deleteAuthorIds = _authorsOfBook
+            .filter(author => !currentAuthor.some(ele => ele.id == author.id))
+            .map(ele => ele.id);
+        if(bookId){
+            return await Promise.all([
+                editBook(bookId, name, type),
+                addAuthorsToBook(bookId, addedAuthorIds),
+                deleteAuthorsFromBook(bookId, deleteAuthorIds)
+            ])
+        }else{
+            const res = await createBook(name, type);
+            return await Promise.all([
+                addAuthorsToBook(res.id, addedAuthorIds),
+                deleteAuthorsFromBook(res.id, deleteAuthorIds)
+            ])
+        }
+    }
+}
+
 
 // --------------------Util-------------------
 function addClassListToElement(element, classList){
@@ -79,29 +122,51 @@ async function fetchAuthor(){
     return await resultJson.json()
 }
 
-
-async function createBook(){
-
-    const resultJson = await fetch(`${rootAPI}/book`, {
+async function fetchAuthorOfBook(bookId){
+    const resultJson = await fetch(`${rootAPI}/author/book/${bookId}`, {
+        method: "get"
+    });
+    return await resultJson.json();
+}
+async function createBook(name, type){
+    const resultJson = await fetch(`${rootAPI}/book/create`,{
         method: "post",
-        body: {
-            name : nameInput.value,
-            type : typeSelect.value
-        }
+        headers: jsonHeaderConfig,
+        body : JSON.stringify({name, type})
     })
-    return await  resultJson.json();
+    return await resultJson.json();
 }
 
-async function addAuthorToBook(bookId, authorId){
-    const resultJson = await fetch(`${rootAPI}/book`, {
-        me
+async function  editBook(id, name, type){
+    const resultJson = await fetch(`${rootAPI}/book/edit`,{
+        method: "post",
+        headers: jsonHeaderConfig,
+        body : JSON.stringify({id,name, type})
     })
+    return await resultJson.json();
+}
+async function addAuthorsToBook(bookId, addedAuthorIds){
+    const resultJson = await fetch(`${rootAPI}/author/book/${bookId}/add`,{
+        method: "post",
+        headers: jsonHeaderConfig,
+        body: JSON.stringify(addedAuthorIds)
+    })
+    const json = await resultJson.json();
+}
+
+async function deleteAuthorsFromBook(bookId, deleteAuthorsIds){
+    const resultJson = await fetch(`${rootAPI}/author/book/${bookId}/delete`,{
+        method: "post",
+        headers: jsonHeaderConfig,
+        body: JSON.stringify(deleteAuthorsIds)
+    })
+    const json = await resultJson.json();
 }
 //-----------------------Other---------------------
 
 
 
-function clearChild() {
+function clearDropDownSearch() {
     while (authorListSearchEle.lastElementChild) {
         authorListSearchEle.removeChild(authorListSearchEle.lastElementChild);
     }
@@ -109,7 +174,7 @@ function clearChild() {
 
 
 function renderSelectBox(data){
-    clearChild();
+    clearDropDownSearch();
     data.forEach(ele => authorListSearchEle.append(createAuthorItem(ele)))
 
 }
@@ -127,7 +192,17 @@ function createAuthorItem(data){
 }
 
 function main(){
+    if(bookId){
+        //edit mode
+        fetchAuthorOfBook(bookId).then(res => {
+            _authorsOfBook = res;
+            _authorsOfBook.forEach(author => {
+                onAddAuthorToBook(author);
+            })
+        })
+    }
     fetchAuthor().then(res => _allAuthor = res);
+
 }
 main();
 

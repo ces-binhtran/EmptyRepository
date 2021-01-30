@@ -45,7 +45,7 @@ public class ControllerHandlerException {
         return _handlerModelAndView(request, exception, DEFAULT_ERROR_PAGE);
     }
 
-    public ModelAndView _handlerModelAndView(HttpServletRequest request, Exception ex, String view){
+    protected ModelAndView _handlerModelAndView(HttpServletRequest request, Exception ex, String view){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("exception", ex);
         modelAndView.addObject("url", request.getRequestURL());

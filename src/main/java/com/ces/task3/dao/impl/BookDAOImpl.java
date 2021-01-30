@@ -3,10 +3,10 @@ package com.ces.task3.dao.impl;
 import com.ces.task3.dao.BookDAO;
 import com.ces.task3.dao.TypeDAO;
 import com.ces.task3.entity.BookEntity;
-import com.ces.task3.entity.TypeEntity;
-import jdk.nashorn.internal.codegen.TypeMap;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.TypedQuery;
+import java.util.Collection;
 
 @Repository
 public class BookDAOImpl extends BaseDAOImpl<BookEntity, Integer> implements BookDAO {
@@ -18,17 +18,10 @@ public class BookDAOImpl extends BaseDAOImpl<BookEntity, Integer> implements Boo
     }
 
     @Override
-    public BookEntity createEntity(BookEntity newEntity) {
-
-        BookEntity book = new BookEntity();
-        book.copyValue(newEntity);
-
-        TypeEntity type = typeDAO.getById(newEntity.getType().getId());
-
-        book.setType(type);
-        this.entityManager.persist(book);
-
-        return  book;
-
+    public Collection<BookEntity> getAllByType(Integer typeId) {
+        TypedQuery<BookEntity> query = entityManager.createNamedQuery("book.getAllByType", BookEntity.class);
+        System.out.println("----------------"+ typeId);
+        query.setParameter("typeId", typeId);
+        return query.getResultList();
     }
 }

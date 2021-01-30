@@ -7,8 +7,8 @@ import lombok.Setter;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
@@ -22,5 +22,5 @@ public class AuthorDTO {
     private String name;
 
     @JsonIgnore
-    private Collection<@Valid BookDTO> books;
+    private Set<@Valid BookDTO> books = new HashSet<>();
 }

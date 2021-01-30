@@ -1,24 +1,25 @@
 package com.ces.task3.controller;
 
 
+import com.ces.task3.dao.TypeDAO;
+import com.ces.task3.dto.AuthorDTO;
 import com.ces.task3.dto.BookDTO;
 import com.ces.task3.dto.TypeDTO;
-import com.ces.task3.entity.BookEntity;
-import com.ces.task3.model.exception.BadRequestException;
+import com.ces.task3.entity.AuthorEntity;
 import com.ces.task3.model.exception.InternalException;
+import com.ces.task3.model.exception.NotFoundException;
 import com.ces.task3.service.BookService;
 import com.ces.task3.service.TypeService;
+import com.ces.task3.util.Utils;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.Collection;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(value = {"/", "/book"})
@@ -27,6 +28,7 @@ public class BookController {
     private BookService bookService;
     private TypeService typeService;
     private ModelMapper modelMapper;
+
 
     public BookController(
             BookService bookService,
@@ -38,32 +40,52 @@ public class BookController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping
-    private String getAllBook() throws InternalException {
+    //handler convert author name.
+    @GetMapping("/converter")
+    private String convertListAuthor(HttpServletRequest request){
+        List<BookDTO> books = (List<BookDTO>) request.getAttribute("books");
+
+        //convert list author of each book to String ( a - b... )
+        List<String> authorsOfBooks = books.stream()
+                .map(book -> Utils.authorsToString(book.getAuthors(), 2))
+                .collect(Collectors.toList());
+        request.setAttribute("authorsOfBooks", authorsOfBooks);
         return "book/book";
     }
 
-    @PostMapping
-    private String handlerCreate(@Valid @ModelAttribute("book")BookDTO newBook, BindingResult result) throws InternalException, BadRequestException {
-        if(result.hasErrors()){
-            return "book/create_edit";
+    @GetMapping
+    private String getAllBook(Model model) throws InternalException {
+        model.addAttribute("books", bookService.getAll());
+        return "forward:book/converter";
+    }
+
+    @GetMapping("/type")
+    public String getBookByType(@RequestParam("type") Optional<Integer> typeIdOpt, Model model) throws NotFoundException {
+        if(typeIdOpt.isPresent()){
+            model.addAttribute("books", bookService.getAllBookByTypeId(typeIdOpt.get()));
+            return "forward:/book/converter";
         }
-        if(newBook.getName().isEmpty() || newBook.getType() == null){
-            throw BadRequestException.builder("Name", "Type");
-        }
-        bookService.create(modelMapper.map(newBook, BookEntity.class));
-        return "redirect:book";
+        return "redirect:/";
     }
 
 
-    @GetMapping
-    @RequestMapping("/create")
-   private String create(@ModelAttribute("book")BookDTO bookDTO){
+
+    @GetMapping("/create")
+    private String create(@ModelAttribute("book")BookDTO bookDTO, Model model){
+        model.addAttribute("createMode", true);
         return "book/create_edit";
    }
 
-   @ModelAttribute(name = "types")
-   private Collection<TypeDTO> getAllType(){
+    @GetMapping("/edit/{bookId}")
+    private String edit(@ModelAttribute("book")BookDTO bookDTO, @PathVariable Integer bookId, Model model) throws NotFoundException {
+        bookDTO.copyValue(bookService.getById(bookId));
+        model.addAttribute("createMode", false);
+        return "book/create_edit";
+    }
+
+
+    @ModelAttribute(name = "types")
+    private Collection<TypeDTO> getAllType(){
         return typeService.getAll();
    }
 

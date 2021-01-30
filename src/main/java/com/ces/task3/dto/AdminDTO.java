@@ -25,9 +25,9 @@ public class AdminDTO {
     private String password;
 
 
-    public boolean checkAccount(AdminDTO adminDTO){
-        return this.email.equals(adminDTO.getEmail())
-                && this.password.equals(adminDTO.getPassword());
+    public boolean sameAccount(AdminDTO admin){
+        return email == admin.getEmail() &&
+                password == admin.getPassword();
     }
 
 

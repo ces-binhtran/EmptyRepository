@@ -5,8 +5,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,6 +20,9 @@ import java.util.Objects;
                 @Index(name = "index_book_name", columnList = "name")
         }
 )
+@NamedQueries({
+        @NamedQuery(name = "book.getAllByType", query = "select b from BookEntity b where b.type.id = :typeId")
+})
 public class BookEntity {
 
     @Id
@@ -26,7 +30,7 @@ public class BookEntity {
     @Column(name = "book_id")
     private Integer id;
 
-    @Basic    private String name;
+    private String name;
 
     @ManyToOne(
             fetch = FetchType.EAGER,
@@ -42,11 +46,21 @@ public class BookEntity {
             mappedBy = "books",
             cascade = {CascadeType.MERGE, CascadeType.PERSIST}
     )
-    private Collection<AuthorEntity> authors;
+    private Set<AuthorEntity> authors = new HashSet<>();
 
     public void copyValue(BookEntity copyObject){
         this.name = copyObject.getName();
         this.id = copyObject.getId();
+    }
+
+    public void addAuthor(AuthorEntity authorEntity){
+        this.authors.add(authorEntity);
+        authorEntity.getBooks().add(this);
+    }
+
+    public void removeAuthor(AuthorEntity authorEntity){
+        this.authors.remove(authorEntity);
+        authorEntity.getBooks().remove(this);
     }
 
 

@@ -1,14 +1,16 @@
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/Page.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/service/impl/AuthorServiceImpl.java
+/home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/util/QueryUtils.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/exception/BadRequestException.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/service/impl/TypeServiceImpl.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/exception/AlreadyExistException.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/controller/BookController.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/request/BookRequest.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/service/impl/BaseServiceImpl.java
-/home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/response/MessageResponse.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/service/BaseService.java
+/home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/response/ErrorResponse.java
+/home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/model/response/Response.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/service/impl/BookServiceImpl.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/controller/LoginController.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/entity/AuthorEntity.java
@@ -18,6 +20,7 @@
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/impl/TypeDAOImpl.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/BaseDAO.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/TypeDAO.java
+/home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/contrain/ResponseMessage.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/impl/AdminDAOImpl.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/util/Utils.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/AdminDAO.java
@@ -25,7 +28,6 @@
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/entity/AdminEntity.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/api/AuthorAPI.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dao/AuthorDAO.java
-/home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/util/JPAUtils.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dto/AdminDTO.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/dto/AuthorDTO.java
 /home/ces-user/Desktop/EmptyRepository/src/main/java/com/ces/task3/api/BookAPI.java

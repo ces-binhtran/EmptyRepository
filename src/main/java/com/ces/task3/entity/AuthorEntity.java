@@ -6,8 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Getter
@@ -21,6 +22,13 @@ import java.util.Objects;
                 @Index(name = "index_author_name", columnList = "name")
         }
 )
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "author.getAllAuthorOfBook",
+                        query = "from AuthorEntity as a join fetch a.books as b where b.id=:bookId")
+        }
+)
 public class AuthorEntity implements Serializable {
 
     @Id
@@ -32,14 +40,24 @@ public class AuthorEntity implements Serializable {
 
     @ManyToMany(
             fetch = FetchType.LAZY,
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
     )
     @JoinTable(
             name = "book_author",
             joinColumns = {@JoinColumn(name = "author_id")},
             inverseJoinColumns = {@JoinColumn(name = "book_id")}
     )
-    private Collection<BookEntity> books;
+    private Set<BookEntity> books = new HashSet<>();
+
+    public void addBook(BookEntity bookEntity){
+        this.books.add(bookEntity);
+        bookEntity.getAuthors().add(this);
+    }
+
+    public void removeBook(BookEntity bookEntity){
+        this.books.remove(bookEntity);
+        bookEntity.getAuthors().remove(this);
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -2,20 +2,26 @@ package com.ces.task3.service.impl;
 
 import com.ces.task3.dao.BaseDAO;
 import com.ces.task3.model.Page;
+import com.ces.task3.model.exception.NotFoundException;
 import com.ces.task3.service.BaseService;
 import org.modelmapper.ModelMapper;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.*;
+import java.util.Collection;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
-public class BaseServiceImpl<DAO extends BaseDAO ,DTO, E, PK> implements BaseService<DTO, E, PK> {
+@Transactional
+public abstract class BaseServiceImpl<DAO extends BaseDAO<E, PK> ,DTO, E, PK> implements BaseService<DTO, E, PK> {
 
     protected DAO dao;
     protected ModelMapper modelMapper;
     private Class<DTO> dtoClass;
+    private Class<E> entityClass;
+    protected final Function<E, DTO> toDTOFunc = e -> modelMapper.map(e, dtoClass);
+
 
     public BaseServiceImpl(DAO dao, ModelMapper modelMapper){
         this.dao = dao;
@@ -28,57 +34,60 @@ public class BaseServiceImpl<DAO extends BaseDAO ,DTO, E, PK> implements BaseSer
 
 
     @Override
-    @Transactional
-    public Optional<DTO> create(Object entity) {
-        return Optional.of(modelMapper.map(dao.createEntity(entity), dtoClass));
+    public DTO create( E entity) throws NotFoundException {
+        dao.create(entity);
+        return modelMapper.map(entity, dtoClass);
     }
 
     @Override
-    @Transactional
-    public Optional<DTO> update(Object id, Object entity) {
-        return Optional.of(modelMapper.map(dao.update(id, entity), dtoClass));
+    public DTO update(PK id,E entity) throws NotFoundException {
+        dao.getById(id)
+                .orElseThrow(
+                        () -> new NotFoundException("Id", id.toString()));
+        return dao.update(entity).map(toDTOFunc).get();
     }
 
     @Override
-    @Transactional
-    public void delete(Object id) {
-        dao.delete(id);
+    public void delete(PK id) throws NotFoundException {
+        E entity = dao.getById(id)
+                .orElseThrow(
+                        () -> new NotFoundException("Id", id.toString()));
+        dao.delete(entity);
     }
 
     @Override
-    @Transactional
-    public Optional<DTO> getById(Object id) {
-        return Optional.of(modelMapper.map(dao.getById(id), dtoClass));
+    public DTO getById(PK id) throws NotFoundException {
+        return dao.getById(id)
+                .map(toDTOFunc)
+                .orElseThrow(
+                        () -> new NotFoundException("Id", id.toString()));
     }
 
     @Override
-    @Transactional
     public Collection<DTO> getAll() {
-        return _castEntityToDTO(dao.getAll());
+        return _castEntitiesToDTOs(dao.getAll());
     }
 
     @Override
-    @Transactional
-    public Collection<DTO> getAllWithPage(Page page) {
-        return _castEntityToDTO(dao.getAllWithPage(page));
+    public Collection<DTO> getAll(Page page) {
+        return _castEntitiesToDTOs(dao.getAll(page));
     }
 
     @Override
-    @Transactional
-    public Collection<DTO> getAllByPropertyWithPage(Map<String, String> properties, Page page) {
-        return _castEntityToDTO(dao.getAllByPropertyWithPage(properties, page));
+    public Collection<DTO> getAllByProperty(Map<String, String> properties, Page page) {
+        return _castEntitiesToDTOs(dao.getAllByProperty(properties, page));
     }
 
     @Override
-    @Transactional
     public Collection<DTO> getAllByProperty(Map<String, String> properties) {
-        return _castEntityToDTO(dao.getAllByProperty(properties));
+        return _castEntitiesToDTOs(dao.getAllByProperty(properties));
     }
 
-    protected Collection<DTO> _castEntityToDTO(Collection<E> entities){
-        return  entities
+    protected Collection<DTO> _castEntitiesToDTOs(Collection<E> entities){
+        return entities
                 .stream()
-                .map(ele -> modelMapper.map(ele, dtoClass))
+                .map(toDTOFunc)
                 .collect(Collectors.toList());
     }
+
 }

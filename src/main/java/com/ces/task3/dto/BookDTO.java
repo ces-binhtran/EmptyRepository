@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,5 +27,12 @@ public class BookDTO {
     private TypeDTO type;
 
     @JsonIgnore
-    private Collection<@Valid AuthorEntity> authors;
+    private Set<@Valid AuthorDTO> authors = new HashSet<>();
+
+    public void copyValue(BookDTO book){
+        this.id = book.getId();
+        this.name = book.getName();
+        this.type = book.getType();
+        this.authors = book.getAuthors();
+    }
 }

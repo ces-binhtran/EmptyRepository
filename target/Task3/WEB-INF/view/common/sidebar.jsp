@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="static/css/sidebar.css">
+    <link rel="stylesheet" href="/static/css/sidebar.css">
 </head>
 <body>
 <div class="side-bar">
@@ -21,10 +21,10 @@
         </div>
         <div class="type__list">
             <c:forEach var="type" items="${types}">
-                <div class="type__item">
+                <a class="type__item" href="/book/type?type=${type.id}">
                     <span>${type.name}</span>
                     <i class="fab fa-java"></i>
-                </div>
+                </a>
             </c:forEach>
 
 

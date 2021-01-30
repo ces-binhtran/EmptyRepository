@@ -10,6 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookRequest {
+    private Integer id;
     private String name;
     private Integer type;
+
 }

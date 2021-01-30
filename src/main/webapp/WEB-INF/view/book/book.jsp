@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Collection" %><%--
   Created by IntelliJ IDEA.
   User: ces-user
   Date: 20/01/2021
@@ -11,7 +11,7 @@
 <head>
     <title>Book List</title>
     <%@include file="../common/reset_font.jsp"%>
-    <link rel="stylesheet" href="static/css/book.css">
+    <link rel="stylesheet" href="/static/css/book.css">
 </head>
 <body>
 <%@include file="../common/header.jsp"%>
@@ -22,49 +22,17 @@
             <a href="create"> Add more Book</a>
             <a href="author/create"> Add more Author</a>
         </div>
-        <div class="book_list">
-            <div class="book_item">
-                <div class="book_item__image">
-                    <img src="https://www.guru99.com/images/uploads/2012/06/head-first-java-original_v1.jpg" alt="book"/>
-                </div>
-                <div class="book_item__name">Head First Java</div>
-                <div class="book_item__author">Kathy Sierra - Bert Bates</div>
-            </div>
-            <div class="book_item">
-                <div class="book_item__image">
-                    <img src="https://www.guru99.com/images/uploads/2012/06/head-first-java-original_v1.jpg" alt="book"/>
-                </div>
-                <div class="book_item__name">Head First Java</div>
-                <div class="book_item__author">Kathy Sierra - Bert Bates</div>
-            </div>
-            <div class="book_item">
-                <div class="book_item__image">
-                    <img src="https://www.guru99.com/images/uploads/2012/06/head-first-java-original_v1.jpg" alt="book"/>
-                </div>
-                <div class="book_item__name">Head First Java</div>
-                <div class="book_item__author">Kathy Sierra - Bert Bates</div>
-            </div>
-            <div class="book_item">
-                <div class="book_item__image">
-                    <img src="https://www.guru99.com/images/uploads/2012/06/head-first-java-original_v1.jpg" alt="book"/>
-                </div>
-                <div class="book_item__name">Head First Java</div>
-                <div class="book_item__author">Kathy Sierra - Bert Bates</div>
-            </div>
-            <div class="book_item">
-                <div class="book_item__image">
-                    <img src="https://www.guru99.com/images/uploads/2012/06/head-first-java-original_v1.jpg" alt="book"/>
-                </div>
-                <div class="book_item__name">Head First Java</div>
-                <div class="book_item__author">Kathy Sierra - Bert Bates</div>
-            </div>
-            <div class="book_item">
-                <div class="book_item__image">
-                    <img src="https://www.guru99.com/images/uploads/2012/06/head-first-java-original_v1.jpg" alt="book"/>
-                </div>
-                <div class="book_item__name">Head First Java</div>
-                <div class="book_item__author">Kathy Sierra - Bert Bates</div>
-            </div>
+        <div class="book_list" >
+            <c:forEach var="book" items="${books}" varStatus="status">
+                <a class="book_item" href="/book/edit/${book.id}">
+                    <div class="book_item__image">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/41jk+Ueey9L._SX348_BO1,204,203,200_.jpg" alt="book"/>
+                    </div>
+                    <div class="book_item__name">${book.name}</div>
+<%--                    <div class="book_item__author">Kathy Sierra - Bert Bates</div>--%>
+                    <div>${authorsOfBooks.get(status.index)}</div>
+                </a>
+            </c:forEach>
         </div>
     </div>
 </div>

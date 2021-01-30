@@ -5,9 +5,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,7 +32,7 @@ public class TypeEntity {
             fetch = FetchType.LAZY,
             cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
     )
-    private Collection<BookEntity> books = new ArrayList<>();
+    private Set<BookEntity> books = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

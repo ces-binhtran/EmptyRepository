@@ -21,10 +21,22 @@ body{
     align-items: center;
     justify-content: center;
 }
-
+.book_item{
+    cursor: pointer;
+    border: 1px solid darkgray;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+.book_item__name{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
 .book_item__image{
     background-color: white;
     height: 350px;
+    border-bottom: 1px solid darkgray;
 }
 
 .book_item__image>img{
