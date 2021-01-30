@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -55,15 +54,11 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public String update(BookDTO bookDTO, Integer[] ids) {
         BookEntity bookEntity = bookDAO.get(bookDTO.getId());
-        if(bookEntity.getName().isEmpty()) {
-            throw new AppException("Not found with id = " + bookEntity.getId());
-        } else {
-            bookEntity.setName(bookDTO.getName());
-            bookEntity.setImage(bookDTO.getImage());
-            bookEntity.setPrice(bookDTO.getPrice());
-            bookEntity.setPublish(bookDTO.getPublish());
-            return bookDAO.update(bookEntity, ids);
-        }
+        bookEntity.setName(bookDTO.getName());
+        bookEntity.setImage(bookDTO.getImage());
+        bookEntity.setPrice(bookDTO.getPrice());
+        bookEntity.setPublish(bookDTO.getPublish());
+        return bookDAO.update(bookEntity, ids);
     }
 
     @Override
