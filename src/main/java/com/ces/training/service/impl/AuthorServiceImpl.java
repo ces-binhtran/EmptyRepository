@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,8 +31,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional
-    public List<AuthorDTO> findAll() {
-        List<AuthorDTO> authorDTOList = (List<AuthorDTO>) authorDAO.findAll().stream().map(ele -> modelMapper.map(ele, AuthorDTO.class)).collect(Collectors.toList());
+    public Set<AuthorDTO> findAll() {
+        Set<AuthorDTO> authorDTOList = authorDAO.findAll().stream().map(ele -> modelMapper.map(ele, AuthorDTO.class)).collect(Collectors.toSet());
         return authorDTOList;
     }
 }

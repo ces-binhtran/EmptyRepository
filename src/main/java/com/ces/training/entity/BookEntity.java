@@ -25,7 +25,7 @@ public class BookEntity {
     private String image;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    List<AuthorEntity> authors = new ArrayList<>();
+    Set<AuthorEntity> authors = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -59,11 +59,11 @@ public class BookEntity {
         this.publish = publish;
     }
 
-    public List<AuthorEntity> getAuthors() {
+    public Set<AuthorEntity> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<AuthorEntity> authors) {
+    public void setAuthors(Set<AuthorEntity> authors) {
         this.authors = authors;
     }
 
@@ -80,11 +80,21 @@ public class BookEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookEntity that = (BookEntity) o;
-        return Objects.equals(id, that.id) && name.equals(that.name) && Objects.equals(price, that.price) && Objects.equals(publish, that.publish) && Objects.equals(image, that.image) && Objects.equals(authors, that.authors);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(price, that.price) && Objects.equals(publish, that.publish) && Objects.equals(image, that.image);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, publish, image, authors);
+        return Objects.hash(id, name, price, publish, image);
+    }
+
+    public void addAuthor(AuthorEntity authorEntity) {
+        authors.add(authorEntity);
+        authorEntity.getBooks().add(this);
+    }
+
+    public void removeAuthor(AuthorEntity authorEntity) {
+        authors.remove(authorEntity);
+        authorEntity.getBooks().remove(this);
     }
 }

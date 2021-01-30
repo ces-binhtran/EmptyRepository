@@ -10,23 +10,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
+
+<script>
+    $(document).on("click", ".btn-delete", function () {
+        var itemid= $(this).attr('data-item');
+        $("#lineitem").attr({method:"POST", action: "${pageContext.request.contextPath}/book/delete/" + itemid})
+    });
+</script>
+
 <body style="padding: 0 10rem; padding-bottom: 10rem">
     <jsp:include page="header.jsp" />
-
     <div class="home">
         <c:forEach items="${books}" var="book" varStatus="status">
-            <div class="card" style="width:400px">
-                <img class="card-img-top" src="${book.image}" alt="Card image">
+            <div class="card" style="width:376px">
+                <div class="container">
+                    <img class="card-img-top" src="${book.image}" alt="Card image">
+                    <div class="overlay">
+                        <h3 class="card-title">${book.name}</h3>
+                        <p class="card-text">
+                            <c:forEach items="${book.authors}" var="author">
+                                ${author.name}</br>
+                            </c:forEach>
+                        </p>
+                        <p style="display: flex; justify-content: flex-end; font-size: .9rem"> ${book.publish.getDate()} - ${book.publish.getMonth() + 1} - ${book.publish.getYear() + 1900} </p>
+                    </div>
+                </div>
+
                 <div class="card-body">
-                    <h4 class="card-title">${book.name}</h4>
-                    <p class="card-text">
-                        <c:forEach items="${book.authors}" var="author">
-                            ${author.name}</br>
-                        </c:forEach>
-                    </p>
                     <div class="books_actions">
-                        <a href="${pageContext.request.contextPath}/book/edit/${book.id}" class="btn btn-primary" style="margin-right: .5rem">Edit</a>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Delete</a>
+                        <a href="${pageContext.request.contextPath}/book/updateForm/${book.id}" class="btn btn-primary" style="margin-right: .5rem">Edit</a>
+                        <a href="#" class="btn btn-primary btn-delete" data-item="${book.id}" data-toggle="modal" data-target="#exampleModalCenter">Delete</a>
                     </div>
                 </div>
             </div>
@@ -40,12 +53,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            Do you wanna delete "${book.name}"?
+                            Do you wanna delete this book?
                         </div>
-                        <div class="modal-footer">
+                        <form method="post" class="modal-footer" id="lineitem">
                             <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                            <a href="<c:url value="/book/${book.id}/delete"/>" class="btn btn-primary">Delete</a>
-                        </div>
+                            <button class="btn btn-primary">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>

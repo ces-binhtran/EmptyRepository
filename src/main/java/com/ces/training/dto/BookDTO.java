@@ -11,7 +11,7 @@ public class BookDTO {
     private Integer price;
     private Date publish;
     private String image;
-    private List<AuthorDTO> authors = new ArrayList<>();
+    private Set<AuthorDTO> authors = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -53,11 +53,11 @@ public class BookDTO {
         this.image = image;
     }
 
-    public List<AuthorDTO> getAuthors() {
+    public Set<AuthorDTO> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<AuthorDTO> authors) {
+    public void setAuthors(Set<AuthorDTO> authors) {
         this.authors = authors;
     }
 }

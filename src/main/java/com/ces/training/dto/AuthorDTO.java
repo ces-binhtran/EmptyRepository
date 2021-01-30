@@ -15,7 +15,7 @@ public class AuthorDTO {
     @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Invalid email.")
     private String email;
     private Date birth;
-    private List<BookDTO> books = new ArrayList<>();
+    private Set<BookDTO> books = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -49,11 +49,11 @@ public class AuthorDTO {
         this.birth = birth;
     }
 
-    public List<BookDTO> getBooks() {
+    public Set<BookDTO> getBooks() {
         return books;
     }
 
-    public void setBooks(List<BookDTO> books) {
+    public void setBooks(Set<BookDTO> books) {
         this.books = books;
     }
 }

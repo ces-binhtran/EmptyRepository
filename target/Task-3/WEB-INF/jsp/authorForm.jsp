@@ -34,7 +34,8 @@
             </div>
             <form:input path="email" type="text" class="form-control" placeholder="Enter email" id="price" />
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <a href="<c:url value="/book/create"/>" class="btn btn-secondary" data-dismiss="modal">Close</a>
+        <button style="background-color: #007BFF; color: white" type="submit" class="btn btn-default">Submit</button>
     </form:form>
 </div>
 </body>

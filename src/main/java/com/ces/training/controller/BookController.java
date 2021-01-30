@@ -6,6 +6,7 @@ import com.ces.training.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -41,9 +42,12 @@ public class BookController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/{bookId}/delete")
-    public String delete(@PathVariable Integer bookId) {
-        return bookService.delete(bookId);
+    @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.POST)
+    public ModelAndView delete(@PathVariable Integer bookId) {
+        ModelAndView modelAndView = new ModelAndView("home");
+        bookService.delete(bookId);
+        modelAndView.addObject("books", bookService.findAll());
+        return modelAndView;
     }
 
     @RequestMapping(value = "/create")
@@ -56,8 +60,7 @@ public class BookController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView save(@Valid @ModelAttribute("book") BookDTO bookDTO,
                              BindingResult result,
-                             Model model,
-                             @RequestParam("author") String[] ids) {
+                             @Nullable @RequestParam("author") Integer[] ids) {
         ModelAndView modelAndView = new ModelAndView();
         if(result.hasErrors()) {
             modelAndView.setViewName("bookForm");
@@ -70,21 +73,39 @@ public class BookController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit/{bookId}")
+    @RequestMapping(value = "/updateForm/{bookId}")
     public ModelAndView edit(@Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result, @PathVariable Integer bookId) {
         ModelAndView modelAndView = new ModelAndView();
-        if(result.hasErrors()) {
-            modelAndView.setViewName("bookForm");
-            modelAndView.addObject("authors", authorService.findAll());
-            return modelAndView;
-        }
+        modelAndView.setViewName("bookForm");
         modelAndView.addObject("book", bookService.get(bookId));
         modelAndView.addObject("authors", authorService.findAll());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/update")
-    public ModelAndView update() {
-        return null;
+    @RequestMapping(value = "/update/{bookId}", method = RequestMethod.POST)
+    public ModelAndView update(@Valid @ModelAttribute("book") BookDTO bookDTO,
+                               BindingResult result,
+                               @PathVariable Integer bookId,
+                               @Nullable @RequestParam("author") Integer[] authorIds) {
+        ModelAndView modelAndView = new ModelAndView();
+        if(result.hasErrors()) {
+            modelAndView.setViewName("bookForm");
+            modelAndView.addObject("book", bookService.get(bookId));
+            modelAndView.addObject("authors", authorService.findAll());
+            return modelAndView;
+        } else {
+            bookDTO.setId(bookId);
+            bookService.update(bookDTO, authorIds);
+            modelAndView.setViewName("home");
+            modelAndView.addObject("books", bookService.findAll());
+            return modelAndView;
+        }
+    }
+
+    @RequestMapping(value = "/search")
+    public ModelAndView search(@RequestParam("search") String name) {
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("books", bookService.findByName(name));
+        return modelAndView;
     }
 }

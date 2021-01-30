@@ -22,7 +22,7 @@ public class AuthorEntity {
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY , mappedBy = "authors", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    List<BookEntity> books = new ArrayList<>();
+    Set<BookEntity> books = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -56,25 +56,24 @@ public class AuthorEntity {
         this.email = email;
     }
 
-    public List<BookEntity> getBooks() {
+    public Set<BookEntity> getBooks() {
         return books;
     }
 
-    public void setBooks(List<BookEntity> books) {
+    public void setBooks(Set<BookEntity> books) {
         this.books = books;
     }
 
     @Override
     public boolean equals(Object o) {
-        System.out.println(6);
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AuthorEntity that = (AuthorEntity) o;
-        return Objects.equals(id, that.id) && name.equals(that.name) && Objects.equals(birth, that.birth) && email.equals(that.email) && Objects.equals(books, that.books);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(birth, that.birth) && Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, birth, email, books);
+        return Objects.hash(id, name, birth, email);
     }
 }

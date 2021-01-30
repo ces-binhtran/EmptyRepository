@@ -12,9 +12,17 @@
 </head>
 <body style="padding: 0 10rem 10rem 10rem;">
 <jsp:include page="header.jsp" />
+
+<c:if test="${book.id != null}">
+    <c:set value="${pageContext.request.contextPath}/book/update/${book.id}" var="action"/>
+</c:if>
+<c:if test="${book.id == null}">
+    <c:set value="${pageContext.request.contextPath}/book/save" var="action"/>
+</c:if>
+
 <h1 style="text-align: center; margin-top: 1rem">Create book</h1>
 <div class="create_book">
-    <form:form action="${pageContext.request.contextPath}/book/save" modelAttribute="book"  method="post">
+    <form:form action="${action}" modelAttribute="book"  method="post">
         <div class="form-group">
             <div style="display: flex; justify-content: space-between">
                 <label for="name">Name:</label>
@@ -63,7 +71,8 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <a href="<c:url value="/book"/>" class="btn btn-secondary" data-dismiss="modal">Close</a>
+        <button style="background-color: #007BFF; color: white" type="submit" class="btn btn-default">Submit</button>
     </form:form>
 </div>
 </body>

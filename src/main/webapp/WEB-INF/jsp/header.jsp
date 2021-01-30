@@ -33,22 +33,22 @@
             <span class="carousel-control-next-icon"></span>
         </a>
     </div>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="display: flex; justify-content: space-between">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value="/"/>">Home <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value="/book/create"/>">New Book <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-        </div>
-        <form class="form-inline" action="/action_page.php" style="display: contents">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-success" type="submit">Search</button>
-        </form>
-    </nav>
 </div>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark sticky-top" style="color: #296fab !important;">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="<c:url value="/"/>">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="<c:url value="/book/create"/>">New Book <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+    <form class="form-inline" action="<c:url value="/book/search"/>" style="display: contents" method="post">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+        <button class="btn btn-success" type="submit">Search</button>
+    </form>
+</nav>
