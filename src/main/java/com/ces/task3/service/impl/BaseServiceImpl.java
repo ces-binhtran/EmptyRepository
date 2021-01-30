@@ -42,16 +42,14 @@ public abstract class BaseServiceImpl<DAO extends BaseDAO<E, PK> ,DTO, E, PK> im
     @Override
     public DTO update(PK id,E entity) throws NotFoundException {
         dao.getById(id)
-                .orElseThrow(
-                        () -> new NotFoundException("Id", id.toString()));
+                .orElseThrow(() -> new NotFoundException("Id", id.toString()));
         return dao.update(entity).map(toDTOFunc).get();
     }
 
     @Override
     public void delete(PK id) throws NotFoundException {
         E entity = dao.getById(id)
-                .orElseThrow(
-                        () -> new NotFoundException("Id", id.toString()));
+                .orElseThrow(() -> new NotFoundException("Id", id.toString()));
         dao.delete(entity);
     }
 
@@ -59,8 +57,7 @@ public abstract class BaseServiceImpl<DAO extends BaseDAO<E, PK> ,DTO, E, PK> im
     public DTO getById(PK id) throws NotFoundException {
         return dao.getById(id)
                 .map(toDTOFunc)
-                .orElseThrow(
-                        () -> new NotFoundException("Id", id.toString()));
+                .orElseThrow(() -> new NotFoundException("Id", id.toString()));
     }
 
     @Override
@@ -84,8 +81,7 @@ public abstract class BaseServiceImpl<DAO extends BaseDAO<E, PK> ,DTO, E, PK> im
     }
 
     protected Collection<DTO> _castEntitiesToDTOs(Collection<E> entities){
-        return entities
-                .stream()
+        return entities.stream()
                 .map(toDTOFunc)
                 .collect(Collectors.toList());
     }

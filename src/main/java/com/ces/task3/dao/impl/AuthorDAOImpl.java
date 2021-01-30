@@ -62,7 +62,7 @@ public class AuthorDAOImpl extends BaseDAOImpl<AuthorEntity, Integer> implements
         BookEntity bookEntity = bookDAO.getById(bookId)
                 .orElseThrow(() ->new NotFoundException("bookId", bookId.toString()));
 
-        // filter AuthorId exist in book
+        // filter AuthorId exist in book.
         List<String> authorIds = _getAuthorsById(deleteAuthorIds)
                 .stream()
                 .filter(author -> bookEntity.getAuthors().contains(author))
@@ -75,7 +75,7 @@ public class AuthorDAOImpl extends BaseDAOImpl<AuthorEntity, Integer> implements
         String condition1 = "book_id =" +bookId;
         String condition2 = "author_id in"+QueryUtils.createValueSQL(authorIds);
         List<String> conditions = Arrays.asList(condition1, condition2);
-        // make a multiple insert query.
+        // make a delete query.
         String queryStatement =  QueryUtils
                 .buildDeleteQuery("book_author", conditions)
                 .toString();

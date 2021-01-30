@@ -39,16 +39,10 @@ public class AuthorServiceImpl extends BaseServiceImpl<AuthorDAO, AuthorDTO, Aut
     @Override
     public Collection<AuthorDTO> getAuthorsOffBook(Integer bookId) {
         Collection<AuthorEntity> authorDTOS = dao.getAllAuthorOfBook(bookId);
-        try {
-            return authorDTOS.stream()
-                    .peek(author -> author.getBooks().size())// get lazy books
-                    .map(toDTOFunc)
-                    .collect(Collectors.toList());
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-
-        return null;
+        return authorDTOS.stream()
+                .peek(author -> author.getBooks().size())// get lazy books
+                .map(toDTOFunc)
+                .collect(Collectors.toList());
     }
 
 
