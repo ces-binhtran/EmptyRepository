@@ -9,4 +9,5 @@ import java.util.Collection;
 public interface BookService extends BaseService<BookDTO, BookEntity, Integer> {
 
     Collection<BookDTO> getAllBookByTypeId(Integer typeId) throws NotFoundException;
+    Collection<BookDTO> getAllBookByName(String queryString) throws NotFoundException;
 }

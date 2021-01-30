@@ -1,24 +1,22 @@
 package com.ces.task3.controller;
 
 
-import com.ces.task3.dao.TypeDAO;
-import com.ces.task3.dto.AuthorDTO;
 import com.ces.task3.dto.BookDTO;
 import com.ces.task3.dto.TypeDTO;
-import com.ces.task3.entity.AuthorEntity;
 import com.ces.task3.model.exception.InternalException;
 import com.ces.task3.model.exception.NotFoundException;
 import com.ces.task3.service.BookService;
 import com.ces.task3.service.TypeService;
 import com.ces.task3.util.Utils;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -68,7 +66,14 @@ public class BookController {
         return "redirect:/";
     }
 
-
+    @GetMapping("/search")
+    public String getBookBySearch(@RequestParam("query") Optional<String> query, Model model) throws NotFoundException {
+        if(query.isPresent()){
+            model.addAttribute("books", bookService.getAllBookByName(query.get()));
+            return "forward:/book/converter";
+        }
+        return "redirect:/";
+    }
 
     @GetMapping("/create")
     private String create(@ModelAttribute("book")BookDTO bookDTO, Model model){

@@ -7,5 +7,5 @@ import java.util.Collection;
 public interface BookDAO extends BaseDAO<BookEntity, Integer>{
 
     Collection<BookEntity> getAllByType(Integer typeId);
-
+    Collection<BookEntity> getAllByName(String queryString);
 }

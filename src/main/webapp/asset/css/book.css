@@ -8,7 +8,7 @@ body{
     justify-content: flex-start;
 }
 .content_right{
-    height: 1000px;
+    /*height: 1000px;*/
     width: 100%;
     border: 1px solid #D7D7D7;
     padding: 10px;

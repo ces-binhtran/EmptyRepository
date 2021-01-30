@@ -27,19 +27,16 @@ public class AuthorServiceImpl extends BaseServiceImpl<AuthorDAO, AuthorDTO, Aut
     }
 
     @Override
-    @Transactional
     public Response addAuthorsToBook(Integer bookId, List<Integer> addedAuthorIds) throws NotFoundException {
         return dao.addAuthorsToBook(bookId, addedAuthorIds);
     }
 
     @Override
-    @Transactional
     public Response deleteAuthorsFromBook(Integer bookId, List<Integer> deleteAuthorIds) throws NotFoundException {
         return dao.deleteAuthorsFromBook(bookId, deleteAuthorIds);
     }
 
     @Override
-    @Transactional
     public Collection<AuthorDTO> getAuthorsOffBook(Integer bookId) {
         Collection<AuthorEntity> authorDTOS = dao.getAllAuthorOfBook(bookId);
         try {

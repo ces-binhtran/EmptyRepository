@@ -10,134 +10,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e19bc99a-2f3b-41ff-b357-c2d95c4eba9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/util/QueryUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/api/AuthorAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/api/AuthorAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/api/BookAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/api/BookAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/contrain/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/contrain/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/AuthorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/AuthorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/AuthorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/BaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/BaseDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/AuthorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/AuthorDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BaseDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BaseDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/AdminDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/AdminDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/AuthorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/AuthorDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/TypeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dto/TypeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AuthorEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/AuthorEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TypeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/entity/TypeEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/handler/ControllerHandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/handler/ControllerHandlerException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/handler/RestControllerHandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/handler/RestControllerHandlerException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/AlreadyExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/AlreadyExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/BadRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/InternalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/InternalException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/LoginException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/LoginException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/exception/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/request/BookRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/request/BookRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/response/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/response/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/model/response/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/AuthorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/BaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/AuthorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/AuthorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BaseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/service/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/util/JPAUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/util/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/springmvc-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/book/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/book/book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/book/create_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/book/create_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/reset_font.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/reset_font.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/sidebar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/asset/css/book.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/asset/css/book.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/asset/js/book/create_edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/asset/js/book/create_edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/api/AuthorAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/api/AuthorAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/api/BookAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/api/BookAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/AuthorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/AuthorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/asset/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/asset/css/sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/BookController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/AuthorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/AuthorDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/BaseDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/BookDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/BookDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BookDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dao/impl/BookDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/AdminDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/AdminDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/AuthorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/AuthorDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/BookDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/TypeDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/dto/TypeDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AuthorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/AuthorEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/BookEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TypeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/entity/TypeEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/handler/ControllerHandlerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/handler/ControllerHandlerException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/handler/RestControllerHandlerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/handler/RestControllerHandlerException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/AlreadyExistException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/AlreadyExistException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/BadRequestException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/BadRequestException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/InternalException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/InternalException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/LoginException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/LoginException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/NotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/exception/NotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/request/BookRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/request/BookRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/model/response/MessageResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/AuthorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/BaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/BaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/AdminServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BaseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/BookService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/service/impl/BookServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/util/JPAUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/util/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/classes/com/ces/task3/util/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/config/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/config/springmvc-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/view/book/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/view/book/book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/view/book/create_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/view/book/create_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/view/common/reset_font.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/view/common/reset_font.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/WEB-INF/view/common/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/WEB-INF/view/common/sidebar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Task3/asset/css/book.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/asset/css/book.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Task3/asset/js/book/create_edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/asset/js/book/create_edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/api/AuthorAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/api/AuthorAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/api/BookAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/api/BookAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/AuthorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/AuthorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Task3/asset/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Task3/asset/css/sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/BookController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/AuthorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/AuthorDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/BaseDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/AuthorDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/BookDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/BookDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BookDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dao/impl/BookDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/AdminDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/AdminDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/AuthorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/AuthorDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/BookDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/TypeDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/dto/TypeDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AuthorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/AuthorEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/BookEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TypeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/entity/TypeEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/handler/ControllerHandlerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/handler/ControllerHandlerException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/handler/RestControllerHandlerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/handler/RestControllerHandlerException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/AlreadyExistException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/AlreadyExistException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/BadRequestException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/BadRequestException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/InternalException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/InternalException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/LoginException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/LoginException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/NotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/model/exception/NotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/request/BookRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/model/request/BookRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/model/response/MessageResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/AuthorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/BaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/BaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/AdminServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/AuthorServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BaseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/BookService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/service/impl/BookServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/util/JPAUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ces/task3/util/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ces/task3/util/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,6 +88,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -338,7 +239,8 @@
       <workItem from="1611875325713" duration="30868000" />
       <workItem from="1611925566789" duration="2190000" />
       <workItem from="1611962136410" duration="6367000" />
-      <workItem from="1611993383192" duration="10501000" />
+      <workItem from="1611993383192" duration="15775000" />
+      <workItem from="1612048307473" duration="599000" />
     </task>
     <servers />
   </component>
@@ -356,5 +258,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/BookDAOImpl.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

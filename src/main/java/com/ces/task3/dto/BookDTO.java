@@ -1,6 +1,5 @@
 package com.ces.task3.dto;
 
-import com.ces.task3.entity.AuthorEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

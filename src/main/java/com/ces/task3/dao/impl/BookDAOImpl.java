@@ -20,8 +20,14 @@ public class BookDAOImpl extends BaseDAOImpl<BookEntity, Integer> implements Boo
     @Override
     public Collection<BookEntity> getAllByType(Integer typeId) {
         TypedQuery<BookEntity> query = entityManager.createNamedQuery("book.getAllByType", BookEntity.class);
-        System.out.println("----------------"+ typeId);
         query.setParameter("typeId", typeId);
+        return query.getResultList();
+    }
+
+    @Override
+    public Collection<BookEntity> getAllByName(String queryString) {
+        TypedQuery<BookEntity> query = entityManager.createNamedQuery("book.getAllByName", BookEntity.class);
+        query.setParameter("query", "%"+queryString+"%");
         return query.getResultList();
     }
 }

@@ -34,5 +34,7 @@
     font-size: 22px;
     color: black;
     font-weight: 500;
-
+}
+.type__item.active{
+    background-color: #56B342;
 }

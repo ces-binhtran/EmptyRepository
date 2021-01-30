@@ -20,8 +20,16 @@
             <i class="fas fa-book"></i>
         </div>
         <div class="type__list">
+
             <c:forEach var="type" items="${types}">
-                <a class="type__item" href="/book/type?type=${type.id}">
+                <c:choose>
+                    <c:when test="${param['type'] == type.id}">
+                        <a class="type__item active" href="/book/type?type=${type.id}">
+                    </c:when>
+                    <c:otherwise>
+                        <a class="type__item" href="/book/type?type=${type.id}">
+                    </c:otherwise>
+                </c:choose>
                     <span>${type.name}</span>
                     <i class="fab fa-java"></i>
                 </a>

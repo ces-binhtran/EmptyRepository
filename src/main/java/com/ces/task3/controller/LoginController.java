@@ -32,7 +32,6 @@ public class LoginController {
 
     @PostMapping
     public String form(@Valid AdminDTO input, BindingResult result, Model model) throws Exception {
-
         AdminDTO admin = adminService.getByEmail(input.getEmail());
         if(admin.sameAccount(input)){
             model.addAttribute("admin", input);

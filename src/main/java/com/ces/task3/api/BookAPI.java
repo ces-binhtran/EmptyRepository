@@ -9,9 +9,10 @@ import com.ces.task3.model.request.BookRequest;
 import com.ces.task3.service.BookService;
 import com.ces.task3.service.TypeService;
 import org.modelmapper.ModelMapper;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/book")

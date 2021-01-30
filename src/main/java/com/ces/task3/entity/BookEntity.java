@@ -21,7 +21,8 @@ import java.util.Set;
         }
 )
 @NamedQueries({
-        @NamedQuery(name = "book.getAllByType", query = "select b from BookEntity b where b.type.id = :typeId")
+        @NamedQuery(name = "book.getAllByType", query = "select b from BookEntity b where b.type.id = :typeId"),
+        @NamedQuery(name = "book.getAllByName", query = "select b from BookEntity b where b.type.name like :query")
 })
 public class BookEntity {
 
