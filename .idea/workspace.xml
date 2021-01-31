@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e19bc99a-2f3b-41ff-b357-c2d95c4eba9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/AuthorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ces/task3/dao/impl/AuthorDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +68,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat -2">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="maven" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -214,7 +224,7 @@
       <workItem from="1611925566789" duration="2190000" />
       <workItem from="1611962136410" duration="6367000" />
       <workItem from="1611993383192" duration="15775000" />
-      <workItem from="1612048307473" duration="1332000" />
+      <workItem from="1612048307473" duration="2607000" />
     </task>
     <servers />
   </component>
