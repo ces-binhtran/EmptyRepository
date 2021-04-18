@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.training.amf.registration.model.UserCustom">
+		<field name="userCustomId" type="long" />
+		<field name="homePhone" type="String" />
+		<field name="mobilePhone" type="String" />
+		<field name="userId" type="long" />
+		<field name="address" type="String" />
+		<field name="address2" type="String" />
+		<field name="city" type="String" />
+		<field name="state" type="String" />
+		<field name="zip" type="String" />
+		<field name="securityQuestion" type="String" />
+		<field name="securityAnswer" type="String" />
+		<field name="acceptedTou" type="boolean" />
+	</model>
+</model-hints>
