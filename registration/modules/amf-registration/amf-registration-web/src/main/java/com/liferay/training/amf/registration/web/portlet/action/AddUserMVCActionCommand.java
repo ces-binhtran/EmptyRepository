@@ -10,7 +10,6 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.training.amf.registration.service.UserCustomService;
 import com.liferay.training.amf.registration.web.constants.MVCCommandNames;
@@ -25,7 +24,7 @@ import javax.portlet.ActionResponse;
         immediate = true,
         property = {
                 "javax.portlet.name=" + RegistrationPortletKeys.REGISTRATION,
-                "mvc.command.name=" + MVCCommandNames.SIGNUP
+                "mvc.command.name=" + MVCCommandNames.ADD_USER
         },
         service = MVCActionCommand.class
 )
@@ -33,12 +32,11 @@ public class AddUserMVCActionCommand extends BaseMVCActionCommand {
 
     @Override
     protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
+
         ThemeDisplay themeDisplay =
                 (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
-
-
-
         Company company = themeDisplay.getCompany();
+
         boolean autoPassword = false;
         String password1 = ParamUtil.getString(actionRequest, "password1");
         String password2 = ParamUtil.getString(actionRequest, "password2");

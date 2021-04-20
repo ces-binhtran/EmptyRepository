@@ -19,7 +19,6 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
-import com.liferay.portal.kernel.service.UserService;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.training.amf.registration.exception.*;
 import com.liferay.training.amf.registration.model.UserCustom;
@@ -86,6 +85,7 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 		long userId = counterLocalService.increment(User.class.getName());
 
 		UserCustom userCustom = createUserCustom(userId);
+		userCustom.setUserId(user.getUserId());
 		userCustom.setHomePhone(homePhone);
 		userCustom.setMobilePhone(mobilePhone);
 		userCustom.setAddress(address);
@@ -98,7 +98,6 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 		userCustom.setAcceptedTou(acceptedTou);
 
 		return super.updateUserCustom(userCustom);
-
 	}
 
 	protected void validate(String firstName, String lastName, String emailAddress, String screenName, LocalDate birthday, String password1,
