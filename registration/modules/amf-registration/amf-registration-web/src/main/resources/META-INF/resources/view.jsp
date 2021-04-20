@@ -1,7 +1,14 @@
 <%@ page import="com.liferay.training.amf.registration.model.UserCustom" %>
+<%@ page import="com.liferay.training.amf.registration.util.StateUtil" %>
 <%@ page import="com.liferay.training.amf.registration.exception.*" %>
+<%@ page import="com.liferay.portal.kernel.util.PortalUtil" %>
+<%@ page import="com.liferay.portal.kernel.model.User" %>
+<%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
+<%@ page import="com.liferay.portal.kernel.servlet.SessionMessages" %>
+<%@ page import="com.liferay.training.amf.registration.util.State" %>
 <%@ include file="/init.jsp" %>
 <%
+    State[] states = StateUtil.STATES;
     Date now = new Date();
     Calendar birthdayCalendar = CalendarFactoryUtil.getCalendar();
     birthdayCalendar.set(Calendar.MONTH, now.getMonth());
@@ -9,7 +16,7 @@
     birthdayCalendar.set(Calendar.YEAR, now.getYear() + 1900 - 14);
 %>
 
-<portlet:actionURL var="registrationActionURL" name="<%=MVCCommandNames.SIGNUP %>">
+<portlet:actionURL var="registrationActionURL" name="<%=MVCCommandNames.ADD_USER %>">
     <portlet:param name="redirect" value="${param.redirect}"/>
 </portlet:actionURL>
 
@@ -43,127 +50,140 @@
     <liferay-ui:error exception="<%= UserSecurityQueryException.MustNotBeTooLong.class %>" message="security-answer-must-have-maximum-255-characters" focusField="securityAnswer"/>
     <liferay-ui:error exception="<%= UserAcceptedTouException.class %>" message="you-must-accept-the-terms-of-use" focusField="acceptedTou"/>
     <liferay-ui:success key="registerSuccess" message="sign-up-successfully" />
-    <aui:form action="${registrationActionURL}" name="fm" method="post">
-        <aui:model-context model="<%= Contact.class %>"/>
-        <aui:fieldset column="<%= true %>">
-            <aui:col width="<%= 50 %>">
-                <aui:fieldset-group markupView="lexicon">
-                    <h3>Basic Info</h3>
-                    <aui:fieldset>
 
-                        <aui:input name="firstName">
-                            <aui:validator name="required"/>
-                        </aui:input>
+    <c:choose>
+        <c:when test="<%= request.getAttribute("userId") != null %>">
+            <div class="alert alert-info">
+                <liferay-ui:message key="you-has-logged-in" />
+            </div>
+        </c:when>
+        <c:otherwise>
+            <aui:form action="${registrationActionURL}" name="fm" method="post">
+                <aui:model-context model="<%= Contact.class %>"/>
+                <aui:fieldset column="<%= true %>">
+                    <aui:col width="<%= 50 %>">
+                        <aui:fieldset-group markupView="lexicon">
+                            <h3>Basic Info</h3>
+                            <aui:fieldset>
 
-                        <aui:input name="lastName">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:input name="firstName">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:input name="emailAddress">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:input name="lastName">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:input name="userName">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:input name="emailAddress">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:select label="gender" name="male">
-                            <aui:option label="male" value="1" />
-                            <aui:option label="female" value="0" />
-                            <aui:validator name="required"/>
-                        </aui:select>
+                                <aui:input name="userName">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:input name="birthday" value="<%= birthdayCalendar %>">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:select label="gender" name="male">
+                                    <aui:option label="male" value="1" />
+                                    <aui:option label="female" value="0" />
+                                    <aui:validator name="required"/>
+                                </aui:select>
 
-                        <aui:input name="password1" value="" label="Password" type="password">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:input name="birthday" value="<%= birthdayCalendar %>">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:input name="password2" label="Confirm Password" value="" type="password">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:input name="password1" value="" label="Password" type="password">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                    </aui:fieldset>
-                </aui:fieldset-group>
+                                <aui:input name="password2" label="Confirm Password" value="" type="password">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                <aui:model-context model="<%= UserCustom.class %>"/>
-                <aui:fieldset-group markupView="lexicon">
-                    <h3>Phone</h3>
-                    <aui:fieldset>
+                            </aui:fieldset>
+                        </aui:fieldset-group>
 
-                        <aui:input name="homePhone">
+                        <aui:model-context model="<%= UserCustom.class %>"/>
+                        <aui:fieldset-group markupView="lexicon">
+                            <h3>Phone</h3>
+                            <aui:fieldset>
 
-                        </aui:input>
+                                <aui:input name="homePhone">
 
-                        <aui:input name="mobilePhone">
+                                </aui:input>
 
-                        </aui:input>
+                                <aui:input name="mobilePhone">
 
-                    </aui:fieldset>
-                </aui:fieldset-group>
-            </aui:col>
-            <aui:col width="<%= 50 %>">
-                <aui:fieldset-group markupView="lexicon">
-                    <h3>Billing Address (US-Only)</h3>
-                    <aui:fieldset>
+                                </aui:input>
 
-                        <aui:input name="address">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                            </aui:fieldset>
+                        </aui:fieldset-group>
+                    </aui:col>
+                    <aui:col width="<%= 50 %>">
+                        <aui:fieldset-group markupView="lexicon">
+                            <h3>Billing Address (US-Only)</h3>
+                            <aui:fieldset>
 
-                        <aui:input name="address2">
+                                <aui:input name="address">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        </aui:input>
+                                <aui:input name="address2">
 
-                        <aui:input name="city">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                </aui:input>
 
-                        <aui:input name="state">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:input name="city">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:input name="zip" label="Zip Code">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:select name="state">
+                                    <% for(State state : states)
+                                        {
+                                    %>
+                                        <aui:option value="<%= state.getId() %>" label="<%= state.getName() %>" />
+                                    <% } %>
+                                </aui:select>
 
-                    </aui:fieldset>
-                </aui:fieldset-group>
-                <aui:fieldset-group markupView="lexicon">
-                    <h3>Misc.</h3>
-                    <aui:fieldset>
+                                <aui:input name="zip" label="Zip Code">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-                        <aui:select name="securityQuestion" label="Security Question">
-                            <aui:option value="" label="" />
-                            <aui:option value="what-is-your-mother's-maiden-name" label="what-is-your-mother's-maiden-name"/>
-                            <aui:option value="what-is-the-make-of-your-first-car" label="what-is-the-make-of-your-first-car"/>
-                            <aui:option value="what-is-your-high-school-mascot" label="what-is-your-high-school-mascot" />
-                            <aui:option value="who-is-your-favorite-actor" label="who-is-your-favorite-actor" />
-                            <aui:validator name="required"/>
-                        </aui:select>
+                            </aui:fieldset>
+                        </aui:fieldset-group>
+                        <aui:fieldset-group markupView="lexicon">
+                            <h3>Misc.</h3>
+                            <aui:fieldset>
 
-                        <aui:input name="securityAnswer" label="Answer">
-                            <aui:validator name="required"/>
-                        </aui:input>
+                                <aui:select name="securityQuestion" label="Security Question">
+                                    <aui:option value="" label="" />
+                                    <aui:option value="what-is-your-mother's-maiden-name" label="what-is-your-mother's-maiden-name"/>
+                                    <aui:option value="what-is-the-make-of-your-first-car" label="what-is-the-make-of-your-first-car"/>
+                                    <aui:option value="what-is-your-high-school-mascot" label="what-is-your-high-school-mascot" />
+                                    <aui:option value="who-is-your-favorite-actor" label="who-is-your-favorite-actor" />
+                                    <aui:validator name="required"/>
+                                </aui:select>
 
-                        <aui:input name="acceptedTou" label="Terms of Use">
-<%--                            <aui:validator name="required"/>--%>
-                        </aui:input>
-                        <p style="margin-left: 2rem; margin-top: -1rem">I have read, understand, and agree with the
-                            Terms of Use governing my
-                            access to and use of the Acme Movie Fanatics
-                            web site.</p>
-                    </aui:fieldset>
-                </aui:fieldset-group>
-            </aui:col>
-        </aui:fieldset>
+                                <aui:input name="securityAnswer" label="Answer">
+                                    <aui:validator name="required"/>
+                                </aui:input>
 
-        <aui:button-row>
-            <aui:button cssClass="btn btn-primary" type="submit"/>
-            <aui:button cssClass="btn btn-secondary" onClick="${param.redirect}" type="cancel"/>
-        </aui:button-row>
-    </aui:form>
+                                <aui:input name="acceptedTou" label="Terms of Use">
+                                    <%--                            <aui:validator name="required"/>--%>
+                                </aui:input>
+                                <p style="margin-left: 2rem; margin-top: -1rem">I have read, understand, and agree with the
+                                    Terms of Use governing my
+                                    access to and use of the Acme Movie Fanatics
+                                    web site.</p>
+                            </aui:fieldset>
+                        </aui:fieldset-group>
+                    </aui:col>
+                </aui:fieldset>
 
+                <aui:button-row>
+                    <aui:button cssClass="btn btn-primary" type="submit"/>
+                    <aui:button cssClass="btn btn-secondary" onClick="${param.redirect}" type="cancel"/>
+                </aui:button-row>
+            </aui:form>
+        </c:otherwise>
+    </c:choose>
 </div>
