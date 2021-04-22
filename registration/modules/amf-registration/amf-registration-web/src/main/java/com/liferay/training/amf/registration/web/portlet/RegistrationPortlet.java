@@ -16,6 +16,7 @@ import org.osgi.service.component.annotations.Component;
 	property = {
 			"com.liferay.portlet.display-category=category.sample",
 			"com.liferay.portlet.header-portlet-css=/css/main.css",
+			"com.liferay.portlet.friendly-url-mapping=signUp",
 			"javax.portlet.display-name=Sign Up",
 			"com.liferay.portlet.instanceable=true",
 			"javax.portlet.init-param.template-path=/",
