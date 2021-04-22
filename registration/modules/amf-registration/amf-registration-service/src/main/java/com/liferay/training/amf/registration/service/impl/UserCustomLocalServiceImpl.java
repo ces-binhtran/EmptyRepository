@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
+import com.liferay.portal.kernel.service.persistence.UserPersistence;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.training.amf.registration.exception.*;
 import com.liferay.training.amf.registration.model.UserCustom;
@@ -71,7 +72,7 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 
 		LocalDate birthday = LocalDate.of(birthdayYear, birthdayMonth, birthdayDay);
 
-		validate(firstName, lastName, emailAddress, screenName, birthday, password1, password2, homePhone, mobilePhone,
+		validate(companyId, firstName, lastName, emailAddress, screenName, birthday, password1, password2, homePhone, mobilePhone,
 				address, address2, city, state, zip, securityQuestion, securityAnswer, acceptedTou);
 
 		_userLocalService.addUser(0, companyId, autoPassword, password1, password2,
@@ -100,13 +101,14 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 		return super.updateUserCustom(userCustom);
 	}
 
-	protected void validate(String firstName, String lastName, String emailAddress, String screenName, LocalDate birthday, String password1,
+	protected void validate(long companyId, String firstName, String lastName, String emailAddress, String screenName, LocalDate birthday, String password1,
 							String password2, String homePhone, String mobilePhone, String address, String address2, String city, String state,
 							String zip, String securityQuestion, String securityAnswer, boolean acceptedTou) throws PortalException{
 
 		validateFirstName(firstName);
 		validateLastName(lastName);
 		validateEmailAddress(emailAddress);
+		validateScreenName(companyId, screenName);
 		validateBirthday(birthday);
 		validatePassword(password1, password2);
 		validatePhoneNumber(homePhone, mobilePhone);
@@ -116,6 +118,22 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 		validateZip(zip);
 		validateReminderQuery(securityAnswer, securityQuestion);
 		validateAcceptedTou(acceptedTou);
+	}
+
+	protected void validateScreenName(long companyId, String screenName) throws PortalException{
+
+		if(Validator.isNull(screenName)) {
+			throw new UserScreenNameException.MustNotBeNull();
+		}
+
+		if(screenName.length() < 4 || screenName.length() > 16) {
+			throw new UserScreenNameException.MustBeValidate();
+		}
+
+		User user = _userPersistence.fetchByC_SN(companyId, screenName);
+		if(user != null) {
+			throw new UserScreenNameException.MustBeUnique();
+		}
 	}
 
 	protected void validateAcceptedTou(boolean acceptedTou) throws PortalException{
@@ -267,6 +285,9 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 
 	@Reference
 	private UserLocalService _userLocalService;
+
+	@Reference
+	private UserPersistence _userPersistence;
 
 	private static final int _CHAR_UPPER_CASE_BEGIN = 65;
 

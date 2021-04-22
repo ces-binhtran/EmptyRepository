@@ -32,6 +32,9 @@
     <liferay-ui:error exception="<%= UserEmailAddressException.MustNotBeTooLong.class %>" message="email-address-can't-have-more-than-255-characters" focusField="emailAddress"/>
     <liferay-ui:error exception="<%= UserBirthdayException.MustNotBeNull.class %>" message="birthday-must-not-be-null" focusField="birthday"/>
     <liferay-ui:error exception="<%= UserBirthdayException.MustNotTooYoung.class %>" message="must-be-at-least-13-to-register" focusField="birthday"/>
+    <liferay-ui:error exception="<%= UserScreenNameException.MustNotBeNull.class %>" message="screen-name-must-not-be-null" focusField="userName"/>
+    <liferay-ui:error exception="<%= UserScreenNameException.MustBeValidate.class %>" message="screen-name-must-be-have-from-4-to-16-characters" focusField="userName"/>
+    <liferay-ui:error exception="<%= UserScreenNameException.MustBeUnique.class %>" message="screen-name-must-be-unique" focusField="userName"/>
     <liferay-ui:error exception="<%= UserPasswordException.MustNotBeNull.class %>" message="password-must-not-be-null" focusField="password"/>
     <liferay-ui:error exception="<%= UserPasswordException.MustMatch.class %>" message="passwords-must-be-match" focusField="password"/>
     <liferay-ui:error exception="<%= UserPasswordException.MustNotBeTooShort.class %>" message="password-must-at-least-6-characters" focusField="password"/>
