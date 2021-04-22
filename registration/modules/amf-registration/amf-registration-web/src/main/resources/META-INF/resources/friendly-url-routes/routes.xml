@@ -4,7 +4,7 @@
 <routes>
     <route>
         <pattern></pattern>
-        <implicit-parameter name="mvcRenderCommandName">/signUp</implicit-parameter>
+        <implicit-parameter name="mvcRenderCommandName"></implicit-parameter>
         <implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
         <implicit-parameter name="p_p_state">normal</implicit-parameter>
     </route>

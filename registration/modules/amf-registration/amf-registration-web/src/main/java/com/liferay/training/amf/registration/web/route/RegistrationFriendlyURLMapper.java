@@ -1,4 +1,4 @@
-package com.liferay.training.amf.registration.web;
+package com.liferay.training.amf.registration.web.route;
 
 import com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
