@@ -1,0 +1,27 @@
+<%@ page import="com.liferay.training.amf.event.monitor.web.util.ConvertUtil" %>
+<liferay-ui:search-container-column-text
+        name="date"
+        value="<%= ConvertUtil.convertDate(event.getCreateDate()) %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="time"
+        value="<%= ConvertUtil.convertTime(event.getCreateDate()) %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="user-name"
+        property="userName"
+/>
+
+<liferay-ui:search-container-column-text
+        name="client-ip"
+        value="<%= Validator.isNotNull(event.getClientIP()) ? event.getClientIP() : "0.0.0.0" %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="resource-action"
+        title='<%= (String)PortalClassInvoker.invoke(new MethodKey(ClassResolverUtil.resolve("com.liferay.portal.kernel.security.permission.ResourceActionsUtil", PortalClassLoaderUtil.getClassLoader()), "getAction", HttpServletRequest.class, String.class), request, event.getEventType()) %>'
+        value="<%= event.getEventType().equals("ADD") ? "REGISTRATION"  : event.getEventType() %>"
+/>
+
