@@ -15,9 +15,14 @@
 package com.liferay.training.amf.event.monitor.web.util;
 
 import com.liferay.portal.kernel.audit.AuditMessage;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Order;
+import com.liferay.portal.kernel.dao.orm.OrderFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.security.audit.AuditEvent;
 import com.liferay.portal.security.audit.AuditEventManager;
+import com.liferay.portal.security.audit.storage.service.AuditEventLocalService;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -28,59 +33,48 @@ import java.util.List;
  * @author Brian Greenwald
  * @author Prathima Shreenath
  */
-@Component(immediate = true, service = {})
+@Component(
+		immediate = true,
+		service = AuditEventManagerUtil.class
+)
 public class AuditEventManagerUtil {
 
-	public static AuditEvent addAuditEvent(AuditMessage auditMessage) {
-		return _auditEventManager.addAuditEvent(auditMessage);
+	public List<AuditEvent> getAuditEventsByDynamicQuery(int start, int end, boolean isAll) {
+		List<AuditEvent> auditEvents = _auditEventLocalService.dynamicQuery(createDynamicQuery(isAll), start, end);
+		return auditEvents;
 	}
 
-	public static AuditEvent fetchAuditEvent(long auditEventId) {
-		return _auditEventManager.fetchAuditEvent(auditEventId);
+	public DynamicQuery createDynamicQuery(boolean isAll) {
+		Order order = OrderFactoryUtil.desc("createDate");
+		DynamicQuery dynamicQuery = _auditEventLocalService.dynamicQuery();
+		if(isAll) {
+			dynamicQuery
+				.add(RestrictionsFactoryUtil.or(
+				RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
+				RestrictionsFactoryUtil.eq("eventType", "ADD")
+				))
+				.addOrder(order);
+		}
+		else {
+			dynamicQuery
+				.add(RestrictionsFactoryUtil.and(
+					RestrictionsFactoryUtil.or(
+						RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
+						RestrictionsFactoryUtil.eq("eventType", "ADD")
+					),
+					RestrictionsFactoryUtil.eq("userId", 3)
+				))
+				.addOrder(order);
+		}
+
+		return dynamicQuery;
 	}
 
-	public static List<AuditEvent> getAuditEvents(
-		long companyId, int start, int end,
-		OrderByComparator orderByComparator) {
-
-		return _auditEventManager.getAuditEvents(
-			companyId, start, end, orderByComparator);
+	public long dynamicQueryCount(boolean isAll) {
+		return _auditEventLocalService.dynamicQueryCount(createDynamicQuery(isAll));
 	}
 
-	public static List<AuditEvent> getAuditEvents(
-		long companyId, long userId, String userName, Date createDateGT,
-		Date createDateLT, String eventType, String className, String classPK,
-		String clientHost, String clientIP, String serverName, int serverPort,
-		String sessionID, boolean andSearch, int start, int end,
-		OrderByComparator orderByComparator) {
-
-		return _auditEventManager.getAuditEvents(
-			companyId, userId, userName, createDateGT, createDateLT, eventType,
-			className, classPK, clientHost, clientIP, serverName, serverPort,
-			sessionID, andSearch, start, end, orderByComparator);
-	}
-
-	public static int getAuditEventsCount(long companyId) {
-		return _auditEventManager.getAuditEventsCount(companyId);
-	}
-
-	public static int getAuditEventsCount(
-		long companyId, long userId, String userName, Date createDateGT,
-		Date createDateLT, String eventType, String className, String classPK,
-		String clientHost, String clientIP, String serverName, int serverPort,
-		String sessionID, boolean andSearch) {
-
-		return _auditEventManager.getAuditEventsCount(
-			companyId, userId, userName, createDateGT, createDateLT, eventType,
-			className, classPK, clientHost, clientIP, serverName, serverPort,
-			sessionID, andSearch);
-	}
-
-	@Reference(unbind = "-")
-	protected void set_auditEventManager(AuditEventManager auditEventManager) {
-		_auditEventManager = auditEventManager;
-	}
-
-	private static AuditEventManager _auditEventManager;
+	@Reference
+	private AuditEventLocalService _auditEventLocalService;
 
 }

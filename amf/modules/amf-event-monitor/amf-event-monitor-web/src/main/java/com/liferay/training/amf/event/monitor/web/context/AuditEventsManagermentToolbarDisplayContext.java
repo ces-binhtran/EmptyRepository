@@ -13,10 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Brian Wing Shun Chan
+ */
 public class AuditEventsManagermentToolbarDisplayContext {
 
     public AuditEventsManagermentToolbarDisplayContext(RenderRequest renderRequest, RenderResponse renderResponse) {
         _renderRequest = renderRequest;
+
         _renderResponse = renderResponse;
         _httpServletRequest = PortalUtil.getHttpServletRequest(renderRequest);
     }

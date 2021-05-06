@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author Brian Wing Shun Chan
+ */
 public class ConvertUtil {
 
     public static String convertDate(Date date) {
