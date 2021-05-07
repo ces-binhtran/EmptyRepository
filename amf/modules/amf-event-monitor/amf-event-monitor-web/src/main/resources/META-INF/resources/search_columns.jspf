@@ -1,0 +1,27 @@
+<%@ page import="com.liferay.training.amf.event.monitor.web.util.ConvertUtil" %>
+<liferay-ui:search-container-column-text
+        name="date"
+        value="<%= ConvertUtil.convertDate(event.getCreateDate()) %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="time"
+        value="<%= ConvertUtil.convertTime(event.getCreateDate()) %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="user-name"
+        property="userName"
+/>
+
+<liferay-ui:search-container-column-text
+
+        name="Client Ip"
+        value="<%= event.getEventType().equals("ADD") ? "0.0.0.0" : event.getClientIP() %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="Resource Action"
+        value="<%= event.getEventType().equals("ADD") ? "REGISTRATION"  : event.getEventType() %>"
+/>
+
