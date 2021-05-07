@@ -39,39 +39,67 @@ import java.util.List;
 )
 public class AuditEventManagerUtil {
 
-	public List<AuditEvent> getAuditEventsByDynamicQuery(int start, int end, boolean isAll) {
-		List<AuditEvent> auditEvents = _auditEventLocalService.dynamicQuery(createDynamicQuery(isAll), start, end);
+	public List<AuditEvent> getAuditEventsByDynamicQuery(int start, int end, boolean viewAllPermission, long userId, String eventType) {
+		List<AuditEvent> auditEvents = _auditEventLocalService.dynamicQuery(createDynamicQuery(viewAllPermission, userId, eventType), start, end);
 		return auditEvents;
 	}
 
-	public DynamicQuery createDynamicQuery(boolean isAll) {
+	public DynamicQuery createDynamicQuery(boolean viewAllPermission, long userId, String eventType) {
+
 		Order order = OrderFactoryUtil.desc("createDate");
 		DynamicQuery dynamicQuery = _auditEventLocalService.dynamicQuery();
-		if(isAll) {
-			dynamicQuery
-				.add(RestrictionsFactoryUtil.or(
-				RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
-				RestrictionsFactoryUtil.eq("eventType", "ADD")
-				))
-				.addOrder(order);
+		if(viewAllPermission) {
+			if(eventType.equals("registration")) {
+				dynamicQuery
+					.add(RestrictionsFactoryUtil.eq("eventType", "ADD"));
+			}
+			else
+				if(eventType.equals("login")) {
+					dynamicQuery
+						.add(RestrictionsFactoryUtil.eq("eventType", "LOGIN"));
+				}
+				else {
+					dynamicQuery
+						.add(RestrictionsFactoryUtil.or(
+								RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
+								RestrictionsFactoryUtil.eq("eventType", "ADD")
+						));
+					}
 		}
 		else {
-			dynamicQuery
-				.add(RestrictionsFactoryUtil.and(
-					RestrictionsFactoryUtil.or(
-						RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
-						RestrictionsFactoryUtil.eq("eventType", "ADD")
-					),
-					RestrictionsFactoryUtil.eq("userId", 3)
-				))
-				.addOrder(order);
+			if(eventType.equals("registration")) {
+				dynamicQuery
+						.add(RestrictionsFactoryUtil.and(
+							RestrictionsFactoryUtil.eq("eventType", "ADD"),
+							RestrictionsFactoryUtil.eq("userId", userId)
+						));
+			}
+			else
+				if(eventType.equals("login")) {
+					dynamicQuery
+							.add(RestrictionsFactoryUtil.and(
+									RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
+									RestrictionsFactoryUtil.eq("userId", userId)
+							));
+				}
+				else {
+					dynamicQuery
+							.add(RestrictionsFactoryUtil.and(
+									RestrictionsFactoryUtil.or(
+											RestrictionsFactoryUtil.eq("eventType", "LOGIN"),
+											RestrictionsFactoryUtil.eq("eventType", "ADD")
+									),
+									RestrictionsFactoryUtil.eq("userId", userId)
+							));
+				}
 		}
+		dynamicQuery.addOrder(order);
 
 		return dynamicQuery;
 	}
 
-	public long dynamicQueryCount(boolean isAll) {
-		return _auditEventLocalService.dynamicQueryCount(createDynamicQuery(isAll));
+	public long dynamicQueryCount(boolean viewAllPermission, long userId, String eventType) {
+		return _auditEventLocalService.dynamicQueryCount(createDynamicQuery(viewAllPermission, userId, eventType));
 	}
 
 	@Reference

@@ -15,13 +15,13 @@
 />
 
 <liferay-ui:search-container-column-text
-        name="client-ip"
-        value="<%= Validator.isNotNull(event.getClientIP()) ? event.getClientIP() : "0.0.0.0" %>"
+
+        name="Client Ip"
+        value="<%= event.getEventType().equals("ADD") ? "0.0.0.0" : event.getClientIP() %>"
 />
 
 <liferay-ui:search-container-column-text
-        name="resource-action"
-        title='<%= (String)PortalClassInvoker.invoke(new MethodKey(ClassResolverUtil.resolve("com.liferay.portal.kernel.security.permission.ResourceActionsUtil", PortalClassLoaderUtil.getClassLoader()), "getAction", HttpServletRequest.class, String.class), request, event.getEventType()) %>'
+        name="Resource Action"
         value="<%= event.getEventType().equals("ADD") ? "REGISTRATION"  : event.getEventType() %>"
 />
 

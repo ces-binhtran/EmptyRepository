@@ -30,7 +30,6 @@ public class ViewAuditEventsMVCRenderCommand implements MVCRenderCommand {
 
     @Override
     public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
-        User currentUser = (User) renderRequest.getAttribute(WebKeys.USER);
         renderRequest.setAttribute("auditEventManagerUtil", auditEventManagerUtil);
         renderRequest.setAttribute("auditEventTopLevelPermission", _auditEventTopLevelPermission);
         return "/view.jsp";

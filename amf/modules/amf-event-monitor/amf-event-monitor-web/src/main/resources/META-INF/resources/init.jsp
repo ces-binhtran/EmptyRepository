@@ -30,5 +30,7 @@
 <portlet:defineObjects/>
 
 <%
+    String eventType = ParamUtil.getString(request, "tabs1");
+    request.setAttribute("eventType", eventType);
     AuditEventsManagermentToolbarDisplayContext auditEventsManagermentToolbarDisplayContext = new AuditEventsManagermentToolbarDisplayContext(renderRequest, renderResponse);
 %>
