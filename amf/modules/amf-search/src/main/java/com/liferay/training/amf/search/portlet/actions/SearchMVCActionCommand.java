@@ -25,9 +25,8 @@ public class SearchMVCActionCommand extends BaseMVCActionCommand {
 
     @Override
     protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
-        String value = ParamUtil.getString(actionRequest, "zip");
-        validate(value);
-        actionRequest.setAttribute("value", value);
+        String searchValue = ParamUtil.getString(actionRequest, "searchValue");
+        validate(searchValue);
         sendRedirect(actionRequest, actionResponse);
     }
 

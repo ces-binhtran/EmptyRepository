@@ -1,12 +1,15 @@
 package com.liferay.training.amf.search.results.portlet;
 
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.training.amf.search.results.constants.SearchResultsPortletKeys;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
-import javax.portlet.Portlet;
+import javax.portlet.*;
 
 import org.osgi.service.component.annotations.Component;
+
+import java.io.IOException;
 
 /**
  * @author ces-user
@@ -22,9 +25,11 @@ import org.osgi.service.component.annotations.Component;
 		"javax.portlet.init-param.view-template=/view.jsp",
 		"javax.portlet.name=" + SearchResultsPortletKeys.SEARCHRESULTS,
 		"javax.portlet.resource-bundle=content.Language",
-		"javax.portlet.security-role-ref=power-user,user"
+		"javax.portlet.security-role-ref=power-user,user",
+		"javax.portlet.supported-public-render-parameter=searchValue"
 	},
 	service = Portlet.class
 )
 public class SearchResultsPortlet extends MVCPortlet {
+
 }
