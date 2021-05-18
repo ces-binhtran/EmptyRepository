@@ -38,4 +38,6 @@ public class SearchMVCActionCommand extends BaseMVCActionCommand {
             throw new SearchException.MustBeDigit();
         }
     }
+
+
 }
