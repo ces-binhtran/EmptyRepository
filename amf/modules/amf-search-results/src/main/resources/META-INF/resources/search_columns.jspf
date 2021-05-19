@@ -1,0 +1,16 @@
+<%@ page import="com.liferay.training.amf.search.results.util.ConvertUtil" %>
+<liferay-ui:search-container-column-text
+        name="user-name"
+        value="<%= ConvertUtil.convertName(user.getFirstName(), user.getLastName()) %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="screen-name"
+        value="<%= user.getScreenName() %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="email"
+        value="<%= user.getEmailAddress() %>"
+/>
+
