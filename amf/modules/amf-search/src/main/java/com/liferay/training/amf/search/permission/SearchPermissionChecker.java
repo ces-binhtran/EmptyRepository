@@ -15,29 +15,38 @@ import javax.portlet.RenderRequest;
 
 public class SearchPermissionChecker {
 
-    public void check(RenderRequest renderRequest) throws PortalException {
-        long companyId = (long)renderRequest.getAttribute(WebKeys.COMPANY_ID);
-        ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
-        PermissionChecker permissionChecker = themeDisplay.getPermissionChecker();
-        User currentUser = themeDisplay.getUser();
-        String primKey = themeDisplay.getLayout().getPlid() + LiferayPortletSession.LAYOUT_SEPARATOR + PortalUtil.getPortletId(renderRequest);
-        long portletGroupId = themeDisplay.getScopeGroupId();
-        if(!hasPermission(permissionChecker, companyId, currentUser.getUserId(), portletGroupId, primKey)) {
-            throw new PrincipalException.MustHavePermission(currentUser.getUserId(), ActionKeys.SEARCH);
-        }
+	public void check(RenderRequest renderRequest) throws PortalException {
+		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
 
-    }
-    public boolean hasPermission(PermissionChecker permissionChecker, long companyId, long userId, long portletGroupId, String primKey) throws PortalException {
+		PermissionChecker permissionChecker =
+			themeDisplay.getPermissionChecker();
+		User currentUser = themeDisplay.getUser();
+		String primKey =
+			themeDisplay.getLayout(
+			).getPlid() + LiferayPortletSession.LAYOUT_SEPARATOR +
+				PortalUtil.getPortletId(renderRequest);
+		long portletGroupId = themeDisplay.getScopeGroupId();
 
-        if(permissionChecker.isCompanyAdmin(companyId)) {
-            return true;
-        }
+		if (!hasPermission(permissionChecker, portletGroupId, primKey)) {
+			throw new PrincipalException.MustHavePermission(
+				currentUser.getUserId(), ActionKeys.SEARCH);
+		}
+	}
 
-        if(permissionChecker.hasPermission(portletGroupId, SearchPortletKeys.SEARCH, primKey, ActionKeys.SEARCH)) {
-            return true;
-        }
+	public boolean hasPermission(
+			PermissionChecker permissionChecker, long portletGroupId,
+			String primKey)
+		throws PortalException {
 
-        return false;
-    }
+		if (permissionChecker.hasPermission(
+				portletGroupId, SearchPortletKeys.SEARCH, primKey,
+				ActionKeys.SEARCH)) {
+
+			return true;
+		}
+
+		return false;
+	}
 
 }
