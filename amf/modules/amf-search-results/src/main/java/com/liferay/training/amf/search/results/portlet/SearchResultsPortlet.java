@@ -26,7 +26,9 @@ import java.io.IOException;
 		"javax.portlet.name=" + SearchResultsPortletKeys.SEARCHRESULTS,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user",
-		"javax.portlet.supported-public-render-parameter=searchValue"
+		"javax.portlet.supported-public-render-parameter=searchValue",
+			"com.liferay.portlet.private-session-attributes=false",
+			"com.liferay.portlet.requires-namespaced-parameters=false"
 	},
 	service = Portlet.class
 )

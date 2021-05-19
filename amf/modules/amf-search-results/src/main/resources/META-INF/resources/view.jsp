@@ -4,7 +4,7 @@
 <%@ include file="/init.jsp" %>
 
 <div class="container-fluid-1280">
-	<c:if test="<%= renderRequest.getAttribute("value") == null %>">
+	<c:if test="<%= renderRequest.getAttribute("value") != null && renderRequest.getAttribute("value") != "" %>">
 		<div style="font-size: 2rem; font-weight: 500">
 			<liferay-ui:message key="search-results-for-x" arguments="${value}"/>
 		</div>

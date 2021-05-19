@@ -5,12 +5,14 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.training.amf.search.results.constants.MVCCommandNames;
+import com.liferay.training.amf.search.results.constants.SearchResultsPortletConstant;
 import com.liferay.training.amf.search.results.constants.SearchResultsPortletKeys;
 import com.liferay.training.amf.search.results.util.SearchManagerUtil;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import javax.portlet.PortletException;
+import javax.portlet.PortletSession;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import java.util.List;
@@ -20,18 +22,23 @@ import java.util.List;
         property = {
                 "javax.portlet.name=" + SearchResultsPortletKeys.SEARCHRESULTS,
                 "mvc.command.name=/",
-                "mvc.command.name=/" + MVCCommandNames.VIEW_SEARCH_RESULTS
+                "mvc.command.name=/" + MVCCommandNames.VIEW_SEARCH_RESULTS,
         },
         service = MVCRenderCommand.class
 )
 public class SearchResultsMVCRenderCommand implements MVCRenderCommand{
         @Override
         public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
+                PortletSession session = renderRequest.getPortletSession();
+                boolean portletAccessStatus = (boolean)session.getAttribute("portletAccessStatus", PortletSession.APPLICATION_SCOPE);
+                if(portletAccessStatus) {
+                        addUsersListAttributes(renderRequest);
+                        String searchValue = ParamUtil.getString(renderRequest, "searchValue");
+                        renderRequest.setAttribute("value", searchValue);
+                        return SearchResultsPortletConstant.VIEW_SEARCH_RESULT;
+                }
+                 return SearchResultsPortletConstant.PORTLET_ACCESS_DENIED;
 
-                addUsersListAttributes(renderRequest);
-                String searchValue = ParamUtil.getString(renderRequest, "searchValue");
-                renderRequest.setAttribute("value", searchValue);
-                return "/view.jsp";
         }
 
         private void addUsersListAttributes(RenderRequest renderRequest) {
