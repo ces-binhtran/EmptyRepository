@@ -15,24 +15,20 @@
 package com.liferay.training.amf.registration.service.impl;
 
 import com.liferay.portal.aop.AopService;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.model.Contact;
 import com.liferay.portal.kernel.model.User;
-import com.liferay.portal.kernel.service.*;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.service.persistence.UserPersistence;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.training.amf.registration.exception.*;
 import com.liferay.training.amf.registration.model.UserCustom;
 import com.liferay.training.amf.registration.service.base.UserCustomLocalServiceBaseImpl;
-
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -86,10 +82,10 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 				userGroupIds, sendEmail, serviceContext);
 
 		User user = _userLocalService.fetchUserByEmailAddress(companyId, emailAddress);
+		_userLocalService.updateAgreedToTermsOfUse(user.getUserId(), acceptedTou);
+		_userLocalService.updateReminderQuery(user.getUserId(), securityQuestion, securityAnswer);
+
 		long userId = counterLocalService.increment(User.class.getName());
-
-		addAddress(userId);
-
 		UserCustom userCustom = createUserCustom(userId);
 		userCustom.setUserId(user.getUserId());
 		userCustom.setHomePhone(homePhone);
@@ -104,18 +100,6 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 		userCustom.setAcceptedTou(acceptedTou);
 
 		return super.updateUserCustom(userCustom);
-	}
-
-	private void addAddress(long userId, Locale locale, String state) throws PortalException {
-		DynamicQuery dynamicQuery = contactLocalService.dynamicQuery();
-		dynamicQuery.add(
-				RestrictionsFactoryUtil.eq("classPK", userId)
-		);
-		List<Contact> contacts = contactLocalService.dynamicQuery(dynamicQuery);
-
-		long countryId = CountryServiceUtil.getCountryByA2(locale.getCountry()).getCountryId();
-		long regionId = RegionServiceUtil.getRegion(countryId, state).getRegionId();
-
 	}
 
 	protected void validate(long companyId, String firstName, String lastName, String emailAddress, String screenName, LocalDate birthday, String password1,
@@ -299,9 +283,6 @@ public class UserCustomLocalServiceImpl extends UserCustomLocalServiceBaseImpl {
 			throw new UserFirstNameException.MustNotBeTooLong();
 		}
 	}
-
-	@Reference
-	private ContactLocalService contactLocalService;
 
 	@Reference
 	private UserLocalService _userLocalService;
