@@ -24,10 +24,10 @@ public class ViewRegistrationMVCRenderCommand implements MVCRenderCommand{
 
     @Override
     public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
-        User currentUser = (User) renderRequest.getAttribute(WebKeys.USER);
-        if(currentUser != null) {
-            renderRequest.setAttribute("userId", currentUser.getUserId());
-        }
+//        User currentUser = (User) renderRequest.getAttribute(WebKeys.USER);
+//        if(currentUser != null) {
+//            renderRequest.setAttribute("userId", currentUser.getUserId());
+//        }
         return "/view.jsp";
     }
 

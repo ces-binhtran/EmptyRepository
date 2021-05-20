@@ -6,6 +6,8 @@
 <%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
 <%@ page import="com.liferay.portal.kernel.servlet.SessionMessages" %>
 <%@ page import="com.liferay.training.amf.registration.util.State" %>
+<%@ page import="com.liferay.portal.kernel.model.Account" %>
+<%@ page import="com.liferay.portal.kernel.model.Address" %>
 <%@ include file="/init.jsp" %>
 <%
     State[] states = StateUtil.STATES;
@@ -14,6 +16,9 @@
     birthdayCalendar.set(Calendar.MONTH, now.getMonth());
     birthdayCalendar.set(Calendar.DATE, now.getDate());
     birthdayCalendar.set(Calendar.YEAR, now.getYear() + 1900 - 14);
+
+    Account accountt = (Account)request.getAttribute("ACCOUNT");
+    Address address = (Address)request.getAttribute(WebKeys.ADDRESS);
 %>
 
 <portlet:actionURL var="registrationActionURL" name="<%=MVCCommandNames.ADD_USER %>">
