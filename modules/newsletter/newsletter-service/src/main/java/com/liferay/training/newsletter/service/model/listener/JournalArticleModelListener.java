@@ -62,8 +62,8 @@ public class JournalArticleModelListener extends BaseModelListener<JournalArticl
                 }
             }
             if(ddmStructure.getNameCurrentValue().equals(NewsletterConstants.NEWSLETTER_ARTICLE)) {
-                NewsletterArticle newsletterArticles = _newsletterArticleLocalService.findByResourcePrimKey(model.getResourcePrimKey());
-                if (Validator.isNotNull(newsletterArticles)) {
+                NewsletterArticle newsletterArticle = _newsletterArticleLocalService.findByResourcePrimKey(model.getResourcePrimKey());
+                if (Validator.isNotNull(newsletterArticle)) {
                     update(model);
                 } else {
                     add(model);
@@ -133,7 +133,7 @@ public class JournalArticleModelListener extends BaseModelListener<JournalArticl
                 JSONObject myObject = JSONFactoryUtil.createJSONObject((String) fields.get("newsletterIssue").getValue());
                 JournalArticle newsletterIssue = journalArticleLocalService.fetchJournalArticleByUuidAndGroupId(myObject.getString("uuid"), myObject.getLong("groupId"));
                 NewsletterIssue newsletterIssues = _newsletterIssueLocalService.findByResourcePrimKey(newsletterIssue.getResourcePrimKey());
-                _newsletterArticleLocalService.addNewsletterArticle(journalArticle.getCompanyId(), journalArticle.getGroupId(), PortalUtil.getClassNameId(NewsletterIssue.class.getName()), newsletterIssues.getNewsletterIssueId(), journalArticle.getResourcePrimKey(),
+                NewsletterArticle newsletterArticle = _newsletterArticleLocalService.addNewsletterArticle(journalArticle.getCompanyId(), journalArticle.getGroupId(), PortalUtil.getClassNameId(NewsletterIssue.class.getName()), newsletterIssues.getNewsletterIssueId(), journalArticle.getResourcePrimKey(),
                         (String) fields.get("title").getValue(), (String) fields.get("author").getValue(), journalArticle.getStatus(), (Integer) fields.get("order").getValue(), (String) fields.get("content").getValue());
                 break;
             }

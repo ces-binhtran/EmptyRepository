@@ -43,7 +43,7 @@ public class NewsletterArticleLocalServiceImpl
 
 	public NewsletterArticle addNewsletterArticle(long companyId, long groupId, long classNameId, long classPK, long resourcePrimKey, String title, String author, int status, int order, String content) {
 		long newsletterArticleId = counterLocalService.increment(NewsletterArticle.class.getName());
-		NewsletterArticle newsletterArticle = newsletterArticleLocalService.createNewsletterArticle(newsletterArticleId);
+		NewsletterArticle newsletterArticle = createNewsletterArticle(newsletterArticleId);
 		newsletterArticle.setCompanyId(companyId);
 		newsletterArticle.setGroupId(groupId);
 		newsletterArticle.setClassNameId(classNameId);
@@ -74,7 +74,7 @@ public class NewsletterArticleLocalServiceImpl
 		return super.updateNewsletterArticle(newsletterArticle);
 	}
 
-	public NewsletterArticle findByResourcePrimKey(long resourcePrimKey) throws PortalException {
-		return newsletterArticlePersistence.findByresourcePrimKey(resourcePrimKey);
+	public NewsletterArticle findByResourcePrimKey(long resourcePrimKey) {
+		return newsletterArticlePersistence.fetchByresourcePrimKey(resourcePrimKey);
 	}
 }
