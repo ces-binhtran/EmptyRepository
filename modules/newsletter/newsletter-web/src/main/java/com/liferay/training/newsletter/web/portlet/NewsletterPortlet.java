@@ -5,8 +5,15 @@ import com.liferay.training.newsletter.web.constants.NewsletterPortletKeys;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 
+import com.liferay.training.newsletter.web.utils.NewsletterManagerUtil;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+import java.io.IOException;
 
 /**
  * @author ces-user
@@ -28,4 +35,12 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class NewsletterPortlet extends MVCPortlet {
+	@Override
+	public void render(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
+		renderRequest.setAttribute("newsletterManagerUtil", _newsletterManagerUtil);
+		super.render(renderRequest, renderResponse);
+	}
+
+	@Reference
+	private NewsletterManagerUtil _newsletterManagerUtil;
 }
