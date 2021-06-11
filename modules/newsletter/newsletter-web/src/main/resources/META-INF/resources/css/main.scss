@@ -1,0 +1,61 @@
+.newsletter-portlet {
+  .container-fluid {
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .nav-item {
+    font-size: 1rem !important;
+  }
+
+  .dropdown {
+    display: flex;
+    justify-content: center !important;
+    padding: .5rem 0;
+  }
+
+  .dropdown>button {
+    padding: .5rem 1rem;
+  }
+
+  .lfr-entry-action-column {
+
+    a {
+      color: darkblue !important;
+      font-size: large;
+    }
+  }
+
+  .newsletter-article {
+    margin-left: 1.5rem;
+    margin-bottom: 0 !important;
+    a {
+      color: #2d5fd8 !important;
+      font-size: medium !important; ;
+    }
+  }
+
+  .article-issue {
+    margin-left: 1.5rem;
+    h3 {
+      color: #2d5fd8 !important;
+    }
+  }
+
+  .article-description {
+    h4 {
+      color: #2d5fd8 !important;
+    }
+
+    h2 {
+      color: darkblue;
+    }
+
+    p:nth-child(1) {
+      color: #2d5fd8 !important;
+    }
+
+  }
+}
+
+
