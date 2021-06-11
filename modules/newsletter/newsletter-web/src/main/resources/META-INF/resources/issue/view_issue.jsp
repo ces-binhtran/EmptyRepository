@@ -4,10 +4,11 @@
 
 <%
     NewsletterIssue newsletterIssue = (NewsletterIssue)renderRequest.getAttribute("newsletterIssue");
+    String date = (newsletterIssue.getIssueDate().getMonth() + 1) + "/" + newsletterIssue.getIssueDate().getDate() + "/" + newsletterIssue.getIssueDate().getYear();
 %>
 <div class="container-fluid-1280">
    <div class="article-description">
-       <h4>Issue: ${newsletterIssue.issueNumber}, <%= ConvertUtil.convertDate(newsletterIssue.getIssueDate()) %></h4>
+       <h4>Issue: ${newsletterIssue.issueNumber}, <%= date %></h4>
        <h2>${newsletterIssue.title}</h2>
        <p>${newsletterManagerUtil.getAuthors(articles)}</p>
        <p>${newsletterIssue.description}</p>
