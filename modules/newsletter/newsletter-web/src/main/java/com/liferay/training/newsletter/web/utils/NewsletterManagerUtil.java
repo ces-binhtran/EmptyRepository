@@ -16,6 +16,7 @@ package com.liferay.training.newsletter.web.utils;
 
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.search.*;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.training.newsletter.model.NewsletterArticle;
 import com.liferay.training.newsletter.model.NewsletterIssue;
@@ -85,6 +86,14 @@ public class NewsletterManagerUtil {
             }
         }
         return false;
+    }
+
+    public List<NewsletterIssue> search(SearchContext searchContext) throws SearchException {
+        Indexer issueIndexer = IndexerRegistryUtil.getIndexer(NewsletterIssue.class);
+        Indexer articleIndexer = IndexerRegistryUtil.getIndexer(NewsletterArticle.class);
+        Hits articleHits = articleIndexer.search(searchContext);
+        Hits issueHits = issueIndexer.search(searchContext);
+        return null;
     }
 
     @Reference

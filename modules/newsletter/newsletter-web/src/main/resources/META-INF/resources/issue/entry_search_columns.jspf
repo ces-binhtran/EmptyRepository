@@ -1,6 +1,4 @@
 <%@ page import="com.liferay.training.newsletter.web.constants.MVCCommandNames" %>
-<%@ page import="com.liferay.training.newsletter.util.ConvertUtil" %>
-<%@ page import="com.liferay.training.newsletter.model.NewsletterIssue" %>
 <portlet:renderURL var="viewIssueURL">
     <portlet:param name="mvcRenderCommandName" value="<%= MVCCommandNames.VIEW_ISSUE %>"/>
     <portlet:param name="redirect" value="${currentURL}" />
