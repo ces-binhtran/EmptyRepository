@@ -19,11 +19,14 @@ import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItemList;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.training.newsletter.model.NewsletterIssue;
+import com.liferay.training.newsletter.service.NewsletterIssueLocalService;
 
 import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -33,24 +36,44 @@ import java.util.Objects;
  */
 public class NewsletterManagementToolbarDisplayContext {
 
-    public NewsletterManagementToolbarDisplayContext(RenderRequest renderRequest, RenderResponse renderResponse) {
+    public NewsletterManagementToolbarDisplayContext(RenderRequest renderRequest, RenderResponse renderResponse,
+                                                     NewsletterIssueLocalService newsletterIssueLocalService) {
         _renderRequest = renderRequest;
-
+        _newsletterIssueLocalService = newsletterIssueLocalService;
         _renderResponse = renderResponse;
         _httpServletRequest = PortalUtil.getHttpServletRequest(renderRequest);
     }
 
+    public List<Integer> getYears() {
+        List<Integer> years = new ArrayList<>();
+        int newsletterIssueCount = _newsletterIssueLocalService.getNewsletterIssuesCount();
+        List<NewsletterIssue> newsletterIssues = _newsletterIssueLocalService.getNewsletterIssues(0, newsletterIssueCount);
+        for(NewsletterIssue newsletterIssue: newsletterIssues) {
+            Integer year = newsletterIssue.getIssueDate().getYear();
+            if(!isYearExist(years, year)) {
+                years.add(year);
+            }
+        }
+        return years;
+    }
+
+    public boolean isYearExist(List<Integer> years, Integer year) {
+        for(Integer yearElement: years) {
+            if(Objects.equals(yearElement, year)) return true;
+        }
+        return false;
+    }
+
     public List<NavigationItem> getNavigationItems() {
-        Date date = new Date();
+        List<Integer> years = getYears();
         return new NavigationItemList() {
             {
-                for(int navigationElement = 0; navigationElement < 4; navigationElement++) {
-                    int distance = navigationElement;
+                for(Integer year: years) {
                     add(
                             navigationItem -> {
-                                navigationItem.setActive(Objects.equals(getTabs1(), Integer.toString(date.getYear() + 1900 - distance)));
-                                navigationItem.setHref(getPortletURL(), "tabs1", Integer.toString(date.getYear() + 1900 - distance));
-                                navigationItem.setLabel(LanguageUtil.get(_httpServletRequest, Integer.toString(date.getYear() + 1900 - distance)));
+                                navigationItem.setActive(Objects.equals(getTabs1(), Integer.toString(year)));
+                                navigationItem.setHref(getPortletURL(), "tabs1", Integer.toString(year));
+                                navigationItem.setLabel(LanguageUtil.get(_httpServletRequest, Integer.toString(year)));
                             }
                     );
                 }
@@ -67,21 +90,15 @@ public class NewsletterManagementToolbarDisplayContext {
     }
 
     public String getTabs1() {
-        Date date = new Date();
+        List<Integer> years = getYears();
         if (_tabs1 != null) {
             return _tabs1;
         }
-
-        _tabs1 = ParamUtil.getString(_renderRequest, "tabs1", Integer.toString(date.getYear() + 1900));
-
-        if (!_tabs1.equals(Integer.toString(date.getYear() + 1900)) && !_tabs1.equals(Integer.toString(date.getYear() + 1900 - 1))
-                && !_tabs1.equals(Integer.toString(date.getYear() + 1900 - 2)) && !_tabs1.equals(Integer.toString(date.getYear() + 1900 - 3))) {
-            _tabs1 = Integer.toString(date.getYear() + 1900);
-        }
-
+        _tabs1 = ParamUtil.getString(_renderRequest, "tabs1", Integer.toString(years.get(0)));
         return _tabs1;
     }
 
+    private NewsletterIssueLocalService _newsletterIssueLocalService;
     private final RenderRequest _renderRequest;
     private final RenderResponse _renderResponse;
     private final HttpServletRequest _httpServletRequest;
