@@ -1,5 +1,6 @@
 <%@ page import="com.liferay.training.newsletter.model.NewsletterIssue" %>
 <%@ page import="com.liferay.training.newsletter.util.ConvertUtil" %>
+<%@ page import="com.liferay.training.newsletter.model.NewsletterArticle" %>
 <%@ include file="/init.jsp" %>
 
 <%
@@ -13,10 +14,18 @@
        <p>${newsletterManagerUtil.getAuthors(articles)}</p>
        <p>${newsletterIssue.description}</p>
    </div>
-    <div class="article-issue">
-        <c:forEach var="article" items="${articles}">
-            <h3>${article.title}</h3>
-            <p>${article.content}</p>
-        </c:forEach>
-    </div>
+    <c:choose>
+        <c:when test="<%= ((List<NewsletterArticle>) request.getAttribute("articles")).size() != 0 %>">
+            <div class="article-issue">
+                <c:forEach var="article" items="${articles}">
+                    <h3>${article.title}</h3>
+                    <p>${article.content}</p>
+                </c:forEach>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <clay:alert message="This issue don't have any article" title="Alert" />
+        </c:otherwise>
+    </c:choose>
+
 </div>
