@@ -6,4 +6,8 @@
         <pattern>/article-issue/{issueNumber}</pattern>
         <implicit-parameter name="mvcRenderCommandName">/newsletter/issue/view</implicit-parameter>
     </route>
+    <route>
+        <pattern>/search</pattern>
+        <implicit-parameter name="mvcRenderCommandName">/</implicit-parameter>
+    </route>
 </routes>
