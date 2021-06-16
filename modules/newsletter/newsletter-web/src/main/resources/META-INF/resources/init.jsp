@@ -15,6 +15,10 @@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib prefix="liferay-frontend" uri="http://liferay.com/tld/frontend" %>
+<%@ page import="com.liferay.portal.kernel.search.SearchContext" %>
+<%@ page import="com.liferay.portal.kernel.search.SearchContextFactory" %>
+<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
+<%@ page import="com.liferay.training.newsletter.service.NewsletterIssueLocalService" %>
 
 <liferay-frontend:defineObjects />
 
@@ -23,7 +27,8 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <portlet:defineObjects />
 
 <%
-    request.setAttribute("date", new Date());
-    NewsletterManagementToolbarDisplayContext newsletterManagementToolbarDisplayContext = new NewsletterManagementToolbarDisplayContext(renderRequest, renderResponse);
+    NewsletterManagementToolbarDisplayContext newsletterManagementToolbarDisplayContext = new NewsletterManagementToolbarDisplayContext(renderRequest,
+            renderResponse, (NewsletterIssueLocalService) renderRequest.getAttribute("newsletterIssueLocalService"));
     NewsletterMonthDisplayContext newsletterMonthDisplayContext = new NewsletterMonthDisplayContext(renderRequest, renderResponse);
+    request.setAttribute("year", newsletterManagementToolbarDisplayContext.getYears().get(0));
 %>
