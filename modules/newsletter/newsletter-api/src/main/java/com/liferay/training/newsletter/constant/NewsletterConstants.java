@@ -19,6 +19,8 @@ package com.liferay.training.newsletter.constant;
  */
 public class NewsletterConstants {
 
-    public static final String NEWSLETTER_ARTICLE = "Newsletter Article";
-    public static final String NEWSLETTER_ISSUE = "Newsletter Issue";
+	public static final String NEWSLETTER_ARTICLE = "Newsletter Article";
+
+	public static final String NEWSLETTER_ISSUE = "Newsletter Issue";
+
 }

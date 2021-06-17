@@ -1,33 +1,39 @@
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
- * <p>
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * <p>
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
 
-package com.liferay.training.newsletter.util;
+package com.liferay.training.newsletter.exception;
 
-import java.util.Date;
+import com.liferay.portal.kernel.exception.NoSuchModelException;
 
 /**
  * @author Son Truong
  */
-public class ConvertUtil {
+public class NoSuchNewsletterIssueException extends NoSuchModelException {
 
-	public static Date convertDate(String date) {
-		String[] parts = date.split("-");
-		Date result = new Date(
-			Integer.parseInt(parts[0]), Integer.parseInt(parts[1]) - 1,
-			Integer.parseInt(parts[2]));
+	public NoSuchNewsletterIssueException() {
+	}
 
-		return result;
+	public NoSuchNewsletterIssueException(String msg) {
+		super(msg);
+	}
+
+	public NoSuchNewsletterIssueException(String msg, Throwable throwable) {
+		super(msg, throwable);
+	}
+
+	public NoSuchNewsletterIssueException(Throwable throwable) {
+		super(throwable);
 	}
 
 }
