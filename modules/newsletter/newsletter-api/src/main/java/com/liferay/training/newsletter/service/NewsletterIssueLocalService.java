@@ -63,7 +63,7 @@ public interface NewsletterIssueLocalService
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.liferay.training.newsletter.service.impl.NewsletterIssueLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the newsletter issue local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link NewsletterIssueLocalServiceUtil} if injection and service tracking are not available.
 	 */
-	@Indexable(type = IndexableType.REINDEX)
+
 	public NewsletterIssue addNewsletterIssue(
 		long companyId, long groupId, int issueNumber, String title,
 		String description, Date issueDate, int status, long resourcePrimKey);
@@ -307,7 +307,6 @@ public interface NewsletterIssueLocalService
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
-	@Indexable(type = IndexableType.REINDEX)
 	public NewsletterIssue updateNewsletterIssue(
 			long companyId, long groupId, long newsletterIssueId,
 			int issueNumber, String title, String description, Date issueDate,

@@ -19,4 +19,5 @@ package com.liferay.training.newsletter.web.constants;
  */
 public class MVCCommandNames {
     public static final String VIEW_ISSUE = "/newsletter/issue/view";
+    public static final String SEARCH = "/newsletter/search";
 }
