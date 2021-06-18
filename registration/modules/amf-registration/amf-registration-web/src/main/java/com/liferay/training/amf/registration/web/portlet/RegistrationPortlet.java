@@ -1,12 +1,23 @@
 package com.liferay.training.amf.registration.web.portlet;
 
+import com.liferay.portal.kernel.model.Country;
+import com.liferay.portal.kernel.model.Region;
+import com.liferay.portal.kernel.service.CountryServiceUtil;
+import com.liferay.portal.kernel.service.RegionServiceUtil;
 import com.liferay.training.amf.registration.web.constants.RegistrationPortletKeys;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * @author ces-user
@@ -29,4 +40,15 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class RegistrationPortlet extends MVCPortlet {
+
+	@Override
+	public void render(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
+		Country country = countryServiceUtil.fetchCountryByA2("US");
+		List<Region> regions = regionServiceUtil.getRegions(country.getCountryId());
+		renderRequest.setAttribute("regions", regions);
+		super.render(renderRequest, renderResponse);
+	}
+
+	private RegionServiceUtil regionServiceUtil;
+	private CountryServiceUtil countryServiceUtil;
 }

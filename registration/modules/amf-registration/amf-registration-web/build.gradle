@@ -15,7 +15,7 @@ dependencies {
 	compileOnly group: "javax.servlet", name: "javax.servlet-api"
 	compileOnly group: "jstl", name: "jstl"
 	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
-	compileOnly project(":modules:amf-registration:amf-registration-api")
-	compileOnly project(":modules:amf-registration:amf-registration-service")
+	compileOnly group: "com.liferay", name: "com.liferay.users.admin.web"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.impl"
 	cssBuilder group: "com.liferay", name: "com.liferay.css.builder"
 }

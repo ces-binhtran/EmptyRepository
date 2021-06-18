@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8dce8971-5dd6-4582-8ef6-566e88b5d9b7" name="Default Changelist" comment="" />
+    <list default="true" id="8dce8971-5dd6-4582-8ef6-566e88b5d9b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/NoSuchUserCustomException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/NoSuchUserCustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/RegistrationValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/RegistrationValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserAcceptedTouException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserAcceptedTouException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserAddressException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserAddressException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserBirthdayException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserBirthdayException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserCityException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserCityException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserEmailAddressException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserEmailAddressException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserFirstNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserFirstNameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserLastNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserLastNameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserPasswordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserPhoneNumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserPhoneNumberException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserScreenNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserScreenNameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserSecurityQueryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserSecurityQueryException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserStateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserStateException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserUserNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserUserNameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserZipException.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-api/src/main/java/com/liferay/training/amf/registration/exception/UserZipException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-web/src/main/java/com/liferay/training/amf/registration/web/portlet/action/ViewRegistrationMVCRenderCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-web/src/main/resources/META-INF/resources/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/registration/modules/amf-registration/amf-registration-web/src/main/resources/META-INF/resources/view.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1r5vjdlfCF2dMUUV40LPTGPbI8n" />
   <component name="ProjectViewState">
@@ -17,7 +48,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/registration" />
+    <property name="settings.editor.selected.configurable" value="build.tools" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -42,10 +74,32 @@
       <updated>1618278901996</updated>
       <workItem from="1618278903345" duration="53000" />
       <workItem from="1618279165134" duration="148000" />
+      <workItem from="1620295511809" duration="209000" />
+      <workItem from="1620295832507" duration="371000" />
+      <workItem from="1620618649637" duration="1918000" />
+      <workItem from="1620810654753" duration="2477000" />
+      <workItem from="1620871733566" duration="597000" />
+      <workItem from="1622689840226" duration="1880000" />
+      <workItem from="1622977975050" duration="40000" />
+      <workItem from="1623227450155" duration="1836000" />
+      <workItem from="1623238933022" duration="599000" />
+      <workItem from="1623313784346" duration="141000" />
+      <workItem from="1623896734927" duration="3025000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

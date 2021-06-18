@@ -1,24 +1,15 @@
-<%@ page import="com.liferay.training.amf.registration.model.UserCustom" %>
-<%@ page import="com.liferay.training.amf.registration.util.StateUtil" %>
-<%@ page import="com.liferay.training.amf.registration.exception.*" %>
-<%@ page import="com.liferay.portal.kernel.util.PortalUtil" %>
+<%@ page import="com.liferay.portal.kernel.model.Region" %>
 <%@ page import="com.liferay.portal.kernel.model.User" %>
-<%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
-<%@ page import="com.liferay.portal.kernel.servlet.SessionMessages" %>
-<%@ page import="com.liferay.training.amf.registration.util.State" %>
-<%@ page import="com.liferay.portal.kernel.model.Account" %>
-<%@ page import="com.liferay.portal.kernel.model.Address" %>
+<%@ page import="com.liferay.training.amf.registration.web.exception.*" %>
+<%@ page import="java.util.List" %>
 <%@ include file="/init.jsp" %>
 <%
-    State[] states = StateUtil.STATES;
     Date now = new Date();
     Calendar birthdayCalendar = CalendarFactoryUtil.getCalendar();
     birthdayCalendar.set(Calendar.MONTH, now.getMonth());
     birthdayCalendar.set(Calendar.DATE, now.getDate());
     birthdayCalendar.set(Calendar.YEAR, now.getYear() + 1900 - 14);
 
-    Account accountt = (Account)request.getAttribute("ACCOUNT");
-    Address address = (Address)request.getAttribute(WebKeys.ADDRESS);
 %>
 
 <portlet:actionURL var="registrationActionURL" name="<%=MVCCommandNames.ADD_USER %>">
@@ -60,14 +51,13 @@
     <liferay-ui:success key="registerSuccess" message="sign-up-successfully" />
 
     <c:choose>
-        <c:when test="<%= request.getAttribute("userId") != null %>">
+        <c:when test="<%= themeDisplay.isSignedIn() %>">
             <div class="alert alert-info">
                 <liferay-ui:message key="you-has-logged-in" />
             </div>
         </c:when>
         <c:otherwise>
             <aui:form action="${registrationActionURL}" name="fm" method="post">
-                <aui:model-context model="<%= Contact.class %>"/>
                 <aui:fieldset column="<%= true %>">
                     <aui:col width="<%= 50 %>">
                         <aui:fieldset-group markupView="lexicon">
@@ -96,7 +86,7 @@
                                     <aui:validator name="required"/>
                                 </aui:select>
 
-                                <aui:input name="birthday" value="<%= birthdayCalendar %>">
+                                <aui:input name="birthday" value="<%= birthdayCalendar %>" model="<%= Contact.class %>">
                                     <aui:validator name="required"/>
                                 </aui:input>
 
@@ -111,11 +101,9 @@
                             </aui:fieldset>
                         </aui:fieldset-group>
 
-                        <aui:model-context model="<%= UserCustom.class %>"/>
                         <aui:fieldset-group markupView="lexicon">
                             <h3>Phone</h3>
                             <aui:fieldset>
-
                                 <aui:input name="homePhone">
 
                                 </aui:input>
@@ -145,10 +133,10 @@
                                 </aui:input>
 
                                 <aui:select name="state">
-                                    <% for(State state : states)
+                                    <% for(Region region : (List<Region>)request.getAttribute("regions"))
                                         {
                                     %>
-                                        <aui:option value="<%= state.getId() %>" label="<%= state.getName() %>" />
+                                        <aui:option value="<%= region.getRegionId() %>" label="<%= region.getName() %>" />
                                     <% } %>
                                 </aui:select>
 
@@ -175,7 +163,7 @@
                                     <aui:validator name="required"/>
                                 </aui:input>
 
-                                <aui:input name="acceptedTou" label="Terms of Use">
+                                <aui:input name="agreedToTermsOfUse" label="Terms of Use" model="<%= User.class %>">
                                     <%--                            <aui:validator name="required"/>--%>
                                 </aui:input>
                                 <p style="margin-left: 2rem; margin-top: -1rem">I have read, understand, and agree with the
