@@ -1,0 +1,23 @@
+<%@ page import="com.liferay.training.newsletter.web.constants.MVCCommandNames" %>
+<portlet:renderURL var="viewIssueURL">
+    <portlet:param name="mvcRenderCommandName" value="<%= MVCCommandNames.VIEW_ISSUE %>"/>
+    <portlet:param name="redirect" value="${currentURL}" />
+    <portlet:param name="issueId" value="${issue.newsletterIssueId}"/>
+    <portlet:param name="issueNumber" value="${issue.issueNumber}"/>
+</portlet:renderURL>
+<%
+    String date = (issue.getIssueDate().getMonth() + 1) + "/" + issue.getIssueDate().getDate() + "/" + issue.getIssueDate().getYear();
+%>
+<liferay-ui:search-container-column-text>
+    <p>Issue: ${issue.issueNumber}, <%= date %></p>
+    <aui:a href="${viewIssueURL}">
+        ${issue.title}
+    </aui:a>
+    <c:forEach var="article" items="${newsletterManagerUtil.fetchByClassPK(issue.newsletterIssueId)}">
+        <p class="newsletter-article">
+            <aui:a href="${viewIssueURL}">
+                ${article.title}
+            </aui:a>
+        </p>
+    </c:forEach>
+</liferay-ui:search-container-column-text>

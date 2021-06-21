@@ -1,0 +1,12 @@
+Bundle-Name: newsletter-api
+Bundle-SymbolicName: com.liferay.training.newsletter.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.training.newsletter.exception,\
+	com.liferay.training.newsletter.model,\
+	com.liferay.training.newsletter.service,\
+	com.liferay.training.newsletter.service.persistence,\
+	com.liferay.training.newsletter.constant,\
+	com.liferay.training.newsletter.util
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../newsletter-service/service.xml
