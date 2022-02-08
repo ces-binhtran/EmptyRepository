@@ -1,0 +1,4 @@
+Bundle-Name: amf-event-monitor
+Bundle-SymbolicName: com.liferay.trainging.amf.web
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.trainging.amf.web.constants
