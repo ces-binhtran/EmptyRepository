@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:amf:amf-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../amf-api/src/main/java"
+}
+
+group = "com.liferay.training.amf"
