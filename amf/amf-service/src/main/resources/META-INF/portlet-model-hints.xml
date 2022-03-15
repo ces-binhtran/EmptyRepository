@@ -1,31 +1,3 @@
 <?xml version="1.0"?>
 
-<model-hints>
-	<model name="com.liferay.training.amf.model.Member">
-		<field name="memberId" type="long" />
-		<field name="groupId" type="long" />
-		<field name="companyId" type="long" />
-		<field name="userId" type="long" />
-		<field name="userName" type="String" />
-		<field name="createDate" type="Date" />
-		<field name="modifiedDate" type="Date" />
-		<field name="firstName" type="String" />
-		<field name="lastName" type="String" />
-		<field name="emailAddress" type="String" />
-		<field name="male" type="boolean" />
-		<field name="monthOfBirth" type="int" />
-		<field name="dayOfBirth" type="int" />
-		<field name="yearOfBirth" type="int" />
-		<field name="password" type="String" />
-		<field name="homePhone" type="String" />
-		<field name="mobilePhone" type="String" />
-		<field name="address1" type="String" />
-		<field name="address2" type="String" />
-		<field name="city" type="String" />
-		<field name="state" type="String" />
-		<field name="zipCode" type="String" />
-		<field name="securityQuestion" type="String" />
-		<field name="answer" type="String" />
-		<field name="termOfUse" type="boolean" />
-	</model>
-</model-hints>
+<model-hints></model-hints>

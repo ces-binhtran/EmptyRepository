@@ -11,12 +11,11 @@
 <%@ page import="javax.portlet.WindowState"%>
 <%@ page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@ page import="com.liferay.portal.kernel.util.HtmlUtil"%>
-<%@ page import="com.liferay.training.amf.model.Member"%>
 <%@ page import="com.liferay.training.amf.registration.constants.MVCCommandNames"%>
 <%@ page import="com.liferay.asset.kernel.model.AssetRenderer"%>
 <%@ page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@ page import="com.liferay.portal.kernel.servlet.SessionErrors" %>
-<%@ page import="com.liferay.training.amf.registration.constants.AmfRegistrationConstants"%>
+<%@ page import="com.liferay.training.amf.constants.AmfRegistrationConstants"%>
 
 <liferay-frontend:defineObjects />
 <liferay-theme:defineObjects />

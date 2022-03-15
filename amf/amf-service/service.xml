@@ -4,64 +4,11 @@
 <service-builder dependency-injector="ds" package-path="com.liferay.training.amf">
 	<namespace>Amf</namespace>
 	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
-	<entity name="Member" local-service="true">
+	<entity local-service="true" name="AmfRegistration" remote-service="true" >
 
-		<!-- PK fields -->
-
-		<column name="memberId" primary="true" type="long"></column>
-
-		<!-- Group instance -->
-
-		<column name="groupId" type="long"></column>
-
-		<!-- Audit fields -->
-
-		<column name="companyId" type="long"></column>
-		<column name="userId" type="long"></column>
-		<column name="userName" type="String"></column>
-		<column name="createDate" type="Date"></column>
-		<column name="modifiedDate" type="Date"></column>
-		<!-- custom fields -->
-        <column name="firstName" type="String"></column>
-        <column name="lastName" type="String"></column>
-        <column name="emailAddress" type="String"></column>
-        <column name="male" type="boolean"></column>
-        <column name="monthOfBirth" type="int"></column>
-        <column name="dayOfBirth" type="int"></column>
-        <column name="yearOfBirth" type="int"></column>
-        <column name="password" type="String"></column>
-        <column name="homePhone" type="String"></column>
-        <column name="mobilePhone" type="String"></column>
-        <column name="address1" type="String"></column>
-        <column name="address2" type="String"></column>
-        <column name="city" type="String"></column>
-        <column name="state" type="String"></column>
-        <column name="zipCode" type="String"></column>
-        <column name="securityQuestion" type="String"></column>
-        <column name="answer" type="String"></column>
-        <column name="termOfUse" type="boolean"></column>
-        
-        <!-- Order -->
-        <order by="asc">
-        	<order-column name="userName"/>
-        </order>
-        
-        <!-- Finder -->
-        <finder return-type="Collection" name="GroupId">
-        	<finder-column name="groupId"></finder-column>
-        </finder>
-        
-        <!-- Reference to Group entity service -->
-        <reference entity="Group" package-path="com.liferay.portal"></reference>
-        
-        <!-- Entity services needed for the integration to Asset framework -->
-        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset"></reference>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"></reference>
         <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
         <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
 	</entity>
 	
-	<!-- Exception -->
-	<exceptions>
-		<exception>MemberValidation</exception>
-	</exceptions>
 </service-builder>
