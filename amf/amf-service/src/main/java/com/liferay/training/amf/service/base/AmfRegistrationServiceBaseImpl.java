@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.training.amf.service.AmfRegistrationService;
+import com.liferay.training.amf.service.persistence.AmfAuditEventPersistence;
 
 import javax.sql.DataSource;
 
@@ -95,6 +96,9 @@ public abstract class AmfRegistrationServiceBaseImpl
 			throw new SystemException(exception);
 		}
 	}
+
+	@Reference
+	protected AmfAuditEventPersistence amfAuditEventPersistence;
 
 	@Reference
 	protected com.liferay.training.amf.service.AmfRegistrationLocalService

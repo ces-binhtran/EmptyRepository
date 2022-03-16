@@ -1,3 +1,15 @@
 <?xml version="1.0"?>
 
-<model-hints></model-hints>
+<model-hints>
+	<model name="com.liferay.training.amf.model.AmfAuditEvent">
+		<field name="amfAuditEventId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="eventType" type="String" />
+		<field name="ipAddress" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+	</model>
+</model-hints>

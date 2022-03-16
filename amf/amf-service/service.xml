@@ -10,5 +10,44 @@
         <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
         <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
 	</entity>
-	
+	<entity local-service="true" name="AmfAuditEvent" remote-service="true" >
+
+		<column type="long" name="amfAuditEventId" primary="true"></column>
+		<column type="long" name="userId"></column>
+		<column type="String" name="userName"></column>
+		<column type="Date" name="createDate"></column>
+		<!-- add modifiedDate, companyId and groupIdto extends GroupedModel-->
+		<column type="Date" name="modifiedDate" ></column>
+		<column type="String" name="eventType"></column>
+		<column type="String" name="ipAddress"></column>
+		<column type="long" name="groupId"></column>
+		<column name="companyId" type="long"></column>
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="Type" return-type="Collection">
+			<finder-column name="eventType" />
+		</finder>
+		<finder name="UserId_Type" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="eventType" />
+		</finder>
+
+		<!-- Reference to Group entity service -->
+        <reference entity="Group" package-path="com.liferay.portal"></reference>
+        
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
+	</entity>
 </service-builder>

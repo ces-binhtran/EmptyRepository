@@ -3,7 +3,9 @@ Bundle-SymbolicName: com.liferay.training.amf.api
 Bundle-Version: 1.0.0
 Export-Package:\
 	com.liferay.training.amf.exception,\
+	com.liferay.training.amf.model,\
 	com.liferay.training.amf.service,\
+	com.liferay.training.amf.service.persistence,\
 	com.liferay.training.amf.constants,\
 	com.liferay.training.amf.validator
 -check: EXPORTS
