@@ -17,6 +17,7 @@
 <%@ page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@ page import="com.liferay.portal.kernel.servlet.SessionErrors" %>
 <%@ page import="com.liferay.training.amf.constants.AmfAuditEventConstants"%>
+<%@ page import="com.liferay.training.amf.model.AmfAuditEvent"%>
 
 <liferay-theme:defineObjects />
 
