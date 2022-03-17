@@ -33,6 +33,7 @@ import com.liferay.training.amf.model.AmfAuditEvent;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -73,6 +74,13 @@ public interface AmfAuditEventLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public AmfAuditEvent addAmfAuditEvent(AmfAuditEvent amfAuditEvent);
+
+	public AmfAuditEvent addAmfAuditEvent(
+		long userId, String userName, long groupId, long companyId,
+		String ipAddress, String eventType, Date createdDate);
+
+	public long countAuditEventBytypeAndUser(
+		Long userIdForSearch, String[] eventTypeForSearch);
 
 	/**
 	 * Creates a new amf audit event with the primary key. Does not add the amf audit event to the database.
@@ -228,6 +236,11 @@ public interface AmfAuditEventLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getAmfAuditEventsCount();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<AmfAuditEvent> getAuditEventByTypeAndUser(
+		Long userIdForSearch, String[] eventTypeForSearch, int start, int end,
+		OrderByComparator<AmfAuditEvent> comparator);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();

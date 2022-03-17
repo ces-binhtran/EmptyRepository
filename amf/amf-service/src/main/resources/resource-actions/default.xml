@@ -32,16 +32,18 @@
     <permissions>
         <supports>
             <action-key>PERMISSIONS</action-key>
-            <action-key>VIEW</action-key>
+            <action-key>VIEW_EVENTS</action-key>
+            <action-key>VIEW_EVENTS_ALL_USERS</action-key>
         </supports>
         <site-member-defaults>
-            <action-key>VIEW</action-key>
+            <action-key>VIEW_EVENTS</action-key>
         </site-member-defaults>
         <guest-defaults>
         </guest-defaults>
         <guest-unsupported>
             <action-key>PERMISSIONS</action-key>
-            <action-key>VIEW</action-key>
+            <action-key>VIEW_EVENTS</action-key>
+            <action-key>VIEW_EVENTS_ALL_USERS</action-key>
         </guest-unsupported>
     </permissions>
 </model-resource>

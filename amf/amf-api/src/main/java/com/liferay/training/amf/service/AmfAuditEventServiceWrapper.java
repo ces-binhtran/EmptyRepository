@@ -32,6 +32,36 @@ public class AmfAuditEventServiceWrapper
 		_amfAuditEventService = amfAuditEventService;
 	}
 
+	@Override
+	public com.liferay.training.amf.model.AmfAuditEvent addAmfAuditEvent(
+		long userId, String userName, long groupId, long companyId,
+		String ipAddress, String eventType, java.util.Date createdDate) {
+
+		return _amfAuditEventService.addAmfAuditEvent(
+			userId, userName, groupId, companyId, ipAddress, eventType,
+			createdDate);
+	}
+
+	@Override
+	public long countAuditEventBytypeAndUser(
+		Long userIdForSearch, String[] eventTypeForSearch) {
+
+		return _amfAuditEventService.countAuditEventBytypeAndUser(
+			userIdForSearch, eventTypeForSearch);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.amf.model.AmfAuditEvent>
+		getAuditEventByTypeAndUser(
+			Long userIdForSearch, String[] eventTypeForSearch, int start,
+			int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.amf.model.AmfAuditEvent> comparator) {
+
+		return _amfAuditEventService.getAuditEventByTypeAndUser(
+			userIdForSearch, eventTypeForSearch, start, end, comparator);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

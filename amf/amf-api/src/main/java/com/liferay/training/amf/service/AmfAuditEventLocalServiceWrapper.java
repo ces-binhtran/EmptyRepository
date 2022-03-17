@@ -50,6 +50,24 @@ public class AmfAuditEventLocalServiceWrapper
 		return _amfAuditEventLocalService.addAmfAuditEvent(amfAuditEvent);
 	}
 
+	@Override
+	public com.liferay.training.amf.model.AmfAuditEvent addAmfAuditEvent(
+		long userId, String userName, long groupId, long companyId,
+		String ipAddress, String eventType, java.util.Date createdDate) {
+
+		return _amfAuditEventLocalService.addAmfAuditEvent(
+			userId, userName, groupId, companyId, ipAddress, eventType,
+			createdDate);
+	}
+
+	@Override
+	public long countAuditEventBytypeAndUser(
+		Long userIdForSearch, String[] eventTypeForSearch) {
+
+		return _amfAuditEventLocalService.countAuditEventBytypeAndUser(
+			userIdForSearch, eventTypeForSearch);
+	}
+
 	/**
 	 * Creates a new amf audit event with the primary key. Does not add the amf audit event to the database.
 	 *
@@ -267,6 +285,18 @@ public class AmfAuditEventLocalServiceWrapper
 	@Override
 	public int getAmfAuditEventsCount() {
 		return _amfAuditEventLocalService.getAmfAuditEventsCount();
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.amf.model.AmfAuditEvent>
+		getAuditEventByTypeAndUser(
+			Long userIdForSearch, String[] eventTypeForSearch, int start,
+			int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.amf.model.AmfAuditEvent> comparator) {
+
+		return _amfAuditEventLocalService.getAuditEventByTypeAndUser(
+			userIdForSearch, eventTypeForSearch, start, end, comparator);
 	}
 
 	@Override

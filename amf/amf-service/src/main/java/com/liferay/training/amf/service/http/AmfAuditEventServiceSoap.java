@@ -14,9 +14,15 @@
 
 package com.liferay.training.amf.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.training.amf.service.AmfAuditEventServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.liferay.training.amf.service.AmfAuditEventServiceUtil</code> service
+ * <code>AmfAuditEventServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +62,73 @@ package com.liferay.training.amf.service.http;
  */
 @Deprecated
 public class AmfAuditEventServiceSoap {
+
+	public static com.liferay.training.amf.model.AmfAuditEventSoap[]
+			getAuditEventByTypeAndUser(
+				Long userIdForSearch, String[] eventTypeForSearch, int start,
+				int end,
+				com.liferay.portal.kernel.util.OrderByComparator
+					<com.liferay.training.amf.model.AmfAuditEvent> comparator)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.training.amf.model.AmfAuditEvent>
+				returnValue =
+					AmfAuditEventServiceUtil.getAuditEventByTypeAndUser(
+						userIdForSearch, eventTypeForSearch, start, end,
+						comparator);
+
+			return com.liferay.training.amf.model.AmfAuditEventSoap.
+				toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.training.amf.model.AmfAuditEventSoap
+			addAmfAuditEvent(
+				long userId, String userName, long groupId, long companyId,
+				String ipAddress, String eventType, java.util.Date createdDate)
+		throws RemoteException {
+
+		try {
+			com.liferay.training.amf.model.AmfAuditEvent returnValue =
+				AmfAuditEventServiceUtil.addAmfAuditEvent(
+					userId, userName, groupId, companyId, ipAddress, eventType,
+					createdDate);
+
+			return com.liferay.training.amf.model.AmfAuditEventSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static long countAuditEventBytypeAndUser(
+			Long userIdForSearch, String[] eventTypeForSearch)
+		throws RemoteException {
+
+		try {
+			long returnValue =
+				AmfAuditEventServiceUtil.countAuditEventBytypeAndUser(
+					userIdForSearch, eventTypeForSearch);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		AmfAuditEventServiceSoap.class);
+
 }

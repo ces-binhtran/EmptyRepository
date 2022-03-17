@@ -15,7 +15,12 @@
 package com.liferay.training.amf.service.impl;
 
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.training.amf.model.AmfAuditEvent;
 import com.liferay.training.amf.service.base.AmfAuditEventServiceBaseImpl;
+
+import java.util.Date;
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -40,6 +45,24 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class AmfAuditEventServiceImpl extends AmfAuditEventServiceBaseImpl {
+
+	@Override
+	public List<AmfAuditEvent> getAuditEventByTypeAndUser(Long userIdForSearch, String[] eventTypeForSearch, int start, int end, 
+			OrderByComparator<AmfAuditEvent> comparator) {
+		return amfAuditEventLocalService.getAuditEventByTypeAndUser(userIdForSearch, eventTypeForSearch, start, end, comparator);
+	}
+
+	@Override
+	public AmfAuditEvent addAmfAuditEvent(long userId, String userName, long groupId, long companyId, String ipAddress,
+			String eventType, Date createdDate) {
+		return amfAuditEventLocalService.addAmfAuditEvent(userId, userName, groupId, companyId, ipAddress,
+				eventType, createdDate);
+	}
+
+	@Override
+	public long countAuditEventBytypeAndUser(Long userIdForSearch, String[] eventTypeForSearch) {
+		return amfAuditEventLocalService.countAuditEventBytypeAndUser(userIdForSearch, eventTypeForSearch);
+	}
 
 	/*
 	 * NOTE FOR DEVELOPERS:
