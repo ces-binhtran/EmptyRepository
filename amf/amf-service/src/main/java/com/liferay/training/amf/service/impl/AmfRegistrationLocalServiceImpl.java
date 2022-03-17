@@ -29,9 +29,12 @@ import com.liferay.portal.kernel.service.ListTypeLocalServiceUtil;
 import com.liferay.portal.kernel.service.PhoneLocalServiceUtil;
 import com.liferay.portal.kernel.service.RegionService;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.training.amf.constants.AmfAuditEventTypeConstants;
+import com.liferay.training.amf.service.AmfAuditEventService;
 import com.liferay.training.amf.service.base.AmfRegistrationLocalServiceBaseImpl;
 import com.liferay.training.amf.validator.AmfRegistrationValidator;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -101,6 +104,9 @@ public class AmfRegistrationLocalServiceImpl
 		addAddressTypeId(user.getUserId(), contact, address1, address2, city, zipCode, region, country, serviceContext);
 		addPhone(user.getUserId(), contact, homePhone, mobilePhone, serviceContext);
 
+		_amfAuditEventService.addAmfAuditEvent(user.getUserId(), screenName, scopeGroupId, companyId,
+				serviceContext.getRemoteAddr(), AmfAuditEventTypeConstants.REGISTRATION, new Date());
+		
 		return user;
 	}
 	
@@ -139,6 +145,9 @@ public class AmfRegistrationLocalServiceImpl
 	
 	@Reference
 	AmfRegistrationValidator _amfRegistrationValidator;
+	
+	@Reference
+	private AmfAuditEventService _amfAuditEventService;
 
 	@Reference(service = CountryService.class)
 	protected CountryService countryService;
