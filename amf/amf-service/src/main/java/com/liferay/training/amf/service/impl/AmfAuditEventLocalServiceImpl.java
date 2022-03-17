@@ -103,6 +103,7 @@ public class AmfAuditEventLocalServiceImpl extends AmfAuditEventLocalServiceBase
 		amfAuditEvent.setCreateDate(createdDate);
 		amfAuditEvent.setModifiedDate(createdDate);
 		amfAuditEvent.setEventType(eventType);
+		amfAuditEvent.setIpAddress(ipAddress);
 		return super.addAmfAuditEvent(amfAuditEvent);
 		
 	}
