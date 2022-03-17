@@ -26,7 +26,7 @@
 			className="com.liferay.training.amf.model.AmfAuditEvent"
 			modelVar="entry">
 
-			<liferay-ui:search-container-column-text>
+			<liferay-ui:search-container-column-text name="col.create-date">
 				 <fmt:formatDate  pattern="yyyy-MM-dd HH:mm:ss" value="${entry.createDate}"/>
 			</liferay-ui:search-container-column-text>
 			<liferay-ui:search-container-column-text name="user-name" 
