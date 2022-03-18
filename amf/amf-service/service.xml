@@ -50,4 +50,11 @@
         <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
         <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
 	</entity>
+	
+	<entity local-service="true" name="AmfSearch" remote-service="true" >
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
+	</entity>
 </service-builder>
