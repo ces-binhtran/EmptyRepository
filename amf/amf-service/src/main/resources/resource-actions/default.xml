@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 7.1.0//EN" "http://www.liferay.com/dtd/liferay-resource-action-mapping_7_0_0.dtd">
+
+<resource-action-mapping>
+
+<model-resource>
+    <model-name>com.liferay.training.amf.model</model-name>
+    <portlet-ref>
+        <portlet-name>com_liferay_training_amf_portlet_event_monitor_AmfPortlet</portlet-name>
+    </portlet-ref>
+    <root>true</root>
+    <permissions>
+        <supports>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
+        <site-member-defaults>
+        </site-member-defaults>
+        <guest-defaults />
+        <guest-unsupported>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </guest-unsupported>
+    </permissions>
+</model-resource>
+
+<model-resource>
+    <model-name>com.liferay.training.amf.model.AmfAuditEvent</model-name>
+    <portlet-ref>
+        <portlet-name>com_liferay_training_amf_portlet_event_monitor_AmfPortlet</portlet-name>
+    </portlet-ref>
+    <permissions>
+        <supports>
+            <action-key>PERMISSIONS</action-key>
+            <action-key>VIEW_EVENTS</action-key>
+            <action-key>VIEW_EVENTS_ALL_USERS</action-key>
+        </supports>
+        <site-member-defaults>
+            <action-key>VIEW_EVENTS</action-key>
+        </site-member-defaults>
+        <guest-defaults>
+        </guest-defaults>
+        <guest-unsupported>
+            <action-key>PERMISSIONS</action-key>
+            <action-key>VIEW_EVENTS</action-key>
+            <action-key>VIEW_EVENTS_ALL_USERS</action-key>
+        </guest-unsupported>
+    </permissions>
+</model-resource>
+
+</resource-action-mapping> 
