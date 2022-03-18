@@ -29,10 +29,13 @@
 			<liferay-ui:search-container-column-text name="col.create-date">
 				 <fmt:formatDate  pattern="yyyy-MM-dd HH:mm:ss" value="${entry.createDate}"/>
 			</liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-text name="user-name" 
-				value="<%= entry.getUserName() %>" />
-			<liferay-ui:search-container-column-user name="user-id"
-				userId="${entry.userId}" />
+			<liferay-ui:search-container-column-text name="user-name">
+					<liferay-ui:user-portrait cssClass="sticker sticker-bottom" userId="${entry.userId}" />
+					${entry.userName}
+			</liferay-ui:search-container-column-text>
+			<liferay-ui:search-container-column-text name="col.user-id">
+				${entry.userId}
+			</liferay-ui:search-container-column-text>
 			<liferay-ui:search-container-column-text name="col.ip-address" 
 				value="<%= entry.getIpAddress() %>" />
 			<liferay-ui:search-container-column-text name="col.event-type" 
