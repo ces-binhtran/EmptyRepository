@@ -14,9 +14,15 @@
 
 package com.liferay.training.amf.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.training.amf.service.AmfSearchServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.liferay.training.amf.service.AmfSearchServiceUtil</code> service
+ * <code>AmfSearchServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -45,4 +51,38 @@ package com.liferay.training.amf.service.http;
  */
 @Deprecated
 public class AmfSearchServiceSoap {
+
+	public static com.liferay.portal.kernel.model.User[] searchUser(
+			String zipCode)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.portal.kernel.model.User> returnValue =
+				AmfSearchServiceUtil.searchUser(zipCode);
+
+			return returnValue.toArray(
+				new com.liferay.portal.kernel.model.User[returnValue.size()]);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static long countUsers(String zipCode) throws RemoteException {
+		try {
+			long returnValue = AmfSearchServiceUtil.countUsers(zipCode);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(AmfSearchServiceSoap.class);
+
 }

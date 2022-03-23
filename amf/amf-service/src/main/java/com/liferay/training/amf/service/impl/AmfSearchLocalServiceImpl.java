@@ -14,10 +14,24 @@
 
 package com.liferay.training.amf.service.impl;
 
+import com.liferay.petra.string.StringPool;
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.dao.orm.Disjunction;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.model.Address;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.AddressLocalServiceUtil;
+import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.training.amf.service.base.AmfSearchLocalServiceBaseImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 /**
  * The implementation of the amf search local service.
@@ -38,9 +52,65 @@ import org.osgi.service.component.annotations.Component;
 )
 public class AmfSearchLocalServiceImpl extends AmfSearchLocalServiceBaseImpl {
 
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. Use <code>com.liferay.training.amf.service.AmfSearchLocalService</code> via injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use <code>com.liferay.training.amf.service.AmfSearchLocalServiceUtil</code>.
+	/**
+	 * search User by zip code
+	 * String zipCode
+	 * @return User list
 	 */
+	@Override
+	public List<User> searchUser(String zipCode) {
+		if (zipCode == null || zipCode.equals(StringPool.BLANK)) {
+			return new ArrayList<User>();
+		}
+		List<Address> addresses = searchPrimaryAddress(zipCode);
+		if (addresses.isEmpty()) {
+			return new ArrayList<User>();
+		}
+		Set<Long> userIds = userIdsFrom(addresses);
+		return _userLocalService.dynamicQuery(getUserSearchDynamicQuery(userIds));
+	}
+
+	private DynamicQuery getUserSearchDynamicQuery(Set<Long> userIds) {
+		DynamicQuery dynamicQuery = _userLocalService.dynamicQuery();
+		Disjunction disjuntionQuery = RestrictionsFactoryUtil.disjunction();
+		disjuntionQuery.add(RestrictionsFactoryUtil.in("userId", userIds));
+		dynamicQuery.add(disjuntionQuery);
+		return dynamicQuery;
+	}
+
+	@Override
+	public long countUsers(String zipCode) {
+		if (zipCode == null || zipCode.equals(StringPool.BLANK)) {
+			return 0;
+		}
+		List<Address> addresses = searchPrimaryAddress(zipCode);
+		if (addresses.isEmpty()) {
+			return 0;
+		}
+		Set<Long> userIds = userIdsFrom(addresses);
+		return userIds.size();
+	}
+	
+	private Set<Long> userIdsFrom(List<Address> addresses) {
+		return addresses.stream().map(Address::getUserId).collect(Collectors.toSet());
+	}
+	
+	private List<Address> searchPrimaryAddress(String zipCode) {
+		return AddressLocalServiceUtil.dynamicQuery(getPrimaryAddressDynamicQuery(zipCode));
+	}
+	
+	private DynamicQuery getPrimaryAddressDynamicQuery(String zipCode) {
+		DynamicQuery dynamicQuery = AddressLocalServiceUtil.dynamicQuery();
+		Disjunction disjuntionQueryZip = RestrictionsFactoryUtil.disjunction();
+		disjuntionQueryZip.add(RestrictionsFactoryUtil.eq("zip", zipCode));
+		Disjunction disjuntionQueryPrimary = RestrictionsFactoryUtil.disjunction();
+		disjuntionQueryPrimary.add(RestrictionsFactoryUtil.eq("primary", Boolean.TRUE));
+		dynamicQuery.add(disjuntionQueryZip);
+		dynamicQuery.add(disjuntionQueryPrimary);
+		return dynamicQuery;
+	}
+	
+	@Reference
+	UserLocalService _userLocalService;
+
 }

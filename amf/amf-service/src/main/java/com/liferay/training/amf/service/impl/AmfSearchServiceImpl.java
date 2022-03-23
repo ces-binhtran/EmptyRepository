@@ -15,7 +15,10 @@
 package com.liferay.training.amf.service.impl;
 
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.model.User;
 import com.liferay.training.amf.service.base.AmfSearchServiceBaseImpl;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -40,6 +43,16 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class AmfSearchServiceImpl extends AmfSearchServiceBaseImpl {
+
+	@Override
+	public List<User> searchUser(String zipCode) {
+		return amfSearchLocalService.searchUser(zipCode);
+	}
+
+	@Override
+	public long countUsers(String zipCode) {
+		return amfSearchLocalService.countUsers(zipCode);
+	}
 
 	/*
 	 * NOTE FOR DEVELOPERS:

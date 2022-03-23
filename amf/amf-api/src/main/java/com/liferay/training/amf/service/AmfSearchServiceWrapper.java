@@ -30,6 +30,11 @@ public class AmfSearchServiceWrapper
 		_amfSearchService = amfSearchService;
 	}
 
+	@Override
+	public long countUsers(String zipCode) {
+		return _amfSearchService.countUsers(zipCode);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +43,13 @@ public class AmfSearchServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _amfSearchService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public java.util.List<com.liferay.portal.kernel.model.User> searchUser(
+		String zipCode) {
+
+		return _amfSearchService.searchUser(zipCode);
 	}
 
 	@Override

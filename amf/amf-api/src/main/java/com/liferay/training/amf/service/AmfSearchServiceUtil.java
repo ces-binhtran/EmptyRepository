@@ -37,6 +37,9 @@ public class AmfSearchServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.liferay.training.amf.service.impl.AmfSearchServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static long countUsers(String zipCode) {
+		return getService().countUsers(zipCode);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -45,6 +48,12 @@ public class AmfSearchServiceUtil {
 	 */
 	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static java.util.List<com.liferay.portal.kernel.model.User>
+		searchUser(String zipCode) {
+
+		return getService().searchUser(zipCode);
 	}
 
 	public static AmfSearchService getService() {
