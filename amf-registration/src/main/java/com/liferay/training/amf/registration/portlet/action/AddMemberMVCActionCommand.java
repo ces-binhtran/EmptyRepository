@@ -1,6 +1,8 @@
 package com.liferay.training.amf.registration.portlet.action;
 
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
@@ -28,11 +30,12 @@ import org.osgi.service.component.annotations.Reference;
 		"mvc.command.name=" + MVCCommandNames.ADD_MEMBER }, service = MVCActionCommand.class)
 public class AddMemberMVCActionCommand extends BaseMVCActionCommand {
 
+	private static Log log = LogFactoryUtil.getLog(AddMemberMVCActionCommand.class);
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
 
-		System.out.println("========AddMemberMVCActionCommand#doProcessAction========");
-		
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		Company company = themeDisplay.getCompany();
 		Locale locale = themeDisplay.getLocale();
@@ -59,8 +62,7 @@ public class AddMemberMVCActionCommand extends BaseMVCActionCommand {
 		String answer = ParamUtil.getString(actionRequest, "security_answer", null);
 		boolean termOfUse = ParamUtil.getBoolean(actionRequest, "accepted_tou", false);
 
-		System.out.println("========Register========");
-		System.out.println("firstName: " + firstName + ", lastName: " + lastName + ", emailAddress: " + emailAddress
+		log.info("firstName: " + firstName + ", lastName: " + lastName + ", emailAddress: " + emailAddress
 				+ ", userName: " + username + ", male: " + male + ", monthOfBirth: " + monthOfBirth + ", dayOfBirth: "
 				+ dayOfBirth + ", yearOfBirth: " + yearOfBirth + ", password: " + password + ", confirmPassword: "
 				+ confirmPassword + ", homePhone: " + homePhone + ", mobilePhone: " + mobilePhone + ", address1: "

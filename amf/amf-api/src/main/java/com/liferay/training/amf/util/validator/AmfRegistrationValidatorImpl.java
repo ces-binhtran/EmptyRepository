@@ -101,7 +101,6 @@ public class AmfRegistrationValidatorImpl implements AmfRegistrationValidator {
 		
 		// check result
 		if (!result) {
-			System.out.println("input has error");
 			throw new UserValidationException(errors);
 		}
 	}

@@ -144,7 +144,7 @@ public class AmfRegistrationLocalServiceImpl
 	}
 	
 	@Reference
-	AmfRegistrationValidator _amfRegistrationValidator;
+	private AmfRegistrationValidator _amfRegistrationValidator;
 	
 	@Reference
 	private AmfAuditEventService _amfAuditEventService;

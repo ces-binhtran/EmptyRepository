@@ -68,7 +68,6 @@ public class ViewUserSearchResultMVCRenderCommand implements MVCRenderCommand {
 			long countUsers = _amfSearchService.countUsers(zipCode);
 			renderRequest.setAttribute("users", userSearchResult);
 			renderRequest.setAttribute("countUsers", countUsers);
-			System.out.println("countUsers=" + countUsers);
 		}
 		addManagementToolbarAttributes(renderRequest, renderResponse);
 		return "/view.jsp";

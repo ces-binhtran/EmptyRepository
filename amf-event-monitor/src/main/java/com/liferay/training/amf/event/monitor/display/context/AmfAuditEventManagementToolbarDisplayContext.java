@@ -8,7 +8,6 @@ import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
-import com.liferay.portal.kernel.portlet.PortletURLUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -18,12 +17,12 @@ import com.liferay.training.amf.event.monitor.constants.MVCCommandNames;
 
 import java.util.List;
 
-import javax.portlet.PortletException;
 import javax.portlet.PortletURL;
 import javax.servlet.http.HttpServletRequest;
 
 public class AmfAuditEventManagementToolbarDisplayContext extends BaseManagementToolbarDisplayContext {
 
+	@SuppressWarnings("deprecation")
 	public AmfAuditEventManagementToolbarDisplayContext(HttpServletRequest httpServletRequest,
 			LiferayPortletRequest liferayPortletRequest, LiferayPortletResponse liferayPortletResponse) {
 		super(liferayPortletRequest, liferayPortletResponse, httpServletRequest);
@@ -36,6 +35,7 @@ public class AmfAuditEventManagementToolbarDisplayContext extends BaseManagement
 	 *
 	 * @return sort column
 	 */
+	@SuppressWarnings("deprecation")
 	public String getOrderByCol() {
 		return ParamUtil.getString(request, "orderByCol", "title");
 	}
@@ -45,6 +45,7 @@ public class AmfAuditEventManagementToolbarDisplayContext extends BaseManagement
 	 *
 	 * @return sort type
 	 */
+	@SuppressWarnings("deprecation")
 	public String getOrderByType() {
 		return ParamUtil.getString(request, "orderByType", "asc");
 	}
@@ -54,6 +55,7 @@ public class AmfAuditEventManagementToolbarDisplayContext extends BaseManagement
 	 *
 	 * @return list of view types
 	 */
+	@SuppressWarnings({ "deprecation", "serial" })
 	@Override
 	public List<ViewTypeItem> getViewTypeItems() {
 		PortletURL portletURL = liferayPortletResponse.createRenderURL();
@@ -84,6 +86,7 @@ public class AmfAuditEventManagementToolbarDisplayContext extends BaseManagement
 	 *
 	 * @return current display style
 	 */
+	@SuppressWarnings("deprecation")
 	public String getDisplayStyle() {
 		String displayStyle = ParamUtil.getString(request, "displayStyle");
 		if (Validator.isNull(displayStyle)) {
@@ -96,22 +99,8 @@ public class AmfAuditEventManagementToolbarDisplayContext extends BaseManagement
 		return displayStyle;
 	}
 
-	/**
-	 * Returns the current sorting URL.
-	 *
-	 * @return current sorting portlet URL
-	 *
-	 * @throws PortletException
-	 */
-	private PortletURL _getCurrentSortingURL() throws PortletException {
-		PortletURL sortingURL = PortletURLUtil.clone(currentURLObj, liferayPortletResponse);
-		sortingURL.setParameter("mvcRenderCommandName", MVCCommandNames.VIEW_EVENTS);
-		// Reset current page.
-		sortingURL.setParameter(SearchContainer.DEFAULT_CUR_PARAM, "0");
-		return sortingURL;
-	}
-
 
 	private final PortalPreferences _portalPreferences;
+	@SuppressWarnings("unused")
 	private final ThemeDisplay _themeDisplay;
 }
