@@ -115,7 +115,7 @@ public class AmfRegistrationLocalServiceImpl
 		
 		String address3 = StringPool.BLANK;
 		boolean mailing = false;
-		boolean primary = false;
+		boolean primary = true;
 		
 		List<ListType> addressListTypes = ListTypeLocalServiceUtil.getListTypes(ListTypeConstants.CONTACT_ADDRESS);
 		ListType addressListType = addressListTypes.get(0);
