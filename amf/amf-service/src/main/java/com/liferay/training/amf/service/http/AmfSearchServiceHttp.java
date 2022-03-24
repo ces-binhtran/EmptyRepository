@@ -52,14 +52,18 @@ import com.liferay.training.amf.service.AmfSearchServiceUtil;
 public class AmfSearchServiceHttp {
 
 	public static java.util.List<com.liferay.portal.kernel.model.User>
-		searchUser(HttpPrincipal httpPrincipal, String zipCode) {
+		searchUser(
+			HttpPrincipal httpPrincipal, String zipCode, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.portal.kernel.model.User> comparator) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
 				AmfSearchServiceUtil.class, "searchUser",
 				_searchUserParameterTypes0);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, zipCode);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, zipCode, start, end, comparator);
 
 			Object returnObj = null;
 
@@ -115,7 +119,8 @@ public class AmfSearchServiceHttp {
 	private static Log _log = LogFactoryUtil.getLog(AmfSearchServiceHttp.class);
 
 	private static final Class<?>[] _searchUserParameterTypes0 = new Class[] {
-		String.class
+		String.class, int.class, int.class,
+		com.liferay.portal.kernel.util.OrderByComparator.class
 	};
 	private static final Class<?>[] _countUsersParameterTypes1 = new Class[] {
 		String.class

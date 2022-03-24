@@ -53,12 +53,15 @@ import java.rmi.RemoteException;
 public class AmfSearchServiceSoap {
 
 	public static com.liferay.portal.kernel.model.User[] searchUser(
-			String zipCode)
+			String zipCode, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.portal.kernel.model.User> comparator)
 		throws RemoteException {
 
 		try {
 			java.util.List<com.liferay.portal.kernel.model.User> returnValue =
-				AmfSearchServiceUtil.searchUser(zipCode);
+				AmfSearchServiceUtil.searchUser(
+					zipCode, start, end, comparator);
 
 			return returnValue.toArray(
 				new com.liferay.portal.kernel.model.User[returnValue.size()]);

@@ -16,6 +16,7 @@ package com.liferay.training.amf.service.impl;
 
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.training.amf.service.base.AmfSearchServiceBaseImpl;
 
 import java.util.List;
@@ -45,8 +46,8 @@ import org.osgi.service.component.annotations.Component;
 public class AmfSearchServiceImpl extends AmfSearchServiceBaseImpl {
 
 	@Override
-	public List<User> searchUser(String zipCode) {
-		return amfSearchLocalService.searchUser(zipCode);
+	public List<User> searchUser(String zipCode, int start, int end, OrderByComparator<User> comparator) {
+		return amfSearchLocalService.searchUser(zipCode, start, end, comparator);
 	}
 
 	@Override

@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.model.Address;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.AddressLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalService;
+import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.training.amf.service.base.AmfSearchLocalServiceBaseImpl;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class AmfSearchLocalServiceImpl extends AmfSearchLocalServiceBaseImpl {
 	 * @return User list
 	 */
 	@Override
-	public List<User> searchUser(String zipCode) {
+	public List<User> searchUser(String zipCode, int start, int end, OrderByComparator<User> comparator) {
 		if (zipCode == null || zipCode.equals(StringPool.BLANK)) {
 			return new ArrayList<User>();
 		}
@@ -67,7 +68,7 @@ public class AmfSearchLocalServiceImpl extends AmfSearchLocalServiceBaseImpl {
 			return new ArrayList<User>();
 		}
 		Set<Long> userIds = userIdsFrom(addresses);
-		return _userLocalService.dynamicQuery(getUserSearchDynamicQuery(userIds));
+		return _userLocalService.dynamicQuery(getUserSearchDynamicQuery(userIds), start, end, comparator);
 	}
 
 	private DynamicQuery getUserSearchDynamicQuery(Set<Long> userIds) {

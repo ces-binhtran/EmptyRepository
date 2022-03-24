@@ -55,9 +55,12 @@ public class AmfSearchLocalServiceWrapper
 	 */
 	@Override
 	public java.util.List<com.liferay.portal.kernel.model.User> searchUser(
-		String zipCode) {
+		String zipCode, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator
+			<com.liferay.portal.kernel.model.User> comparator) {
 
-		return _amfSearchLocalService.searchUser(zipCode);
+		return _amfSearchLocalService.searchUser(
+			zipCode, start, end, comparator);
 	}
 
 	@Override

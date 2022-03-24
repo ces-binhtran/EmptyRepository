@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.util.List;
 
@@ -61,6 +62,7 @@ public interface AmfSearchService extends BaseService {
 	public String getOSGiServiceIdentifier();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<User> searchUser(String zipCode);
+	public List<User> searchUser(
+		String zipCode, int start, int end, OrderByComparator<User> comparator);
 
 }

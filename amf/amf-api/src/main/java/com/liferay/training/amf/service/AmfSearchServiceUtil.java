@@ -51,9 +51,12 @@ public class AmfSearchServiceUtil {
 	}
 
 	public static java.util.List<com.liferay.portal.kernel.model.User>
-		searchUser(String zipCode) {
+		searchUser(
+			String zipCode, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.portal.kernel.model.User> comparator) {
 
-		return getService().searchUser(zipCode);
+		return getService().searchUser(zipCode, start, end, comparator);
 	}
 
 	public static AmfSearchService getService() {
