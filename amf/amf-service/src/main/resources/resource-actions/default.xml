@@ -48,4 +48,47 @@
     </permissions>
 </model-resource>
 
+<model-resource>
+    <model-name>com.liferay.portal.kernel.model</model-name>
+    <portlet-ref>
+        <portlet-name>com_liferay_training_amf_search_result_AmfSearchResultsPortlet</portlet-name>
+    </portlet-ref>
+    <root>true</root>
+    <permissions>
+        <supports>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </supports>
+        <site-member-defaults>
+        </site-member-defaults>
+        <guest-defaults />
+        <guest-unsupported>
+            <action-key>ADD_ENTRY</action-key>
+            <action-key>PERMISSIONS</action-key>
+        </guest-unsupported>
+    </permissions>
+</model-resource>
+
+<model-resource>
+    <model-name>com.liferay.portal.kernel.model.User</model-name>
+    <portlet-ref>
+        <portlet-name>com_liferay_training_amf_search_result_AmfSearchResultsPortlet</portlet-name>
+    </portlet-ref>
+    <permissions>
+        <supports>
+            <action-key>PERMISSIONS</action-key>
+            <action-key>TEC_SEARCH_USER</action-key>
+        </supports>
+        <site-member-defaults>
+            <action-key>TEC_SEARCH_USER</action-key>
+        </site-member-defaults>
+        <guest-defaults>
+        </guest-defaults>
+        <guest-unsupported>
+            <action-key>PERMISSIONS</action-key>
+            <action-key>TEC_SEARCH_USER</action-key>
+        </guest-unsupported>
+    </permissions>
+</model-resource>
+
 </resource-action-mapping> 
